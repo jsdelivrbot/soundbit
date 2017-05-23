@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>soundbit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit">
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/icon.png">
+
+  <!-- style -->
+  <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="css/styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/style.css" type="text/css" />
+  <link rel="stylesheet" href="css/styles/font.css" type="text/css" />
+
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.carousel.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/owl.carousel/dist/assets/owl.theme.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mediaelementplayer.min.css" type="text/css" />
+  <link rel="stylesheet" href="libs/mediaelement/build/mep.css" type="text/css" />
+  <!-- endbuild -->
+</head>
+<body>
+
+
+  <div class="app dk" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  <div id="aside" class="app-aside modal fade nav-dropdown">
+    <!-- fluid app aside -->
+    <div class="left navside grey dk" data-layout="column">
+      <div class="navbar no-radius">
+        <!-- brand -->
+        <a href="index.html" class="navbar-brand md">
+        	<img src="images/s_logo_white.png" style="width:15px; height:auto;" alt=".">
+        	<span class="hidden-folded inline" style="color:white;">soundbit</span>
+        </a>
+        <!-- / brand -->
+      </div>
+      <div data-flex class="hide-scroll">
+          <nav class="scroll nav-stacked nav-active-primary">
+
+            <ul class="nav" data-ui-nav>
+              <li>
+                <a href="discover.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      layers
+                    </i>
+                  </span>
+                  <span class="nav-text">Discover</span>
+                </a>
+              </li>
+              <li>
+                <a href="chart.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      trending_up
+                    </i>
+                  </span>
+                  <span class="nav-text">Charts</span>
+                </a>
+              </li>
+
+
+              <li class="nav-header hidden-folded m-t">
+                <span class="text-xs text-muted">Your Music</span>
+              </li>
+              <li>
+                <a href="songs.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      music_note
+                    </i>
+                  </span>
+                  <span class="nav-text">Songs</span>
+                </a>
+              </li>
+              <li>
+                <a href="artists.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      portrait
+                    </i>
+                  </span>
+                  <span class="nav-text">Artists</span>
+                </a>
+              </li>
+              <li>
+                <a href="albums.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      texture
+                    </i>
+                  </span>
+                  <span class="nav-text">Albums</span>
+                </a>
+              </li>
+
+              <li class="nav-header hidden-folded m-t">
+                <span class="text-xs text-muted">Playlists</span>
+              </li>
+              <li>
+                <a href="starred.html">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      star
+                    </i>
+                  </span>
+                  <span class="nav-text">Starred</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+      <div data-flex-no-shrink>
+        <div class="nav-fold dropup">
+          <a data-toggle="dropdown">
+              <span class="pull-left">
+                <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
+              </span>
+              <span class="clear hidden-folded p-x p-y-xs">
+                <span class="block _500 text-ellipsis">Rachel Platten</span>
+              </span>
+          </a>
+          <div class="dropdown-menu w dropdown-menu-scale ">
+            <a class="dropdown-item" href="">
+              <span>Private Session</span>
+            </a>
+            <a class="dropdown-item" href="">
+              <span>Account</span>
+            </a>
+            <a class="dropdown-item" href="">
+              <span>Settings</span>
+            </a>
+            <a class="dropdown-item" href="index.html">
+              <span>Log Out</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="docs.html">
+              Help
+            </a>
+            <a class="dropdown-item" href="signin.html">Sign Out</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- content -->
+  <div id="content" class="app-content white bg box-shadow-z2" role="main">
+    <div class="app-header hidden-lg-up white lt box-shadow-z1">
+        <div class="navbar">
+        <!-- brand -->
+        <a href="index.html" class="navbar-brand md">
+        	<img src="images/s_logo_white.png" style="width:15px; height:auto;" alt="." class="hide">
+        	<span class="hidden-folded inline" style="color:white;">soundbit</span>
+        </a>
+        <!-- / brand -->
+        <!-- nabar right -->
+        <ul class="nav navbar-nav pull-right">
+          <li class="nav-item">
+            <!-- Open side - Naviation on mobile -->
+            <a data-toggle="modal" data-target="#aside" class="nav-link">
+              <i class="material-icons">menu</i>
+            </a>
+            <!-- / -->
+          </li>
+        </ul>
+        <!-- / navbar right -->
+      </div>
+    </div>
+    <div class="app-footer app-player grey bg">
+      <div class="playlist" style="width:100%"></div>
+    </div>
+    <div class="app-body" id="view">
+
+<!-- ############ PAGE START-->
+
+<div class="page-content">
+  <div class="row-col">
+    <div class="col-lg-9 b-r no-border-md">
+      <div class="padding">
+        <div style="height:63px;margin-bottom:-15px;"}}>
+          <div className="col-md-7">
+            <form style="margin-top:-12px;">
+              <div className="col-md-7" style="width:100%;">
+                  <div className="input-group input-group-lg">
+                    <input type="text"
+                      id="searchfield"
+                      name="search"
+                      onKeyPress=""
+                      onChange=""
+                      className="form-control"
+                      placeholder="Search"
+                      value=""
+                      style="
+                        background-image:url('images/searchicon.png');
+                        background-position:10px 2px;
+                        background-size:20px 20px;
+                        background-repeat:no-repeat;
+                        padding:12px 20px 12px 40px;
+                        border-radius:5px 5px 5px 5px;
+                        height:20px;
+                      "/>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="page-title m-b">
+          <h1 class="inline m-a-0">Charts</h1>
+          <div class="dropdown inline">
+            <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">All</button>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item active">
+                All
+              </a>
+              <a href="#" class="dropdown-item">
+                acoustic
+              </a>
+              <a href="#" class="dropdown-item">
+                ambient
+              </a>
+              <a href="#" class="dropdown-item">
+                blues
+              </a>
+              <a href="#" class="dropdown-item">
+                classical
+              </a>
+              <a href="#" class="dropdown-item">
+                country
+              </a>
+              <a href="#" class="dropdown-item">
+                electronic
+              </a>
+              <a href="#" class="dropdown-item">
+                emo
+              </a>
+              <a href="#" class="dropdown-item">
+                folk
+              </a>
+              <a href="#" class="dropdown-item">
+                hardcore
+              </a>
+              <a href="#" class="dropdown-item">
+                hip hop
+              </a>
+              <a href="#" class="dropdown-item">
+                indie
+              </a>
+              <a href="#" class="dropdown-item">
+                jazz
+              </a>
+              <a href="#" class="dropdown-item">
+                latin
+              </a>
+              <a href="#" class="dropdown-item">
+                metal
+              </a>
+              <a href="#" class="dropdown-item">
+                pop
+              </a>
+              <a href="#" class="dropdown-item">
+                pop punk
+              </a>
+              <a href="#" class="dropdown-item">
+                punk
+              </a>
+              <a href="#" class="dropdown-item">
+                reggae
+              </a>
+              <a href="#" class="dropdown-item">
+                rnb
+              </a>
+              <a href="#" class="dropdown-item">
+                rock
+              </a>
+              <a href="#" class="dropdown-item">
+                soul
+              </a>
+              <a href="#" class="dropdown-item">
+                world
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="topList" class="row item-list item-list-md item-list-li m-b">
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-3 w-xxl w-auto-md">
+      <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
+      	<h6 class="text text-muted">5 Likes</h6>
+      	<div class="row item-list item-list-sm m-b">
+      		    <div class="col-xs-12">
+      		    	<div class="item r" data-id="item-1" data-src="">
+      					<div class="item-media ">
+      						<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+      					</div>
+      					<div class="item-info">
+      						<div class="item-title text-ellipsis">
+      							<a href="track.detail.html">Pull Up</a>
+      						</div>
+      						<div class="item-author text-sm text-ellipsis ">
+      							<a href="artist.detail.html" class="text-muted">Summerella</a>
+      						</div>
+
+
+      					</div>
+      				</div>
+      			</div>
+      		    <div class="col-xs-12">
+      		    	<div class="item r" data-id="item-10" data-src="">
+      					<div class="item-media ">
+      						<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
+      					</div>
+      					<div class="item-info">
+      						<div class="item-title text-ellipsis">
+      							<a href="track.detail.html">The Open Road</a>
+      						</div>
+      						<div class="item-author text-sm text-ellipsis ">
+      							<a href="artist.detail.html" class="text-muted">Postiljonen</a>
+      						</div>
+
+
+      					</div>
+      				</div>
+      			</div>
+      		    <div class="col-xs-12">
+      		    	<div class="item r" data-id="item-2" data-src="">
+      					<div class="item-media ">
+      						<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
+      					</div>
+      					<div class="item-info">
+      						<div class="item-title text-ellipsis">
+      							<a href="track.detail.html">Fireworks</a>
+      						</div>
+      						<div class="item-author text-sm text-ellipsis ">
+      							<a href="artist.detail.html" class="text-muted">Kygo</a>
+      						</div>
+
+
+      					</div>
+      				</div>
+      			</div>
+      		    <div class="col-xs-12">
+      		    	<div class="item r" data-id="item-11" data-src="">
+      					<div class="item-media ">
+      						<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
+      					</div>
+      					<div class="item-info">
+      						<div class="item-title text-ellipsis">
+      							<a href="track.detail.html">Spring</a>
+      						</div>
+      						<div class="item-author text-sm text-ellipsis ">
+      							<a href="artist.detail.html" class="text-muted">Pablo Nouvelle</a>
+      						</div>
+
+
+      					</div>
+      				</div>
+      			</div>
+      		    <div class="col-xs-12">
+      		    	<div class="item r" data-id="item-4" data-src="">
+      					<div class="item-media ">
+      						<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
+      					</div>
+      					<div class="item-info">
+      						<div class="item-title text-ellipsis">
+      							<a href="track.detail.html">What A Time To Be Alive</a>
+      						</div>
+      						<div class="item-author text-sm text-ellipsis ">
+      							<a href="artist.detail.html" class="text-muted">Judith Garcia</a>
+      						</div>
+
+
+      					</div>
+      				</div>
+      			</div>
+      	</div>
+      	<h6 class="text text-muted">Go mobile</h6>
+      	<div class="btn-groups">
+              <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
+                <span class="pull-left m-r-sm">
+                  <i class="fa fa-apple fa-2x"></i>
+                </span>
+                <span class="clear text-left l-h-1x">
+                  <span class="text-muted text-xxs">Download on the</span>
+                  <b class="block m-b-xs">App Store</b>
+                </span>
+              </a>
+              <a href="" class="btn btn-sm dark lt" style="width: 133px">
+                <span class="pull-left m-r-sm">
+                  <i class="fa fa-play fa-2x"></i>
+                </span>
+                <span class="clear text-left l-h-1x">
+                  <span class="text-muted text-xxs">Get it on</span>
+                  <b class="block m-b-xs m-r-xs">Google Play</b>
+                </span>
+              </a>
+          </div>
+          <div class="b-b m-y"></div>
+          <div class="nav text-sm _600">
+          	<a href="#" class="nav-link text-muted m-r-xs">About</a>
+          	<a href="#" class="nav-link text-muted m-r-xs">Contact</a>
+          	<a href="#" class="nav-link text-muted m-r-xs">Legal</a>
+          	<a href="#" class="nav-link text-muted m-r-xs">Policy</a>
+          </div>
+          <p class="text-muted text-xs p-b-lg">&copy; Copyright 2016</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- ############ SEARCH START -->
+    <div class="modal white lt fade" id="search-modal" data-backdrop="false">
+      <a data-dismiss="modal" class="text-muted text-lg p-x modal-close-btn">&times;</a>
+      <div class="row-col">
+        <div class="p-a-lg h-v row-cell v-m">
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+              <form action="search.html" class="m-b-md">
+                <div class="input-group input-group-lg">
+                  <input type="text" class="form-control" placeholder="Type keyword" data-ui-toggle-class="hide" data-ui-target="#search-result">
+                  <span class="input-group-btn">
+                    <button class="btn b-a no-shadow white" type="submit">Search</button>
+                  </span>
+                </div>
+              </form>
+              <div id="search-result" class="animated fadeIn">
+                <p class="m-b-md"><strong>23</strong> <span class="text-muted">Results found for: </span><strong>Keyword</strong></p>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="row item-list item-list-sm item-list-by m-b">
+                          <div class="col-xs-12">
+                          	<div class="item r" data-id="item-8" data-src="">
+                      			<div class="item-media ">
+                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b7.jpg');"></a>
+                      			</div>
+                      			<div class="item-info">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="track.detail.html">Simple Place To Be</a>
+                      				</div>
+                      				<div class="item-author text-sm text-ellipsis ">
+                      					<a href="artist.detail.html" class="text-muted">RYD</a>
+                      				</div>
+                      				<div class="item-meta text-sm text-muted">
+                      		        </div>
+
+
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item r" data-id="item-12" data-src="">
+                      			<div class="item-media ">
+                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
+                      			</div>
+                      			<div class="item-info">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="track.detail.html">Happy ending</a>
+                      				</div>
+                      				<div class="item-author text-sm text-ellipsis ">
+                      					<a href="artist.detail.html" class="text-muted">Postiljonen</a>
+                      				</div>
+                      				<div class="item-meta text-sm text-muted">
+                      		        </div>
+
+
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item r" data-id="item-9" data-src="">
+                      			<div class="item-media ">
+                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
+                      			</div>
+                      			<div class="item-info">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="track.detail.html">All I Need</a>
+                      				</div>
+                      				<div class="item-author text-sm text-ellipsis ">
+                      					<a href="artist.detail.html" class="text-muted">Pablo Nouvelle</a>
+                      				</div>
+                      				<div class="item-meta text-sm text-muted">
+                      		        </div>
+
+
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item r" data-id="item-4" data-src="">
+                      			<div class="item-media ">
+                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
+                      			</div>
+                      			<div class="item-info">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="track.detail.html">What A Time To Be Alive</a>
+                      				</div>
+                      				<div class="item-author text-sm text-ellipsis ">
+                      					<a href="artist.detail.html" class="text-muted">Judith Garcia</a>
+                      				</div>
+                      				<div class="item-meta text-sm text-muted">
+                      		        </div>
+
+
+                      			</div>
+                      		</div>
+                      	</div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row item-list item-list-sm item-list-by m-b">
+                          <div class="col-xs-12">
+                          	<div class="item">
+                      			<div class="item-media rounded ">
+                      				<a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a6.jpg');"></a>
+                      			</div>
+                      			<div class="item-info ">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="artist.detail.html">OlsJesse Russell</a>
+                      					<div class="text-sm text-muted">23 songs</div>
+                      				</div>
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item">
+                      			<div class="item-media rounded ">
+                      				<a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a3.jpg');"></a>
+                      			</div>
+                      			<div class="item-info ">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="artist.detail.html">Joe Holmes</a>
+                      					<div class="text-sm text-muted">24 songs</div>
+                      				</div>
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item">
+                      			<div class="item-media rounded ">
+                      				<a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a1.jpg');"></a>
+                      			</div>
+                      			<div class="item-info ">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="artist.detail.html">James Garcia</a>
+                      					<div class="text-sm text-muted">9 songs</div>
+                      				</div>
+                      			</div>
+                      		</div>
+                      	</div>
+                          <div class="col-xs-12">
+                          	<div class="item">
+                      			<div class="item-media rounded ">
+                      				<a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a0.jpg');"></a>
+                      			</div>
+                      			<div class="item-info ">
+                      				<div class="item-title text-ellipsis">
+                      					<a href="artist.detail.html">Crystal Guerrero</a>
+                      					<div class="text-sm text-muted">12 songs</div>
+                      				</div>
+                      			</div>
+                      		</div>
+                      	</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="top-search" class="btn-groups">
+                <strong class="text-muted">Top searches: </strong>
+                <a href="#" class="btn btn-xs white">Happy</a>
+                <a href="#" class="btn btn-xs white">Music</a>
+                <a href="#" class="btn btn-xs white">Weekend</a>
+                <a href="#" class="btn btn-xs white">Summer</a>
+                <a href="#" class="btn btn-xs white">Holiday</a>
+                <a href="#" class="btn btn-xs white">Blue</a>
+                <a href="#" class="btn btn-xs white">Soul</a>
+                <a href="#" class="btn btn-xs white">Calm</a>
+                <a href="#" class="btn btn-xs white">Nice</a>
+                <a href="#" class="btn btn-xs white">Home</a>
+                <a href="#" class="btn btn-xs white">SLeep</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ############ SEARCH END -->
+  <!-- ############ SHARE START -->
+  <div id="share-modal" class="modal fade animate">
+    <div class="modal-dialog">
+      <div class="modal-content fade-down">
+        <div class="modal-header">
+
+          <h5 class="modal-title">Share</h5>
+        </div>
+        <div class="modal-body p-lg">
+          <div id="share-list" class="m-b">
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored indigo" title="Facebook">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-facebook"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored light-blue" title="Twitter">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored red-600" title="Google+">
+                <i class="fa fa-google-plus"></i>
+                <i class="fa fa-google-plus"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored blue-grey-600" title="Trumblr">
+                <i class="fa fa-tumblr"></i>
+                <i class="fa fa-tumblr"></i>
+            </a>
+
+            <a href="" class="btn btn-icon btn-social rounded btn-social-colored red-700" title="Pinterst">
+                <i class="fa fa-pinterest"></i>
+                <i class="fa fa-pinterest"></i>
+            </a>
+          </div>
+          <div>
+            <input class="form-control" value="http://plamusic.com/slug"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ############ SHARE END -->
+
+<!-- ############ LAYOUT END-->
+  </div>
+
+
+
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="libs/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="libs/tether/dist/js/tether.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/jquery.stellar/jquery.stellar.min.js"></script>
+  <script src="libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="libs/jscroll/jquery.jscroll.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script>
+  <script src="libs/jquery-pjax/jquery.pjax.js"></script>
+
+  <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
+  <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/site.js"></script>
+  <script src="scripts/ajax.js"></script>
+<!-- endbuild -->
+</body>
+
+<script>
+var totalSongs = 50;
+var player1 = 0;
+var player2 = 0;
+var player3 = 0;
+var player4 = 0;
+var player5 = 0;
+var player6 = 0;
+var player7 = 0;
+var player8 = 0;
+var player9 = 0;
+var player10 = 0;
+var player11 = 0;
+var player12 = 0;
+var player13 = 0;
+var player14 = 0;
+var player15 = 0;
+var player16 = 0;
+var player17 = 0;
+var player18 = 0;
+var player19 = 0;
+var player20 = 0;
+var player21 = 0;
+var player22 = 0;
+var player23 = 0;
+var player24 = 0;
+var player25 = 0;
+var player26 = 0;
+var player27 = 0;
+var player28 = 0;
+var player29 = 0;
+var player30 = 0;
+var player31 = 0;
+var player32 = 0;
+var player33 = 0;
+var player34 = 0;
+var player35 = 0;
+var player36 = 0;
+var player37 = 0;
+var player38 = 0;
+var player39 = 0;
+var player40 = 0;
+var player41 = 0;
+var player42 = 0;
+var player43 = 0;
+var player44 = 0;
+var player45 = 0;
+var player46 = 0;
+var player47 = 0;
+var player48 = 0;
+var player49 = 0;
+var player50 = 0;
+
+var aa = 2;
+var ab = 2;
+var ac = 2;
+var ad = 2;
+var ae = 2;
+var af = 2;
+var ag = 2;
+var ah = 2;
+var ai = 2;
+var aj = 2;
+var ak = 2;
+var al = 2;
+var am = 2;
+var an = 2;
+var ao = 2;
+var ap = 2;
+var aq = 2;
+var ar = 2;
+var as = 2;
+var at = 2;
+var au = 2;
+var av = 2;
+var aw = 2;
+var ax = 2;
+var ay = 2;
+var az = 2;
+var ba = 2;
+var bb = 2;
+var bc = 2;
+var bd = 2;
+var be = 2;
+var bf = 2;
+var bg = 2;
+var bh = 2;
+var bi = 2;
+var bj = 2;
+var bk = 2;
+var bl = 2;
+var bm = 2;
+var bn = 2;
+var bo = 2;
+var bp = 2;
+var bq = 2;
+var br = 2;
+var bs = 2;
+var bt = 2;
+var bu = 2;
+var bv = 2;
+var bw = 2;
+var bx = 2;
+
+var playerArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18, player19, player20, player21, player22, player23, player24, player25, player26, player27, player28, player29, player30, player31, player32, player33, player34, player35, player36, player37, player38, player39, player40, player41, player42, player43, player44, player45, player46, player47, player48, player49, player50];
+var playerVars = [aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, bv, bw, bx];
+
+
+function changePlayerState(num) {
+  if (playerVars[num] == 2) {
+        instantiateNewPlayer((num + 1));
+
+        playerVars[num]++;
+      }
+      else if (playerVars[num] % 2 == 0) {
+        checkPlayerStates((num + 1));
+
+        (playerArr[num]).playVideo();
+        playerVars[num]++;
+      }
+      else {
+        (playerArr[num]).pauseVideo();
+        playerVars[num]++;
+      }
+}
+
+for(var i=0; i < totalSongs; i++){
+  document.getElementById('app').innerHTML = document.getElementById('app').innerHTML + '<div id="player' + (i + 1) + '" hidden></div>';
+
+  document.getElementById('topList').innerHTML = document.getElementById('topList').innerHTML + '<div class="col-xs-12" id="song' + (i + 1) + '"><div class="item r" data-id="item-1" ' +
+  'data-src=""><div class="item-media "><a id="song' + (i + 1) + '-image" href="track.detail.html" class="item-media-content" ' +
+  'style="background-image: url(\"images/b0.jpg\");"></a><div class="item-overlay center"><button id="song' + (i + 1) + '-play" onclick="changePlayerState(' + i + ');" class="btn-playpause">Play</button></div></div><div id="song' + (i + 1) + '-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="song' + (i + 1) + '-title" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song' + (i + 1) + '-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted"><span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song' + (i + 1) + '-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song' + (i + 1) + '-likes"></i></span></div></div></div></div>';
+}
+
+
+// window.onload =
+function fillChartContent(numElements) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+
+      for (var i = 0; i < numElements; i++) {
+        document.getElementById("song" + (i+1) + "-title").innerHTML = (resp.tracks.track[i]).name;
+        document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp.tracks.track[i]).artist.name;
+        document.getElementById("song" + (i+1) + "-image").style = "background-image: url('" + (resp.tracks.track[i]).image[3]["#text"] + "');";
+        document.getElementById("song" + (i+1) + "-playcount").innerHTML = " " + (resp.tracks.track[i]).playcount;
+        document.getElementById("song" + (i+1) + "-likes").innerHTML = " " + (resp.tracks.track[i]).listeners;
+      }
+    }
+  };
+
+  xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+  xmlhttp.send();
+}
+
+fillChartContent(totalSongs);
+
+
+
+/*var toAdd = document.createDocumentFragment();
+for(var i=10; i < 20; i++){
+   var newDiv = document.createElement('<div class="col-xs-12" id="song' + (i + 1) + '"><div class="item r" data-id="item-1" ' +
+   'data-src=""><div class="item-media "><a id="song10-image" href="track.detail.html" class="item-media-content" ' +
+   'style="background-image: url(\"images/b0.jpg\");"></a><div class="item-overlay center"><button id="song10-play" class="btn-playpause">Play</button></div></div><div id="song10-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="song10-title" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song10-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted"><span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song10-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song10-likes"></i></span></div></div></div></div>');
+
+   toAdd.appendChild(newDiv);
+}
+
+document.getElementById('topList').appendChild(toAdd);*/
+
+
+
+/*
+<div class="col-xs-12" id="song10">
+  <div class="item r" data-id="item-1" data-src="">
+  <div class="item-media ">
+    <a id="song10-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+    <div class="item-overlay center">
+      <button id="song10-play" class="btn-playpause">Play</button>
+    </div>
+  </div>
+  <div id="song10-videoId" link="" hidden></div>
+  <div class="item-info">
+    <div class="item-overlay bottom text-right">
+      <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+      <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+      <div class="dropdown-menu pull-right black lt"></div>
+    </div>
+    <div class="item-title text-ellipsis">
+      <a id="song10-title" href="track.detail.html"></a>
+    </div>
+    <div class="item-author text-sm text-ellipsis ">
+      <a id="song10-artist" href="artist.detail.html" class="text-muted"></a>
+    </div>
+    <div class="item-meta text-sm text-muted">
+          <span class="item-meta-stats text-xs  item-meta-right">
+            <i class="fa fa-play text-muted" id="song10-playcount"></i>
+            <i class="fa fa-heart m-l-sm text-muted" id="song10-likes"></i>
+          </span>
+        </div>
+  </div>
+</div>
+</div>
+*/
+
+
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+
+
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  function onPlayerStateChange(event) {
+  }
+
+  function checkPlayerStates(playerNum) {
+    for (var i = 0; i < totalSongs; i++) {
+      console.log(i);
+      if ((playerArr[i] != 0) && ((i+1) != playerNum)) {
+        console.log("Entered if statement");
+        (playerArr[i]).seekTo(0, true);
+        (playerArr[i]).pauseVideo();
+        playerVars[i] = 4;
+      }
+    }
+    /*if ((player1 != 0) && (1 != playerNum)) {
+      player1.seekTo(0, true);
+      player1.pauseVideo();
+      a = 4;
+    }
+    if ((player2 != 0) && (2 != playerNum)) {
+      player2.seekTo(0, true);
+      player2.pauseVideo();
+      b = 4;
+    }
+    if ((player3 != 0) && (3 != playerNum)) {
+      player3.seekTo(0, true);
+      player3.pauseVideo();
+      c = 4;
+    }
+    if ((player4 != 0) && (4 != playerNum)) {
+      player4.seekTo(0, true);
+      player4.pauseVideo();
+      d = 4;
+    }
+    if ((player5 != 0) && (5 != playerNum)) {
+      player5.seekTo(0, true);
+      player5.pauseVideo();
+      e = 4;
+    }
+    if ((player6 != 0) && (6 != playerNum)) {
+      player6.seekTo(0, true);
+      player6.pauseVideo();
+      f = 4;
+    }
+    if ((player7 != 0) && (7 != playerNum)) {
+      player7.seekTo(0, true);
+      player7.pauseVideo();
+      g = 4;
+    }
+    if ((player8 != 0) && (8 != playerNum)) {
+      player8.seekTo(0, true);
+      player8.pauseVideo();
+      h = 4;
+    }
+    if ((player9 != 0) && (9 != playerNum)) {
+      player9.seekTo(0, true);
+      player9.pauseVideo();
+      i = 4;
+    }
+    if ((player10 != 0) && (10 != playerNum)) {
+      player10.seekTo(0, true);
+      player10.pauseVideo();
+      j = 4;
+    }*/
+  }
+
+  function instantiateNewPlayer(playerNum) {
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp2 = JSON.parse(this.responseText);
+        console.log("YouTube API Response: ");
+        console.log(JSON.parse(this.responseText));
+        var idString = "song" + playerNum + "-videoId";
+        console.log(idString);
+        console.log((resp2.items[0]).id.videoId);
+
+        document.getElementById(idString).innerHTML = (resp2.items[0]).id.videoId;
+
+        checkPlayerStates(playerNum);
+
+        var tempVideoId = document.getElementById(idString).innerHTML;
+
+        var playerString = 'player' + playerNum;
+
+        window[playerString] = new YT.Player(playerString, {
+          height: '1',
+          width: '1',
+          videoId: tempVideoId,
+          playerVars: { 'autoplay': 1, 'controls': 0 },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+        playerArr[(playerNum - 1)] = window[playerString];
+      }
+    }
+
+    var titleString = "song" + playerNum + "-title";
+    var artistString = "song" + playerNum + "-artist";
+    var reqString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById(titleString).innerHTML + " " + document.getElementById(artistString).innerHTML +  " audio&type=video&key=AIzaSyA7IBm38aqE2pQTc83GpoCiM2oARcJsYBo";
+    console.log(reqString);
+    xmlhttp2.open("GET",reqString,false);
+    xmlhttp2.send();
+  }
+
+
+
+
+
+  document.getElementById("song1-play").onclick = function() {
+    if (playerVars[0] == 2) {
+      instantiateNewPlayer(1);
+
+      playerVars[0]++;
+    }
+    else if (playerVars[0] % 2 == 0) {
+      checkPlayerStates(1);
+
+      (playerArr[0]).playVideo();
+      playerVars[0]++;
+    }
+    else {
+      (playerArr[0]).pauseVideo();
+      playerVars[0]++;
+    }
+  }
+
+  document.getElementById("song2-play").onclick = function() {
+    if (playerVars[1] == 2) {
+      instantiateNewPlayer(2);
+
+      playerVars[1]++;
+    }
+    else if (playerVars[1] % 2 == 0) {
+      checkPlayerStates(2);
+
+      (playerArr[1]).playVideo();
+      playerVars[1]++;
+    }
+    else {
+      (playerArr[1]).pauseVideo();
+      playerVars[1]++;
+    }
+  }
+
+  document.getElementById("song3-play").onclick = function() {
+    if (playerVars[2] == 2) {
+      instantiateNewPlayer(3);
+
+      playerVars[2]++;
+    }
+    else if (playerVars[2] % 2 == 0) {
+      checkPlayerStates(3);
+
+      (playerArr[2]).playVideo();
+      playerVars[2]++;
+    }
+    else {
+      (playerArr[2]).pauseVideo();
+      playerVars[2]++;
+    }
+  }
+
+  document.getElementById("song4-play").onclick = function() {
+    if (playerVars[3] == 2) {
+      instantiateNewPlayer(4);
+
+      playerVars[3]++;
+    }
+    else if (playerVars[3] % 2 == 0) {
+      checkPlayerStates(4);
+
+      (playerArr[3]).playVideo();
+      playerVars[3]++;
+    }
+    else {
+      (playerArr[3]).pauseVideo();
+      playerVars[3]++;
+    }
+  }
+
+  document.getElementById("song5-play").onclick = function() {
+    if (playerVars[4] == 2) {
+      instantiateNewPlayer(5);
+
+      playerVars[4]++;
+    }
+    else if (playerVars[4] % 2 == 0) {
+      checkPlayerStates(5);
+
+      (playerArr[4]).playVideo();
+      playerVars[4]++;
+    }
+    else {
+      (playerArr[4]).pauseVideo();
+      playerVars[4]++;
+    }
+  }
+
+  document.getElementById("song6-play").onclick = function() {
+    if (playerVars[5] == 2) {
+      instantiateNewPlayer(6);
+
+      playerVars[5]++;
+    }
+    else if (playerVars[5] % 2 == 0) {
+      checkPlayerStates(6);
+
+      (playerArr[5]).playVideo();
+      playerVars[5]++;
+    }
+    else {
+      (playerArr[5]).pauseVideo();
+      playerVars[5]++;
+    }
+  }
+
+  document.getElementById("song7-play").onclick = function() {
+    if (playerVars[6] == 2) {
+      instantiateNewPlayer(7);
+
+      playerVars[6]++;
+    }
+    else if (playerVars[6] % 2 == 0) {
+      checkPlayerStates(7);
+
+      (playerArr[6]).playVideo();
+      playerVars[6]++;
+    }
+    else {
+      (playerArr[6]).pauseVideo();
+      playerVars[6]++;
+    }
+  }
+
+  document.getElementById("song8-play").onclick = function() {
+    if (playerVars[7] == 2) {
+      instantiateNewPlayer(8);
+
+      playerVars[7]++;
+    }
+    else if (playerVars[7] % 2 == 0) {
+      checkPlayerStates(8);
+
+      (playerArr[7]).playVideo();
+      playerVars[7]++;
+    }
+    else {
+      (playerArr[7]).pauseVideo();
+      playerVars[7]++;
+    }
+  }
+
+  document.getElementById("song9-play").onclick = function() {
+    if (playerVars[8] == 2) {
+      instantiateNewPlayer(9);
+
+      playerVars[8]++;
+    }
+    else if (playerVars[8] % 2 == 0) {
+      checkPlayerStates(9);
+
+      (playerArr[8]).playVideo();
+      playerVars[8]++;
+    }
+    else {
+      (playerArr[8]).pauseVideo();
+      playerVars[8]++;
+    }
+  }
+
+  document.getElementById("song10-play").onclick = function() {
+    if (playerVars[9] == 2) {
+      instantiateNewPlayer(10);
+
+      playerVars[9]++;
+    }
+    else if (playerVars[9] % 2 == 0) {
+      checkPlayerStates(10);
+
+      (playerArr[9]).playVideo();
+      playerVars[9]++;
+    }
+    else {
+      (playerArr[9]).pauseVideo();
+      playerVars[9]++;
+    }
+  }
+</script>
+</html>
