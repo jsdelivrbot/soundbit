@@ -1383,12 +1383,13 @@
 <script>
   //var carouselArtists = 1;
   var totalArtists = 9;
+  var totalSongs = 10;
   /*for(var i=0; i < carouselArtists; i++){
     document.getElementById('carousel').innerHTML = document.getElementById('carousel').innerHTML + '<div id="artist' + (i + 1) + '" class="item r" data-id="item-' + (i + 115) + '" data-src=""><div class="item-media primary"><a id="artist' + (i + 1) + '-image" href="track.detail.html" class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div><div class="item-info">' +
     '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" href="track.detail.html"></a></div></div></div>';
   }*/
 
-  function fillDiscoverContent(numElements) {
+  function fillArtistContent(numElements) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -1406,7 +1407,36 @@
     xmlhttp.send();
   }
 
-  fillDiscoverContent(totalArtists);
+  fillArtistContent(totalArtists);
+
+
+
+
+
+
+
+  function fillSongsContent(numElements) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+        console.log(JSON.parse(this.responseText));
+
+        for (var i = 0; i < numElements; i++) {
+          document.getElementById("song" + (i+1) + "-title").innerHTML = (resp.tracks.track[i]).name;
+          document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp.tracks.track[i]).artist.name;
+          document.getElementById("song" + (i+1) + "-image").style = "background-image: url('" + (resp.tracks.track[i]).image[3]["#text"] + "');";
+          //document.getElementById("song" + (i+1) + "-playcount").innerHTML = " " + (resp.tracks.track[i]).playcount;
+          //document.getElementById("song" + (i+1) + "-likes").innerHTML = " " + (resp.tracks.track[i]).listeners;
+        }
+      }
+    };
+
+    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.send();
+  }
+
+  fillSongsContent(totalSongs);
 
 </script>
 

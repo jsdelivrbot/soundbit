@@ -9,6 +9,7 @@
   "author": "Connor Goggins",
   "license": "UNLICENSED",
   "dependencies": {
+    "billboard-top-100": "^2.0.7",
     "express": "^4.15.3",
     "request": "^2.81.0",
     "window": "^3.1.6",

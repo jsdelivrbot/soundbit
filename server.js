@@ -91,7 +91,7 @@ app.get('/charts', function (req, res) {
 app.get('/chartContent', function (req, res) {
   billboard('hot-100', function(songs, err){
       if (err) console.log(err);
-      console.log(songs); //prints array of top 100 songs
+      //console.log(songs); //prints array of top 100 songs
       //console.log(songs[3]); //prints song with rank: 4
       //console.log(songs[0].title); //prints title of top song
       //console.log(songs[0].artist); //prints artist of top songs
@@ -100,6 +100,14 @@ app.get('/chartContent', function (req, res) {
       var myJSON = JSON.stringify(songs);
       res.send(myJSON);
   });
+})
+
+app.get('/discoverArtists', function (req, res) {
+
+})
+
+app.get('/discoverSongs', function (req, res) {
+
 })
 
 app.get('/searchInfo', function (req, res) {
