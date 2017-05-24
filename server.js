@@ -212,14 +212,14 @@ app.get('/searchInfo', function (req, res) {
       song10_album = (resp.tracks.items[9]).album.name;
       song10_image = (resp.tracks.items[9]).album.images[0].url;
 
-      var obj = { "song1_name": song1_name, "song1_artist": song1_artist, "song1_album": song1_album, "song1_image": song1_image, "song2_name": song2_name, "song2_artist": song2_artist, "song2_album": song2_album, "song2_image": song2_image, "song3_name": song3_name, "song3_artist": song3_artist, "song3_album": song3_album, "song3_image": song3_image, "song4_name": song4_name, "song4_artist": song4_artist, "song4_album": song4_album, "song4_image": song4_image,
-    "song5_name": song5_name, "song5_artist": song5_artist, "song5_album": song5_album, "song5_image": song5_image, "song6_name": song6_name, "song6_artist": song6_artist, "song6_album": song6_album, "song6_image": song6_image, "song7_name": song7_name, "song7_artist": song7_artist, "song7_album": song7_album, "song7_image": song7_image, "song8_name": song8_name, "song8_artist": song8_artist, "song8_album": song8_album, "song8_image": song8_image,
-    "song9_name": song9_name, "song9_artist": song9_artist, "song9_album": song9_album, "song9_image": song9_image, "song10_name": song10_name, "song10_artist": song10_artist, "song10_album": song10_album, "song10_image": song10_image,  };
+      var obj = { song1_name: song1_name, song1_artist: song1_artist, song1_album: song1_album, song1_image: song1_image, song2_name: song2_name, song2_artist: song2_artist, song2_album: song2_album, song2_image: song2_image, song3_name: song3_name, song3_artist: song3_artist, song3_album: song3_album, song3_image: song3_image, song4_name: song4_name, song4_artist: song4_artist, song4_album: song4_album, song4_image: song4_image,
+    song5_name: song5_name, song5_artist: song5_artist, song5_album: song5_album, song5_image: song5_image, song6_name: song6_name, song6_artist: song6_artist, song6_album: song6_album, song6_image: song6_image, song7_name: song7_name, song7_artist: song7_artist, song7_album: song7_album, song7_image: song7_image, song8_name: song8_name, song8_artist: song8_artist, song8_album: song8_album, song8_image: song8_image,
+    song9_name: song9_name, song9_artist: song9_artist, song9_album: song9_album, song9_image: song9_image, song10_name: song10_name, song10_artist: song10_artist, song10_album: song10_album, song10_image: song10_image,  };
 
 
       var myJSON = JSON.stringify(obj);
       console.log(myJSON);
-      res.json(myJSON);
+      res.send(myJSON);
       //console.log(song1_artist);
       //console.log(song1_album);
     }

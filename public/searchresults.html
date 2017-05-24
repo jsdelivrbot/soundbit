@@ -226,7 +226,7 @@
           </div>
         </div>
         <div class="page-title m-b">
-          <h1 class="inline m-a-0">Search results for ""</h1>
+          <h1 class="inline m-a-0" id="titleContent">Search results for ""</h1>
           <div class="dropdown inline">
             <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">All</button>
             <div class="dropdown-menu">
@@ -304,10 +304,56 @@
         </div>
         <div id="topList" class="row item-list item-list-md item-list-li m-b">
           <div class="col-xs-12" id="song1"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song1-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
-            <div class="item-overlay center"><button id="song1-play" onclick="changePlayerState(1);" class="btn-playpause">Play</button></div></div><div id="song1-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="song' + (i + 1) + '-title" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song' + (i + 1) + '-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted"><span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song' + (i + 1) + '-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song' + (i + 1) + '-likes"></i></span></div></div></div></div>
-
+            <div class="item-overlay center"><button id="song1-play" onclick="changePlayerState(0);" class="btn-playpause">Play</button></div></div><div id="song1-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song1-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song1-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song1-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song1-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song2"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song2-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song2-play" onclick="changePlayerState(1);" class="btn-playpause">Play</button></div></div><div id="song2-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song2-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song2-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song2-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song2-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song3"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song3-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song3-play" onclick="changePlayerState(2);" class="btn-playpause">Play</button></div></div><div id="song3-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song3-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song3-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song3-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song3-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song4"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song4-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song4-play" onclick="changePlayerState(3);" class="btn-playpause">Play</button></div></div><div id="song4-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song4-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song4-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song4-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song4-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song5"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song5-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song5-play" onclick="changePlayerState(4);" class="btn-playpause">Play</button></div></div><div id="song5-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song5-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song5-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song5-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song5-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song6"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song6-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song6-play" onclick="changePlayerState(5);" class="btn-playpause">Play</button></div></div><div id="song6-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song6-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song6-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song6-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song6-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song7"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song7-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song7-play" onclick="changePlayerState(6);" class="btn-playpause">Play</button></div></div><div id="song7-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song7-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song7-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song7-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song7-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song8"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song8-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song8-play" onclick="changePlayerState(7);" class="btn-playpause">Play</button></div></div><div id="song8-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song8-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song8-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song8-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song8-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song9"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song9-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song9-play" onclick="changePlayerState(8);" class="btn-playpause">Play</button></div></div><div id="song9-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song9-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song9-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song9-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song9-likes"></i></span></div></div></div></div>
+          <div class="col-xs-12" id="song10"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song10-image" href="track.detail.html" class="item-media-content" style="background-image: url(\"images/b0.jpg\");"></a>
+            <div class="item-overlay center"><button id="song10-play" onclick="changePlayerState(9);" class="btn-playpause">Play</button></div></div><div id="song10-videoId" link="" hidden></div><div class="item-info"><div class="item-overlay bottom text-right">
+              <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
+                <a id="song10-name" href="track.detail.html"></a></div><div class="item-author text-sm text-ellipsis "><a id="song10-artist" href="artist.detail.html" class="text-muted"></a></div><div class="item-meta text-sm text-muted">
+                  <span class="item-meta-stats text-xs  item-meta-right"><i class="fa fa-play text-muted" id="song10-playcount"></i><i class="fa fa-heart m-l-sm text-muted" id="song10-likes"></i></span></div></div></div></div>
         </div>
-
       </div>
     </div>
     <div class="col-lg-3 w-xxl w-auto-md">
@@ -662,6 +708,16 @@
 
 <!-- ############ LAYOUT END-->
   </div>
+  <div id="player1" hidden></div>
+  <div id="player2" hidden></div>
+  <div id="player3" hidden></div>
+  <div id="player4" hidden></div>
+  <div id="player5" hidden></div>
+  <div id="player6" hidden></div>
+  <div id="player7" hidden></div>
+  <div id="player8" hidden></div>
+  <div id="player9" hidden></div>
+  <div id="player10" hidden></div>
 
 
 
@@ -703,12 +759,50 @@
   var query = window.location.search.substr(9);
   console.log(query);
 
+  document.getElementById("titleContent").innerHTML = "Search results for \"" + query + "\"";
+
   function getSearchResponse() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var resp = JSON.parse(this.responseText);
         console.log(JSON.parse(this.responseText));
+        console.log(resp.song1_name)
+
+        document.getElementById("song1-name").innerHTML = resp.song1_name;
+        document.getElementById("song1-artist").innerHTML = resp.song1_artist;
+        document.getElementById("song1-image").style = "background-image: url(\"" + resp.song1_image + "\");";
+        document.getElementById("song2-name").innerHTML = resp.song2_name;
+        document.getElementById("song2-artist").innerHTML = resp.song2_artist;
+        document.getElementById("song2-image").style = "background-image: url(\"" + resp.song2_image + "\");";
+        document.getElementById("song3-name").innerHTML = resp.song3_name;
+        document.getElementById("song3-artist").innerHTML = resp.song3_artist;
+        document.getElementById("song3-image").style = "background-image: url(\"" + resp.song3_image + "\");";
+        document.getElementById("song4-name").innerHTML = resp.song4_name;
+        document.getElementById("song4-artist").innerHTML = resp.song4_artist;
+        document.getElementById("song4-image").style = "background-image: url(\"" + resp.song4_image + "\");";
+        document.getElementById("song5-name").innerHTML = resp.song5_name;
+        document.getElementById("song5-artist").innerHTML = resp.song5_artist;
+        document.getElementById("song5-image").style = "background-image: url(\"" + resp.song5_image + "\");";
+        document.getElementById("song6-name").innerHTML = resp.song6_name;
+        document.getElementById("song6-artist").innerHTML = resp.song6_artist;
+        document.getElementById("song6-image").style = "background-image: url(\"" + resp.song6_image + "\");";
+        document.getElementById("song7-name").innerHTML = resp.song7_name;
+        document.getElementById("song7-artist").innerHTML = resp.song7_artist;
+        document.getElementById("song7-image").style = "background-image: url(\"" + resp.song7_image + "\");";
+        document.getElementById("song8-name").innerHTML = resp.song8_name;
+        document.getElementById("song8-artist").innerHTML = resp.song8_artist;
+        document.getElementById("song8-image").style = "background-image: url(\"" + resp.song8_image + "\");";
+        document.getElementById("song9-name").innerHTML = resp.song9_name;
+        document.getElementById("song9-artist").innerHTML = resp.song9_artist;
+        document.getElementById("song9-image").style = "background-image: url(\"" + resp.song9_image + "\");";
+        document.getElementById("song10-name").innerHTML = resp.song10_name;
+        document.getElementById("song10-artist").innerHTML = resp.song10_artist;
+        document.getElementById("song10-image").style = "background-image: url(\"" + resp.song10_image + "\");";
+
+        // add field in html for album
+
+
 
 
 
@@ -722,5 +816,214 @@
   }
 
   getSearchResponse();
+
+
+
+
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  function onPlayerStateChange(event) {
+  }
+
+
+  var totalSongs = 10;
+  var player1 = 0;
+  var player2 = 0;
+  var player3 = 0;
+  var player4 = 0;
+  var player5 = 0;
+  var player6 = 0;
+  var player7 = 0;
+  var player8 = 0;
+  var player9 = 0;
+  var player10 = 0;
+/*  var player11 = 0;
+  var player12 = 0;
+  var player13 = 0;
+  var player14 = 0;
+  var player15 = 0;
+  var player16 = 0;
+  var player17 = 0;
+  var player18 = 0;
+  var player19 = 0;
+  var player20 = 0;
+  var player21 = 0;
+  var player22 = 0;
+  var player23 = 0;
+  var player24 = 0;
+  var player25 = 0;
+  var player26 = 0;
+  var player27 = 0;
+  var player28 = 0;
+  var player29 = 0;
+  var player30 = 0;
+  var player31 = 0;
+  var player32 = 0;
+  var player33 = 0;
+  var player34 = 0;
+  var player35 = 0;
+  var player36 = 0;
+  var player37 = 0;
+  var player38 = 0;
+  var player39 = 0;
+  var player40 = 0;
+  var player41 = 0;
+  var player42 = 0;
+  var player43 = 0;
+  var player44 = 0;
+  var player45 = 0;
+  var player46 = 0;
+  var player47 = 0;
+  var player48 = 0;
+  var player49 = 0;
+  var player50 = 0;*/
+
+  var aa = 2;
+  var ab = 2;
+  var ac = 2;
+  var ad = 2;
+  var ae = 2;
+  var af = 2;
+  var ag = 2;
+  var ah = 2;
+  var ai = 2;
+  var aj = 2;
+/*  var ak = 2;
+  var al = 2;
+  var am = 2;
+  var an = 2;
+  var ao = 2;
+  var ap = 2;
+  var aq = 2;
+  var ar = 2;
+  var as = 2;
+  var at = 2;
+  var au = 2;
+  var av = 2;
+  var aw = 2;
+  var ax = 2;
+  var ay = 2;
+  var az = 2;
+  var ba = 2;
+  var bb = 2;
+  var bc = 2;
+  var bd = 2;
+  var be = 2;
+  var bf = 2;
+  var bg = 2;
+  var bh = 2;
+  var bi = 2;
+  var bj = 2;
+  var bk = 2;
+  var bl = 2;
+  var bm = 2;
+  var bn = 2;
+  var bo = 2;
+  var bp = 2;
+  var bq = 2;
+  var br = 2;
+  var bs = 2;
+  var bt = 2;
+  var bu = 2;
+  var bv = 2;
+  var bw = 2;
+  var bx = 2;*/
+
+  var playerArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]; //, player11, player12, player13, player14, player15, player16, player17, player18, player19, player20, player21, player22, player23, player24, player25, player26, player27, player28, player29, player30, player31, player32, player33, player34, player35, player36, player37, player38, player39, player40, player41, player42, player43, player44, player45, player46, player47, player48, player49, player50];
+  var playerVars = [aa, ab, ac, ad, ae, af, ag, ah, ai, aj]; //, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, bv, bw, bx];
+
+  function checkPlayerStates(playerNum) {
+    for (var i = 0; i < totalSongs; i++) {
+      console.log(i);
+      if ((playerArr[i] != 0) && ((i+1) != playerNum)) {
+        console.log("Entered if statement");
+        (playerArr[i]).seekTo(0, true);
+        (playerArr[i]).pauseVideo();
+        playerVars[i] = 4;
+      }
+    }
+  }
+
+  function instantiateNewPlayer(playerNum) {
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp2 = JSON.parse(this.responseText);
+        console.log("YouTube API Response: ");
+        console.log(JSON.parse(this.responseText));
+        var idString = "song" + playerNum + "-videoId";
+        console.log(idString);
+        console.log((resp2.items[0]).id.videoId);
+
+        document.getElementById(idString).innerHTML = (resp2.items[0]).id.videoId;
+
+        checkPlayerStates(playerNum);
+
+        var tempVideoId = document.getElementById(idString).innerHTML;
+
+        var playerString = 'player' + playerNum;
+        console.log(playerString);
+        console.log("variable: " + window[playerString]);
+
+        window[playerString] = new YT.Player(playerString, {
+          height: '1',
+          width: '1',
+          videoId: tempVideoId,
+          playerVars: { 'autoplay': 1, 'controls': 0 },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+        console.log("variable: " + window[playerString]);
+        playerArr[(playerNum - 1)] = window[playerString];
+      }
+    }
+
+    var titleString = "song" + playerNum + "-name";
+    var artistString = "song" + playerNum + "-artist";
+    var reqString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById(titleString).innerHTML + " " + document.getElementById(artistString).innerHTML +  " audio&type=video&key=AIzaSyA7IBm38aqE2pQTc83GpoCiM2oARcJsYBo";
+    console.log(reqString);
+    xmlhttp2.open("GET",reqString,false);
+    xmlhttp2.send();
+  }
+
+
+  function changePlayerState(num) {
+    if (playerVars[num] == 2) {
+          instantiateNewPlayer((num + 1));
+
+          playerVars[num]++;
+        }
+        else if (playerVars[num] % 2 == 0) {
+          checkPlayerStates((num + 1));
+
+          (playerArr[num]).playVideo();
+          playerVars[num]++;
+        }
+        else {
+          (playerArr[num]).pauseVideo();
+          playerVars[num]++;
+        }
+  }
+
+
+
+
+
+
 </script>
 </html>
