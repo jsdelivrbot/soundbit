@@ -1,6 +1,6 @@
 
 
-//var billboard = require("billboard-top-100").getChart;
+var billboard = require("billboard-top-100").getChart;
 //var glob = require('glob')
 //var jQuery = require('./html/libs/jquery/dist/jquery.js')
 //global.jQuery = require('jquery');
@@ -22,10 +22,10 @@ app.use(express.static(__dirname + '/public'));
 
 //glob.sync( './html/libs/**/dist/js/*.js' ).forEach( function( file ) {
 /*  require( path.resolve( file ) );
-});
+});*/
 
 // date defaults to saturday of this week
-
+/*
 billboard('hot-100', function(songs, err){
     if (err) console.log(err);
     console.log(songs); //prints array of top 100 songs
@@ -46,6 +46,7 @@ billboard('hot-100', '2016-08-27', function(songs, err){
     console.log(songs[0].artist); //prints artist of top songs for week of August 27, 2016
     console.log(songs[0].rank) //prints rank of top song (1) for week of August 27, 2016
     console.log(songs[0].cover) //prints URL for Billboard cover image of top song for week of August 27, 2016
+    return songs;
 });
 
 // 'all time' chart
@@ -58,6 +59,7 @@ billboard('greatest-billboard-200-albums', function(songs, err){
     console.log(songs[0].artist); //prints artist of top songs
     console.log(songs[0].rank) //prints rank of top album (1)
     console.log(songs[0].cover) //prints URL for Billboard cover image of top album
+    return songs;
 });
 
 // list all available charts
@@ -67,8 +69,8 @@ var listCharts = require('billboard-top-100').listCharts;
 listCharts(function(data){
     console.log(data['Overall Popularity']); //prints larray of charts in 'Overall Popularity' category
 });
-
 */
+
 // start the server
 
 
@@ -78,8 +80,26 @@ app.get('/', function (req, res) {
 
 app.get('/search', function (req, res) {
   var finalReqString = '/public/searchresults.html';
-
   res.sendFile(path.join(__dirname+finalReqString));
+})
+
+app.get('/charts', function (req, res) {
+  var finalReqString = '/public/chart.html';
+  res.sendFile(path.join(__dirname+finalReqString));
+})
+
+app.get('/chartContent', function (req, res) {
+  billboard('hot-100', function(songs, err){
+      if (err) console.log(err);
+      console.log(songs); //prints array of top 100 songs
+      //console.log(songs[3]); //prints song with rank: 4
+      //console.log(songs[0].title); //prints title of top song
+      //console.log(songs[0].artist); //prints artist of top songs
+      //console.log(songs[0].rank) //prints rank of top song (1)
+      //console.log(songs[0].cover) //prints URL for Billboard cover image of top song
+      var myJSON = JSON.stringify(songs);
+      res.send(myJSON);
+  });
 })
 
 app.get('/searchInfo', function (req, res) {
