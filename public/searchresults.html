@@ -758,6 +758,7 @@
 <script>
   var query = window.location.search.substr(9);
   console.log(query);
+  query = query.replace(/\+/g, " ")
 
   document.getElementById("titleContent").innerHTML = "Search results for \"" + query + "\"";
 
@@ -962,13 +963,13 @@
     xmlhttp2.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var resp2 = JSON.parse(this.responseText);
-        console.log("YouTube API Response: ");
+        //console.log("YouTube API Response: ");
         console.log(JSON.parse(this.responseText));
         var idString = "song" + playerNum + "-videoId";
         console.log(idString);
-        console.log((resp2.items[0]).id.videoId);
+        console.log(resp2.videoId);
 
-        document.getElementById(idString).innerHTML = (resp2.items[0]).id.videoId;
+        document.getElementById(idString).innerHTML = resp2.videoId;
 
         checkPlayerStates(playerNum);
 
@@ -995,9 +996,8 @@
 
     var titleString = "song" + playerNum + "-name";
     var artistString = "song" + playerNum + "-artist";
-    var reqString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + document.getElementById(titleString).innerHTML + " " + document.getElementById(artistString).innerHTML +  " audio&type=video&key=AIzaSyA7IBm38aqE2pQTc83GpoCiM2oARcJsYBo";
-    console.log(reqString);
-    xmlhttp2.open("GET",reqString,false);
+
+    xmlhttp2.open("GET", "http://localhost:3000/getVideoId?name=" + document.getElementById(titleString).innerHTML + "&artist=" + document.getElementById(artistString).innerHTML);
     xmlhttp2.send();
   }
 

@@ -77,16 +77,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/search', function (req, res) {
-
-
-
-
-
   var finalReqString = '/public/searchresults.html';
-
-
-
-  //res.render(path.join(__dirname+finalReqString), { name: "example" });
 
   res.sendFile(path.join(__dirname+finalReqString));
 })
@@ -169,48 +160,67 @@ app.get('/searchInfo', function (req, res) {
     if (this.readyState == 4 && this.status == 200) {
       var resp = JSON.parse(this.responseText);
       //console.log(JSON.parse(this.responseText));
-      console.log((resp.tracks.items[0]).album.images[0].url);
-
-      song1_name = (resp.tracks.items[0]).name;
-      song1_artist = ((resp.tracks.items[0]).artists[0]).name;
-      song1_album = (resp.tracks.items[0]).album.name;
-      song1_image = (resp.tracks.items[0]).album.images[0].url;
-      song2_name = (resp.tracks.items[1]).name;
-      song2_artist = ((resp.tracks.items[1]).artists[0]).name;
-      song2_album = (resp.tracks.items[1]).album.name;
-      song2_image = (resp.tracks.items[1]).album.images[0].url;
-      song3_name = (resp.tracks.items[2]).name;
-      song3_artist = ((resp.tracks.items[2]).artists[0]).name;
-      song3_album = (resp.tracks.items[2]).album.name;
-      song3_image = (resp.tracks.items[2]).album.images[0].url;
-      song4_name = (resp.tracks.items[3]).name;
-      song4_artist = ((resp.tracks.items[3]).artists[0]).name;
-      song4_album = (resp.tracks.items[3]).album.name;
-      song4_image = (resp.tracks.items[3]).album.images[0].url;
-      song5_name = (resp.tracks.items[4]).name;
-      song5_artist = ((resp.tracks.items[4]).artists[0]).name;
-      song5_album = (resp.tracks.items[4]).album.name;
-      song5_image = (resp.tracks.items[4]).album.images[0].url;
-      song6_name = (resp.tracks.items[5]).name;
-      song6_artist = ((resp.tracks.items[5]).artists[0]).name;
-      song6_album = (resp.tracks.items[5]).album.name;
-      song6_image = (resp.tracks.items[5]).album.images[0].url;
-      song7_name = (resp.tracks.items[6]).name;
-      song7_artist = ((resp.tracks.items[6]).artists[0]).name;
-      song7_album = (resp.tracks.items[6]).album.name;
-      song7_image = (resp.tracks.items[6]).album.images[0].url;
-      song8_name = (resp.tracks.items[7]).name;
-      song8_artist = ((resp.tracks.items[7]).artists[0]).name;
-      song8_album = (resp.tracks.items[7]).album.name;
-      song8_image = (resp.tracks.items[7]).album.images[0].url;
-      song9_name = (resp.tracks.items[8]).name;
-      song9_artist = ((resp.tracks.items[8]).artists[0]).name;
-      song9_album = (resp.tracks.items[8]).album.name;
-      song9_image = (resp.tracks.items[8]).album.images[0].url;
-      song10_name = (resp.tracks.items[9]).name;
-      song10_artist = ((resp.tracks.items[9]).artists[0]).name;
-      song10_album = (resp.tracks.items[9]).album.name;
-      song10_image = (resp.tracks.items[9]).album.images[0].url;
+      //console.log((resp.tracks.items[0]).album.images[0].url);
+      if (resp.tracks.items[0]) {
+        song1_name = (resp.tracks.items[0]).name;
+        song1_artist = ((resp.tracks.items[0]).artists[0]).name;
+        song1_album = (resp.tracks.items[0]).album.name;
+        song1_image = (resp.tracks.items[0]).album.images[0].url;
+      }
+      if (resp.tracks.items[1]) {
+        song2_name = (resp.tracks.items[1]).name;
+        song2_artist = ((resp.tracks.items[1]).artists[0]).name;
+        song2_album = (resp.tracks.items[1]).album.name;
+        song2_image = (resp.tracks.items[1]).album.images[0].url;
+      }
+      if (resp.tracks.items[2]) {
+        song3_name = (resp.tracks.items[2]).name;
+        song3_artist = ((resp.tracks.items[2]).artists[0]).name;
+        song3_album = (resp.tracks.items[2]).album.name;
+        song3_image = (resp.tracks.items[2]).album.images[0].url;
+      }
+      if (resp.tracks.items[3]) {
+        song4_name = (resp.tracks.items[3]).name;
+        song4_artist = ((resp.tracks.items[3]).artists[0]).name;
+        song4_album = (resp.tracks.items[3]).album.name;
+        song4_image = (resp.tracks.items[3]).album.images[0].url;
+      }
+      if (resp.tracks.items[4]) {
+        song5_name = (resp.tracks.items[4]).name;
+        song5_artist = ((resp.tracks.items[4]).artists[0]).name;
+        song5_album = (resp.tracks.items[4]).album.name;
+        song5_image = (resp.tracks.items[4]).album.images[0].url;
+      }
+      if (resp.tracks.items[5]) {
+        song6_name = (resp.tracks.items[5]).name;
+        song6_artist = ((resp.tracks.items[5]).artists[0]).name;
+        song6_album = (resp.tracks.items[5]).album.name;
+        song6_image = (resp.tracks.items[5]).album.images[0].url;
+      }
+      if (resp.tracks.items[6]) {
+        song7_name = (resp.tracks.items[6]).name;
+        song7_artist = ((resp.tracks.items[6]).artists[0]).name;
+        song7_album = (resp.tracks.items[6]).album.name;
+        song7_image = (resp.tracks.items[6]).album.images[0].url;
+      }
+      if (resp.tracks.items[7]) {
+        song8_name = (resp.tracks.items[7]).name;
+        song8_artist = ((resp.tracks.items[7]).artists[0]).name;
+        song8_album = (resp.tracks.items[7]).album.name;
+        song8_image = (resp.tracks.items[7]).album.images[0].url;
+      }
+      if (resp.tracks.items[8]) {
+        song9_name = (resp.tracks.items[8]).name;
+        song9_artist = ((resp.tracks.items[8]).artists[0]).name;
+        song9_album = (resp.tracks.items[8]).album.name;
+        song9_image = (resp.tracks.items[8]).album.images[0].url;
+      }
+      if (resp.tracks.items[9]) {
+        song10_name = (resp.tracks.items[9]).name;
+        song10_artist = ((resp.tracks.items[9]).artists[0]).name;
+        song10_album = (resp.tracks.items[9]).album.name;
+        song10_image = (resp.tracks.items[9]).album.images[0].url;
+      }
 
       var obj = { song1_name: song1_name, song1_artist: song1_artist, song1_album: song1_album, song1_image: song1_image, song2_name: song2_name, song2_artist: song2_artist, song2_album: song2_album, song2_image: song2_image, song3_name: song3_name, song3_artist: song3_artist, song3_album: song3_album, song3_image: song3_image, song4_name: song4_name, song4_artist: song4_artist, song4_album: song4_album, song4_image: song4_image,
     song5_name: song5_name, song5_artist: song5_artist, song5_album: song5_album, song5_image: song5_image, song6_name: song6_name, song6_artist: song6_artist, song6_album: song6_album, song6_image: song6_image, song7_name: song7_name, song7_artist: song7_artist, song7_album: song7_album, song7_image: song7_image, song8_name: song8_name, song8_artist: song8_artist, song8_album: song8_album, song8_image: song8_image,
@@ -227,6 +237,38 @@ app.get('/searchInfo', function (req, res) {
 
   xmlhttp.open("GET",reqString);
   xmlhttp.send();
+})
+
+app.get('/getVideoId', function (req, res) {
+  var name = req.query.name;
+  var artist = req.query.artist;
+  console.log(name + " " + artist);
+
+  var xmlhttp3 = new XMLHttpRequest();
+
+  xmlhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp2 = JSON.parse(this.responseText);
+      console.log("YouTube API Response: ");
+      console.log(JSON.parse(this.responseText));
+      //var idString = "song" + playerNum + "-videoId";
+      //console.log(idString);
+      console.log((resp2.items[0]).id.videoId);
+
+      var obj = { videoId: (resp2.items[0]).id.videoId };
+      var myJSON = JSON.stringify(obj);
+      console.log(myJSON);
+      res.send(myJSON);
+    }
+  }
+
+
+
+
+  var reqString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + name + " " + artist +  " audio&type=video&key=AIzaSyA7IBm38aqE2pQTc83GpoCiM2oARcJsYBo";
+  console.log(reqString);
+  xmlhttp3.open("GET",reqString,false);
+  xmlhttp3.send();
 })
 
 app.listen(port)
