@@ -925,6 +925,7 @@
         document.getElementById("song10-image").style = "background-image: url(\"" + resp.song10_image + "\");";
         */
         for (var i = 1; i <=50; i++) {
+          var idString = "song" + i;
           var idStringName = "song" + i + "-name";
           var nameField = "song" + i + "_name";
           var idStringArtist = "song" + i + "-artist";
@@ -938,6 +939,9 @@
             document.getElementById(idStringName).innerHTML = resp[nameField];
             document.getElementById(idStringArtist).innerHTML = resp[artistField];
             document.getElementById(idStringImage).style = "background-image: url(\"" + resp[imageField] + "\");";
+          }
+          else {
+            document.getElementById(idString).hidden = true;
           }
         }
 
