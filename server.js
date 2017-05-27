@@ -55,15 +55,27 @@ app.get('/discover', function (req, res) {
   res.sendFile(path.join(__dirname+finalReqString));
 })
 
+app.get('/authenticateCredentials', function (req, res) {
+  var email = req.query.email;
+  var password = req.query.password;
+
+
+})
+
 app.get('/addUser', function (req, res) {
   //console.log(req.body.email);
   //console.log(req.body.password);
+  var firstName = req.query.firstName;
+  firstName = firstName.substring(1);
+  var lastName = req.query.lastName;
   var email = req.query.email;
   var password = req.query.password;
-  //console.log(email);
-  //console.log(password);
+  console.log(firstName);
+  console.log(lastName);
+  console.log(email);
+  console.log(password);
 
-  var sqlString1 = 'SELECT * FROM soundbit_users WHERE name=\'' + email + '\'';
+  var sqlString1 = 'SELECT * FROM soundbit_users WHERE email=\'' + email + '\'';
   connection.query(sqlString1, function (error, results, fields) {
     if (error) {
       throw error;
@@ -71,7 +83,7 @@ app.get('/addUser', function (req, res) {
     //console.log('The solution is: ', results[0]);
     var checkUndef = "" + results[0];
     if (checkUndef == "undefined") {
-      var sqlString2 = 'INSERT INTO soundbit_users (name, password) VALUES (\'' + email + '\', \'' + password + '\')';
+      var sqlString2 = 'INSERT INTO soundbit_users (firstName, lastName, email, password) VALUES (\'' + firstName + '\', \'' + lastName + '\', \'' + email + '\', \'' + password + '\')';
       connection.query(sqlString2, function (error) {
         if (error) {
           throw error;
@@ -85,8 +97,8 @@ app.get('/addUser', function (req, res) {
       res.send(myJSON);
     }
     else {
-      console.log("ERROR: Username taken");
-      var obj = { body: 'ERROR: Username taken' };
+      console.log("ERROR: Email already in use");
+      var obj = { body: 'ERROR: Email already in use' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
     }

@@ -87,27 +87,17 @@
                       music_note
                     </i>
                   </span>
-                  <span class="nav-text">Songs</span>
+                  <span class="nav-text">Online</span>
                 </a>
               </li>
               <li>
                 <a href="artists.html">
                   <span class="nav-icon">
                     <i class="material-icons">
-                      portrait
+                      library_music
                     </i>
                   </span>
-                  <span class="nav-text">Artists</span>
-                </a>
-              </li>
-              <li>
-                <a href="albums.html">
-                  <span class="nav-icon">
-                    <i class="material-icons">
-                      texture
-                    </i>
-                  </span>
-                  <span class="nav-text">Albums</span>
+                  <span class="nav-text">Downloaded</span>
                 </a>
               </li>
 
@@ -228,19 +218,16 @@
 		</div>
 		<div class="row row-sm item-masonry item-info-overlay">
 			<div class="col-sm-6 text-white m-b-sm">
-                      <div id="artist1" class="item r" data-id="item-115" data-src=""><div class="item-media primary"><a id="artist1-image" href="track.detail.html" class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div>
+                      <div id="artist1" class="item r" data-id="item-115" data-src=""><div class="item-media primary"><a id="artist1-image" href="track.detail.html" class="item-media-content" style=""></a></div>
                       <div class="item-info">
                         <div class="item-overlay bottom text-right">
                           <a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis">
-                            <a id="artist1-name" href="track.detail.html"></a></div></div></div>
+                            <a id="artist1-name" onclick="execSearch(1);"></a></div></div></div>
 		    </div>
 		        <div id="artist2" class="col-sm-3 col-xs-6">
 		        	<div class="item r" data-id="item-1" data-src="">
 		    			<div class="item-media ">
 		    				<a id="artist2-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
-		    				<div class="item-overlay center">
-		    					<button  class="btn-playpause">Play</button>
-		    				</div>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-overlay bottom text-right">
@@ -249,7 +236,7 @@
 		    					<div class="dropdown-menu pull-right black lt"></div>
 		    				</div>
 		    				<div class="item-title text-ellipsis">
-		    					<a id="artist2-name" href="track.detail.html"></a>
+		    					<a id="artist2-name" onclick="execSearch(2);"></a>
 		    				</div>
 		    			</div>
 		    		</div>
@@ -258,9 +245,6 @@
 		        	<div class="item r" data-id="item-2" data-src="">
 		    			<div class="item-media ">
 		    				<a id="artist3-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
-		    				<div class="item-overlay center">
-		    					<button  class="btn-playpause">Play</button>
-		    				</div>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-overlay bottom text-right">
@@ -269,7 +253,7 @@
 		    					<div class="dropdown-menu pull-right black lt"></div>
 		    				</div>
 		    				<div class="item-title text-ellipsis">
-		    					<a id="artist3-name" href="track.detail.html"></a>
+		    					<a id="artist3-name" onclick="execSearch(3);"></a>
 		    				</div>
 		    			</div>
 		    		</div>
@@ -278,9 +262,6 @@
 		        	<div class="item r" data-id="item-3" data-src="">
 		    			<div class="item-media ">
 		    				<a id="artist4-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
-		    				<div class="item-overlay center">
-		    					<button  class="btn-playpause">Play</button>
-		    				</div>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-overlay bottom text-right">
@@ -289,7 +270,7 @@
 		    					<div class="dropdown-menu pull-right black lt"></div>
 		    				</div>
 		    				<div class="item-title text-ellipsis">
-		    					<a id="artist4-name" href="track.detail.html"></a>
+		    					<a id="artist4-name" onclick="execSearch(4);"></a>
 		    				</div>
 		    			</div>
 		    		</div>
@@ -298,9 +279,6 @@
 		        	<div class="item r" data-id="item-4" data-src="">
 		    			<div class="item-media ">
 		    				<a id="artist5-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
-		    				<div class="item-overlay center">
-		    					<button  class="btn-playpause">Play</button>
-		    				</div>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-overlay bottom text-right">
@@ -309,7 +287,7 @@
 		    					<div class="dropdown-menu pull-right black lt"></div>
 		    				</div>
 		    				<div class="item-title text-ellipsis">
-		    					<a id="artist5-name" href="track.detail.html"></a>
+		    					<a id="artist5-name" onclick="execSearch(5);"></a>
 		    				</div>
 		    			</div>
 		    		</div>
@@ -323,11 +301,11 @@
 				<h2 class="widget-title h4 m-b">Trending</h2>
         <div class="row item-list item-list-md m-b">
 					    <div id="song1" class="col-sm-4">
-					    	<div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">
+					    	<div class="item r" data-id="item-5" data-src="">
 								<div class="item-media ">
 									<a id="song1-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song1-play" onclick="changePlayerState(0);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -346,11 +324,11 @@
 							</div>
 						</div>
 					    <div id="song2" class="col-sm-4">
-					    	<div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-2" data-src="">
 								<div class="item-media ">
 									<a id="song2-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song2-play" onclick="changePlayerState(1);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -369,11 +347,11 @@
 							</div>
 						</div>
 					    <div id="song3" class="col-sm-4">
-					    	<div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-11" data-src="">
 								<div class="item-media ">
 									<a id="song3-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song3-play" onclick="changePlayerState(2);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -392,11 +370,11 @@
 							</div>
 						</div>
 					    <div id="song4" class="col-sm-4">
-					    	<div class="item r" data-id="item-1" data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-1" data-src="">
 								<div class="item-media ">
 									<a id="song4-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song4-play" onclick="changePlayerState(3);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -415,11 +393,11 @@
 							</div>
 						</div>
 					    <div id="song5" class="col-sm-4">
-					    	<div class="item r" data-id="item-12" data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-12" data-src="">
 								<div class="item-media ">
 									<a id="song5-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song5-play" onclick="changePlayerState(4);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -438,11 +416,11 @@
 							</div>
 						</div>
 					    <div id="song6" class="col-sm-4">
-					    	<div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-4" data-src="">
 								<div class="item-media ">
 									<a id="song6-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song6-play" onclick="changePlayerState(5);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -461,11 +439,11 @@
 							</div>
 						</div>
 					    <div id="song7" class="col-sm-4">
-					    	<div class="item r" data-id="item-7" data-src="http://api.soundcloud.com/tracks/245566366/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-7" data-src="">
 								<div class="item-media ">
 									<a id="song7-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song7-play" onclick="changePlayerState(6);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -484,11 +462,11 @@
 							</div>
 						</div>
 					    <div id="song8" class="col-sm-4">
-					    	<div class="item r" data-id="item-9" data-src="http://api.soundcloud.com/tracks/264094434/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-9" data-src="">
 								<div class="item-media ">
 									<a id="song8-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song8-play" onclick="changePlayerState(7);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -507,11 +485,11 @@
 							</div>
 						</div>
 					    <div id="song9" class="col-sm-4">
-					    	<div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-3" data-src="">
 								<div class="item-media ">
 									<a id="song9-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song9-play" onclick="changePlayerState(8);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -530,11 +508,11 @@
 							</div>
 						</div>
 					    <div id="song10" class="col-sm-4">
-					    	<div class="item r" data-id="item-10" data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+					    	<div class="item r" data-id="item-10" data-src="">
 								<div class="item-media ">
 									<a id="song10-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
 									<div class="item-overlay center">
-										<button  class="btn-playpause">Play</button>
+										<button id="song10-play" onclick="changePlayerState(9);" class="btn-playpause">Play</button>
 									</div>
 								</div>
 								<div class="item-info">
@@ -553,11 +531,11 @@
 							</div>
 						</div>
             <div id="song11" class="col-sm-4">
-              <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-4" data-src="">
               <div class="item-media ">
                 <a id="song11-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                 <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
+                  <button id="song11-play" onclick="changePlayerState(10);" class="btn-playpause">Play</button>
                 </div>
               </div>
               <div class="item-info">
@@ -576,11 +554,11 @@
             </div>
           </div>
             <div id="song12" class="col-sm-4">
-              <div class="item r" data-id="item-7" data-src="http://api.soundcloud.com/tracks/245566366/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-7" data-src="">
               <div class="item-media ">
                 <a id="song12-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
                 <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
+                  <button id="song12-play" onclick="changePlayerState(11);" class="btn-playpause">Play</button>
                 </div>
               </div>
               <div class="item-info">
@@ -599,11 +577,11 @@
             </div>
           </div>
             <div id="song13" class="col-sm-4">
-              <div class="item r" data-id="item-9" data-src="http://api.soundcloud.com/tracks/264094434/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-9" data-src="">
               <div class="item-media ">
                 <a id="song13-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
                 <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
+                  <button id="song13-play" onclick="changePlayerState(12);" class="btn-playpause">Play</button>
                 </div>
               </div>
               <div class="item-info">
@@ -622,11 +600,11 @@
             </div>
           </div>
             <div id="song14" class="col-sm-4">
-              <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-3" data-src="">
               <div class="item-media ">
                 <a id="song14-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
                 <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
+                  <button id="song14-play" onclick="changePlayerState(13);" class="btn-playpause">Play</button>
                 </div>
               </div>
               <div class="item-info">
@@ -645,11 +623,11 @@
             </div>
           </div>
             <div id="song15" class="col-sm-4">
-              <div class="item r" data-id="item-10" data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-10" data-src="">
               <div class="item-media ">
                 <a id="song15-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
                 <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
+                  <button id="song15-play" onclick="changePlayerState(14);" class="btn-playpause">Play</button>
                 </div>
               </div>
               <div class="item-info">
@@ -687,9 +665,6 @@
                 <div class="item r" data-id="item-5" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist6-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -698,7 +673,7 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist6-name" href="track.detail.html"></a>
+                    <a id="artist6-name" onclick="execSearch(6);"></a>
                   </div>
 
 
@@ -709,9 +684,6 @@
                 <div class="item r" data-id="item-7" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist7-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -720,7 +692,7 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist7-name" href="track.detail.html">Reflection (Deluxe)</a>
+                    <a id="artist7-name" onclick="execSearch(7);"></a>
                   </div>
 
 
@@ -728,12 +700,9 @@
               </div>
             </div>
               <div id="artist8" class="">
-                <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-11" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist8-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -742,7 +711,7 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist8-name" href="track.detail.html">Spring</a>
+                    <a id="artist8-name" onclick="execSearch(8);"></a>
                   </div>
 
 
@@ -751,12 +720,9 @@
               </div>
             </div>
               <div id="artist9" class="">
-                <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-3" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist9-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -765,7 +731,7 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist9-name" href="track.detail.html">I Wanna Be In the Cavalry</a>
+                    <a id="artist9-name" onclick="execSearch(9);"></a>
                   </div>
 
 
@@ -773,12 +739,9 @@
               </div>
             </div>
               <div id="artist10" class="">
-                <div class="item r" data-id="item-10" data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-10" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist10-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -787,18 +750,15 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist10-name" href="track.detail.html"></a>
+                    <a id="artist10-name" onclick="execSearch(10);"></a>
                   </div>
                 </div>
               </div>
             </div>
               <div id="artist11" class="">
-                <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-4" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist11-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -807,18 +767,15 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist11-name" href="track.detail.html"></a>
+                    <a id="artist11-name" onclick="execSearch(11);"></a>
                   </div>
                 </div>
               </div>
             </div>
               <div id="artist12" class="">
-                <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-2" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist12-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -827,18 +784,15 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist12-name" href="track.detail.html"></a>
+                    <a id="artist12-name" onclick="execSearch(12);"></a>
                   </div>
                 </div>
               </div>
             </div>
               <div id="artist13" class="">
-                <div class="item r" data-id="item-6" data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                <div class="item r" data-id="item-6" data-src="">
                 <div class="item-media item-media-4by3">
                   <a id="artist13-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b5.jpg');"></a>
-                  <div class="item-overlay center">
-                    <button  class="btn-playpause">Play</button>
-                  </div>
                 </div>
                 <div class="item-info">
                   <div class="item-overlay bottom text-right">
@@ -847,18 +801,15 @@
                     <div class="dropdown-menu pull-right black lt"></div>
                   </div>
                   <div class="item-title text-ellipsis">
-                    <a id="artist13-name" href="track.detail.html"></a>
+                    <a id="artist13-name" onclick="execSearch(13);"></a>
                   </div>
                 </div>
               </div>
             </div>
             <div id="artist14" class="">
-              <div class="item r" data-id="item-6" data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+              <div class="item r" data-id="item-6" data-src="">
               <div class="item-media item-media-4by3">
                 <a id="artist14-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b5.jpg');"></a>
-                <div class="item-overlay center">
-                  <button  class="btn-playpause">Play</button>
-                </div>
               </div>
               <div class="item-info">
                 <div class="item-overlay bottom text-right">
@@ -867,7 +818,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="artist14-name" href="track.detail.html"></a>
+                  <a id="artist14-name" onclick="execSearch(14);"></a>
                 </div>
               </div>
             </div>
@@ -877,11 +828,11 @@
 				<h2 class="widget-title h4 m-b">Upcoming Hits</h2>
 				<div class="row">
           <div id="song16" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song16-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song16-play" onclick="changePlayerState(15);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -900,11 +851,11 @@
           </div>
         </div>
           <div id="song17" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song17-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song17-play" onclick="changePlayerState(16);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -923,11 +874,11 @@
           </div>
         </div>
           <div id="song18" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song18-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song18-play" onclick="changePlayerState(17);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -946,11 +897,11 @@
           </div>
         </div>
           <div id="song19" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song19-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song19-play" onclick="changePlayerState(18);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -969,11 +920,11 @@
           </div>
         </div>
           <div id="song20" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song20-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song20-play" onclick="changePlayerState(19);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -992,11 +943,11 @@
           </div>
         </div>
           <div id="song21" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song21-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song21-play" onclick="changePlayerState(20);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -1015,11 +966,11 @@
           </div>
         </div>
           <div id="song22" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song22-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song22-play" onclick="changePlayerState(21);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -1038,11 +989,11 @@
           </div>
         </div>
           <div id="song23" class="col-xs-4 col-sm-4 col-md-3">
-            <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+            <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
               <a id="song23-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
-                <button  class="btn-playpause">Play</button>
+                <button id="song23-play" onclick="changePlayerState(22);" class="btn-playpause">Play</button>
               </div>
             </div>
             <div class="item-info">
@@ -1337,12 +1288,112 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/site.js"></script>
   <script src="scripts/ajax.js"></script>
+
+  <div id="player1" hidden></div>
+  <div id="player2" hidden></div>
+  <div id="player3" hidden></div>
+  <div id="player4" hidden></div>
+  <div id="player5" hidden></div>
+  <div id="player6" hidden></div>
+  <div id="player7" hidden></div>
+  <div id="player8" hidden></div>
+  <div id="player9" hidden></div>
+  <div id="player10" hidden></div>
+  <div id="player11" hidden></div>
+  <div id="player12" hidden></div>
+  <div id="player13" hidden></div>
+  <div id="player14" hidden></div>
+  <div id="player15" hidden></div>
+  <div id="player16" hidden></div>
+  <div id="player17" hidden></div>
+  <div id="player18" hidden></div>
+  <div id="player19" hidden></div>
+  <div id="player20" hidden></div>
+  <div id="player21" hidden></div>
+  <div id="player22" hidden></div>
+  <div id="player23" hidden></div>
+  <div id="song1-videoId" link="" hidden></div>
+  <div id="song2-videoId" link="" hidden></div>
+  <div id="song3-videoId" link="" hidden></div>
+  <div id="song4-videoId" link="" hidden></div>
+  <div id="song5-videoId" link="" hidden></div>
+  <div id="song6-videoId" link="" hidden></div>
+  <div id="song7-videoId" link="" hidden></div>
+  <div id="song8-videoId" link="" hidden></div>
+  <div id="song9-videoId" link="" hidden></div>
+  <div id="song10-videoId" link="" hidden></div>
+  <div id="song11-videoId" link="" hidden></div>
+  <div id="song12-videoId" link="" hidden></div>
+  <div id="song13-videoId" link="" hidden></div>
+  <div id="song14-videoId" link="" hidden></div>
+  <div id="song15-videoId" link="" hidden></div>
+  <div id="song16-videoId" link="" hidden></div>
+  <div id="song17-videoId" link="" hidden></div>
+  <div id="song18-videoId" link="" hidden></div>
+  <div id="song19-videoId" link="" hidden></div>
+  <div id="song20-videoId" link="" hidden></div>
+  <div id="song21-videoId" link="" hidden></div>
+  <div id="song22-videoId" link="" hidden></div>
+  <div id="song23-videoId" link="" hidden></div>
 <!-- endbuild -->
 </body>
 <script>
   //var carouselArtists = 1;
   var totalArtists = 14;
   var totalSongs = 23;
+
+
+  var player1 = 0;
+  var player2 = 0;
+  var player3 = 0;
+  var player4 = 0;
+  var player5 = 0;
+  var player6 = 0;
+  var player7 = 0;
+  var player8 = 0;
+  var player9 = 0;
+  var player10 = 0;
+  var player11 = 0;
+  var player12 = 0;
+  var player13 = 0;
+  var player14 = 0;
+  var player15 = 0;
+  var player16 = 0;
+  var player17 = 0;
+  var player18 = 0;
+  var player19 = 0;
+  var player20 = 0;
+  var player21 = 0;
+  var player22 = 0;
+  var player23 = 0;
+
+  var aa = 2;
+  var ab = 2;
+  var ac = 2;
+  var ad = 2;
+  var ae = 2;
+  var af = 2;
+  var ag = 2;
+  var ah = 2;
+  var ai = 2;
+  var aj = 2;
+  var ak = 2;
+  var al = 2;
+  var am = 2;
+  var an = 2;
+  var ao = 2;
+  var ap = 2;
+  var aq = 2;
+  var ar = 2;
+  var as = 2;
+  var at = 2;
+  var au = 2;
+  var av = 2;
+  var aw = 2;
+
+
+  var playerArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18, player19, player20, player21, player22, player23];
+  var playerVars = [aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw];
   /*for(var i=0; i < carouselArtists; i++){
     document.getElementById('carousel').innerHTML = document.getElementById('carousel').innerHTML + '<div id="artist' + (i + 1) + '" class="item r" data-id="item-' + (i + 115) + '" data-src=""><div class="item-media primary"><a id="artist' + (i + 1) + '-image" href="track.detail.html" class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div><div class="item-info">' +
     '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" href="track.detail.html"></a></div></div></div>';
@@ -1369,11 +1420,6 @@
   fillDiscoverArtistsContent(totalArtists);
 
 
-
-
-
-
-
   function fillDiscoverSongsContent(numElements) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -1396,6 +1442,128 @@
   }
 
   fillDiscoverSongsContent(totalSongs);
+
+
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+
+
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  function onPlayerStateChange(event) {
+  }
+
+  function checkPlayerStates(playerNum) {
+    for (var i = 0; i < totalSongs; i++) {
+      console.log(i);
+      if ((playerArr[i] != 0) && ((i+1) != playerNum)) {
+        console.log("Entered if statement");
+        (playerArr[i]).seekTo(0, true);
+        (playerArr[i]).pauseVideo();
+        playerVars[i] = 4;
+      }
+    }
+  }
+
+  function instantiateNewPlayer(playerNum) {
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp2 = JSON.parse(this.responseText);
+        //console.log("YouTube API Response: ");
+        console.log(JSON.parse(this.responseText));
+        var idString = "song" + playerNum + "-videoId";
+        console.log(idString);
+        console.log(resp2.videoId);
+
+        document.getElementById(idString).innerHTML = resp2.videoId;
+
+        checkPlayerStates(playerNum);
+
+        var tempVideoId = document.getElementById(idString).innerHTML;
+
+        var playerString = 'player' + playerNum;
+        console.log(playerString);
+        console.log("variable: " + window[playerString]);
+
+        window[playerString] = new YT.Player(playerString, {
+          height: '1',
+          width: '1',
+          videoId: tempVideoId,
+          playerVars: { 'autoplay': 1, 'controls': 0 },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+        console.log("variable: " + window[playerString]);
+        playerArr[(playerNum - 1)] = window[playerString];
+      }
+    }
+
+    var titleString = "song" + playerNum + "-title";
+    var artistString = "song" + playerNum + "-artist";
+
+    var tempTitleString = document.getElementById(titleString).innerHTML;
+    var tempArtistString = document.getElementById(artistString).innerHTML;
+
+    console.log(tempTitleString);
+    console.log(tempArtistString);
+
+    tempTitleString = tempTitleString.replace(/&amp;/, " ");
+    //tempTitleString = titleString.replace(/\&/, " ");
+    tempArtistString = tempArtistString.replace(/&amp;/, " ");
+    //tempArtistString = artistString.replace(/\&/, " ");
+
+    console.log("Output: " + tempTitleString);
+    console.log("Output: " + tempArtistString);
+
+    /*var query = window.location.search.substr(9);
+    console.log(query);
+    query = query.replace(/\+/g, " ")*/
+
+    xmlhttp2.open("GET", "http://localhost:3000/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+    xmlhttp2.send();
+  }
+
+
+  function changePlayerState(num) {
+    if (playerVars[num] == 2) {
+          instantiateNewPlayer((num + 1));
+
+          playerVars[num]++;
+        }
+        else if (playerVars[num] % 2 == 0) {
+          checkPlayerStates((num + 1));
+
+          (playerArr[num]).playVideo();
+          playerVars[num]++;
+        }
+        else {
+          (playerArr[num]).pauseVideo();
+          playerVars[num]++;
+        }
+  }
+
+  function execSearch(artistNum) {
+    var artistNameElementString = "artist" + artistNum + "-name";
+    var artistNameString = document.getElementById(artistNameElementString).innerHTML;
+    artistNameString = artistNameString.replace(/ /g, '+');
+    window.location.assign("http://localhost:3000/search?keyword=" + artistNameString);
+  }
 
 
   //// New Tab Transitions ////

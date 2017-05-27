@@ -88,27 +88,17 @@
                       music_note
                     </i>
                   </span>
-                  <span class="nav-text">Songs</span>
+                  <span class="nav-text">Online</span>
                 </a>
               </li>
               <li>
                 <a href="artists.html">
                   <span class="nav-icon">
                     <i class="material-icons">
-                      portrait
+                      library_music
                     </i>
                   </span>
-                  <span class="nav-text">Artists</span>
-                </a>
-              </li>
-              <li>
-                <a href="albums.html">
-                  <span class="nav-icon">
-                    <i class="material-icons">
-                      texture
-                    </i>
-                  </span>
-                  <span class="nav-text">Albums</span>
+                  <span class="nav-text">Downloaded</span>
                 </a>
               </li>
 
@@ -1231,6 +1221,13 @@
 
     xmlhttp.open("GET","http://localhost:3000/chartContent");
     xmlhttp.send();
+  }
+
+  function execSearch(artistNum) {
+    var artistNameElementString = "artist" + artistNum + "-name";
+    var artistNameString = document.getElementById(artistNameElementString).innerHTML;
+    artistNameString = artistNameString.replace(/ /g, '+');
+    window.location.assign("http://localhost:3000/search?keyword=" + artistNameString);
   }
 
 
