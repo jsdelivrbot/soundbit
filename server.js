@@ -1,81 +1,43 @@
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'soundbit_admin',
+  password : 'weareacompressioncompany',
+  database : 'soundbit'
+});
 
+connection.connect();
 
 var billboard = require("billboard-top-100").getChart;
-//var glob = require('glob')
-//var jQuery = require('./html/libs/jquery/dist/jquery.js')
-//global.jQuery = require('jquery');
-//global.window = require('window');
-//global.app = require('app');
-//require("./html/scripts/*");
-
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
+var bodyParser = require('body-parser')
 
 var port = process.env.PORT || 3000;
 
-// const env = process.env.NODE_ENV || 'production';
 var express = require('express')
 var path = require("path")
 var app = express()
 app.use(express.static(__dirname + '/public'));
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
-//glob.sync( './html/libs/**/dist/js/*.js' ).forEach( function( file ) {
-/*  require( path.resolve( file ) );
-});*/
 
-// date defaults to saturday of this week
-/*
-billboard('hot-100', function(songs, err){
-    if (err) console.log(err);
-    console.log(songs); //prints array of top 100 songs
-    console.log(songs[3]); //prints song with rank: 4
-    console.log(songs[0].title); //prints title of top song
-    console.log(songs[0].artist); //prints artist of top songs
-    console.log(songs[0].rank) //prints rank of top song (1)
-    console.log(songs[0].cover) //prints URL for Billboard cover image of top song
-});
-
-// date format YYYY-MM-DD
-
-billboard('hot-100', '2016-08-27', function(songs, err){
-    if (err) console.log(err);
-    console.log(songs); //prints array of top 100 songs for week of August 27, 2016
-    console.log(songs[3]); //prints song with rank: 4 for week of August 27, 2016
-    console.log(songs[0].title); //prints title of top song for week of August 27, 2016
-    console.log(songs[0].artist); //prints artist of top songs for week of August 27, 2016
-    console.log(songs[0].rank) //prints rank of top song (1) for week of August 27, 2016
-    console.log(songs[0].cover) //prints URL for Billboard cover image of top song for week of August 27, 2016
-    return songs;
-});
-
-// 'all time' chart
-
-billboard('greatest-billboard-200-albums', function(songs, err){
-    if (err) console.log(err);
-    console.log(songs); //prints array of top 200 albums
-    console.log(songs[3]); //prints album with rank: 4
-    console.log(songs[0].title); //prints title of top album
-    console.log(songs[0].artist); //prints artist of top songs
-    console.log(songs[0].rank) //prints rank of top album (1)
-    console.log(songs[0].cover) //prints URL for Billboard cover image of top album
-    return songs;
-});
-
-// list all available charts
-
-var listCharts = require('billboard-top-100').listCharts;
-
-listCharts(function(data){
-    console.log(data['Overall Popularity']); //prints larray of charts in 'Overall Popularity' category
-});
-*/
-
-// start the server
 
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/public/home.html'));
+})
+
+app.get('/signin', function (req, res) {
+  res.sendFile(path.join(__dirname+'/public/signin.html'));
+})
+
+app.get('/signup', function (req, res) {
+  res.sendFile(path.join(__dirname+'/public/signup.html'));
 })
 
 app.get('/search', function (req, res) {
@@ -93,10 +55,54 @@ app.get('/discover', function (req, res) {
   res.sendFile(path.join(__dirname+finalReqString));
 })
 
+app.get('/addUser', function (req, res) {
+  //console.log(req.body.email);
+  //console.log(req.body.password);
+  var email = req.query.email;
+  var password = req.query.password;
+  //console.log(email);
+  //console.log(password);
+
+  var sqlString1 = 'SELECT * FROM soundbit_users WHERE name=\'' + email + '\'';
+  connection.query(sqlString1, function (error, results, fields) {
+    if (error) {
+      throw error;
+    }
+    //console.log('The solution is: ', results[0]);
+    var checkUndef = "" + results[0];
+    if (checkUndef == "undefined") {
+      var sqlString2 = 'INSERT INTO soundbit_users (name, password) VALUES (\'' + email + '\', \'' + password + '\')';
+      connection.query(sqlString2, function (error) {
+        if (error) {
+          throw error;
+        }
+      })
+
+      //res.redirect('http://localhost:3000/discover');
+      console.log("OK");
+      var obj = { body: 'OK' };
+      var myJSON = JSON.stringify(obj);
+      res.send(myJSON);
+    }
+    else {
+      console.log("ERROR: Username taken");
+      var obj = { body: 'ERROR: Username taken' };
+      var myJSON = JSON.stringify(obj);
+      res.send(myJSON);
+    }
+  })
+
+
+
+
+  //var finalReqString = '/public/discover.html';
+  //res.sendFile(path.join(__dirname+finalReqString));
+})
+
 app.get('/downloadSong', function (req, res) {
   //var finalReqString = '/public/discover.html';
   //res.sendFile(path.join(__dirname+finalReqString));
-  
+
 })
 
 app.get('/chartContent', function (req, res) {
