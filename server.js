@@ -144,6 +144,10 @@ app.get('/addUser', function (req, res) {
 app.get('/downloadSong', function (req, res) {
   //var finalReqString = '/public/discover.html';
   //res.sendFile(path.join(__dirname+finalReqString));
+  var name = req.query.name;
+  var artist = req.query.artist;
+  console.log(name);
+  console.log(artist);
 
 })
 
