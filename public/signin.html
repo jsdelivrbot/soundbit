@@ -54,20 +54,23 @@
   </div>
   <div class="b-t">
     <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+      <h6 id="signinfail1" style="background-color: #ef1960;" hidden>Error: Email/password combination invalid.</h6>
+      <h6 id="signinfail2" style="background-color: #ef1960;" hidden>Error: One or more fields left empty.</h6>
+      <h6 id="signinfail3" style="background-color: #ef1960;" hidden>Error: Email address not in use.</h6>
       <div class="p-a-md">
-        <form name="form" action="home.html">
+        <form name="form">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email" required>
+            <input id="email" type="email" class="form-control" placeholder="Email" required>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required>
+            <input id="password" type="password" class="form-control" placeholder="Password" required>
           </div>
           <div class="m-b-md">
             <label class="md-check">
               <input type="checkbox"><i class="primary"></i> Keep me signed in
             </label>
           </div>
-          <button type="submit" class="btn btn-lg black p-x-lg">Sign In</button>
+          <button type="submit" class="btn btn-lg black p-x-lg" onclick="checkIfSignInFailed();">Sign In</button>
         </form>
         <div class="m-y">
           <a href="forgot-password.html" class="_600">Forgot Password?</a>
@@ -115,6 +118,43 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/site.js"></script>
   <script src="scripts/ajax.js"></script>
+
+  <script>
+    function checkIfSignInFailed() {
+      if (document.getElementById("email").value == "" || document.getElementById("password").value == "") {
+        document.getElementById("signinfail2").hidden = false;
+        document.getElementById("signinfail1").hidden = true;
+        document.getElementById("signinfail3").hidden = true;
+      }
+      else {
+        var xmlReq = new XMLHttpRequest();
+        xmlReq.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var resp = JSON.parse(this.responseText);
+            console.log(JSON.parse(this.responseText));
+            if (resp.body == "ERROR: Email address not in use") {
+              console.log("Email address not in use");
+              document.getElementById("signinfail1").hidden = true;
+              document.getElementById("signinfail2").hidden = true;
+              document.getElementById("signinfail3").hidden = false;
+            }
+            else if (resp.body == "ERROR: Email/password combination invalid") {
+              console.log("Email/password combination invalid");
+              document.getElementById("signinfail1").hidden = false;
+              document.getElementById("signinfail2").hidden = true;
+              document.getElementById("signinfail3").hidden = true;
+            }
+            else {
+              window.location.assign("http://localhost:3000/discover");
+            }
+          }
+        };
+
+        xmlReq.open("GET", "http://localhost:3000/authenticateCredentials?email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
+        xmlReq.send();
+      }
+    }
+  </script>
 <!-- endbuild -->
 </body>
 </html>

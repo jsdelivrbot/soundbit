@@ -59,6 +59,36 @@ app.get('/authenticateCredentials', function (req, res) {
   var email = req.query.email;
   var password = req.query.password;
 
+  var sqlString1 = 'SELECT * FROM soundbit_users WHERE email=\'' + email + '\'';
+  connection.query(sqlString1, function (error, results, fields) {
+    if (error) {
+      throw error;
+    }
+    //console.log('The solution is: ', results[0]);
+    var checkUndef = "" + results[0];
+    //console.log(checkUndef);
+    if (checkUndef == "undefined") {
+      console.log("ERROR: Email address not in use");
+      var obj = { body: 'ERROR: Email address not in use' };
+      var myJSON = JSON.stringify(obj);
+      res.send(myJSON);
+    }
+    else {
+      if (password == results[0].password) {
+        console.log("OK");
+        var obj = { body: 'OK' };
+        var myJSON = JSON.stringify(obj);
+        res.send(myJSON);
+      }
+      else {
+        console.log("ERROR: Email/password combination invalid");
+        var obj = { body: 'ERROR: Email/password combination invalid' };
+        var myJSON = JSON.stringify(obj);
+        res.send(myJSON);
+      }
+    }
+  })
+
 
 })
 
@@ -70,10 +100,10 @@ app.get('/addUser', function (req, res) {
   var lastName = req.query.lastName;
   var email = req.query.email;
   var password = req.query.password;
-  console.log(firstName);
-  console.log(lastName);
-  console.log(email);
-  console.log(password);
+  //console.log(firstName);
+  //console.log(lastName);
+  //console.log(email);
+  //console.log(password);
 
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE email=\'' + email + '\'';
   connection.query(sqlString1, function (error, results, fields) {
