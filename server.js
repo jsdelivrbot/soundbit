@@ -15,6 +15,16 @@ var bodyParser = require('body-parser')
 
 var port = process.env.PORT || 3000;
 
+
+var SpotifyWebApi = require('spotify-web-api-node');
+
+// credentials are optional
+var spotifyApi = new SpotifyWebApi({
+  clientId : '62de9dc50722467795cfd0d4056e42aa',
+  clientSecret : '98cffbddc276433da40f3c577290436e',
+  redirectUri : 'http://localhost:3000/callback'
+});
+
 var spawn = require("child_process").spawn;
 const fs = require('fs');
 const ytdl = require('ytdl-core');
@@ -228,6 +238,36 @@ app.get('/discoverArtists', function (req, res) {
 
 app.get('/discoverSongs', function (req, res) {
 
+})
+
+app.get('/callback', function(req, res) {
+
+  /* Read query parameters */
+  var code  = req.query.code; // Read the authorization code from the query parameters
+  var state = req.query.state; // (Optional) Read the state from the query parameter
+  //console.log(code);
+
+  /* Get the access token! */
+  spotifyApi.authorizationCodeGrant(code)
+    .then(function(data) {
+      //console.log(data);
+      console.log('The token expires in ' + data.body.expires_in);
+      console.log('The access token is ' + data.body.access_token);
+      console.log('The refresh token is ' + data.body.refresh_token);
+
+      /* Ok. We've got the access token!
+         Save the access token for this user somewhere so that you can use it again.
+         Cookie? Local storage?
+      */
+      spotifyApi.setAccessToken(data.body.access_token);
+
+      /* Redirecting back to the main page! :-) */
+      res.redirect('/discover');
+
+    }, function(err) {
+      res.status(err.code);
+      res.send(err.message);
+    })
 })
 
 app.get('/searchInfo', function (req, res) {
@@ -460,6 +500,15 @@ app.get('/searchInfo', function (req, res) {
   var song50_artist;
   var song50_album;
   var song50_image;
+
+  spotifyApi.searchTracks(keyword, { limit: 50 })
+  .then(function(data) {
+    console.log('Search for "' + keyword + '"', data.body);
+    console.log(data.body.tracks.items[0]);
+
+  }, function(err) {
+    console.error(err);
+  });
 
   var xmlhttp = new XMLHttpRequest();
   var reqString = "https://api.spotify.com/v1/search?q=" + keyword + "&type=track&limit=50"
