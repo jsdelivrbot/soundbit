@@ -1424,7 +1424,7 @@
     console.log("this:" + this);
     console.log(event.data);
     if (event.data == 0) { // if playback finished
-      instantiateNewPlayer(this + 1);
+      changePlayerState(this);
     }
   }
 
