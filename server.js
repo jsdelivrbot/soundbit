@@ -15,6 +15,7 @@ var bodyParser = require('body-parser')
 
 var port = process.env.PORT || 3000;
 
+var spawn = require("child_process").spawn;
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 var youtubedl = require('youtube-dl');
@@ -165,7 +166,7 @@ app.get('/downloadSong', function (req, res) {
       console.log(fullURL);
       var titleString = artist + " - " + name + ".mp3";
 
-      ytdl(fullURL, { format: 'mp3' }).pipe(fs.createWriteStream(path.join(__dirname+('/songs/'+ titleString))));
+      //ytdl(fullURL, { format: 'mp3' }).pipe(fs.createWriteStream(path.join(__dirname+('/songs/'+ titleString))));
 
 
       /*var video = youtubedl(fullURL,
@@ -184,6 +185,10 @@ app.get('/downloadSong', function (req, res) {
       video.pipe(fs.createWriteStream(titleString));*/
 
 
+
+
+      // call Python script with artist name, song title, and youtube link
+      var process = spawn('python',["parse-mp3.py", artist, name, fullURL]);
 
 
       var obj = { body: "OK" };
