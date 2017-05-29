@@ -15,7 +15,9 @@
     "mysql": "github:mysqljs/mysql",
     "request": "^2.81.0",
     "window": "^3.1.6",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "youtube-dl": "^1.11.1",
+    "ytdl-core": "^0.14.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

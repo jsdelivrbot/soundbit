@@ -15,6 +15,9 @@ var bodyParser = require('body-parser')
 
 var port = process.env.PORT || 3000;
 
+const fs = require('fs');
+const ytdl = require('ytdl-core');
+var youtubedl = require('youtube-dl');
 var express = require('express')
 var path = require("path")
 var app = express()
@@ -148,6 +151,55 @@ app.get('/downloadSong', function (req, res) {
   var artist = req.query.artist;
   console.log(name);
   console.log(artist);
+
+  var xmlhttp4 = new XMLHttpRequest();
+
+  xmlhttp4.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp2 = JSON.parse(this.responseText);
+      //var idString = "song" + playerNum + "-videoId";
+      //console.log(idString);
+      console.log(resp2.videoId);
+      var videoId = resp2.videoId;
+      var fullURL = "https://www.youtube.com/watch?v=" + videoId;
+      console.log(fullURL);
+      var titleString = artist + " - " + name + ".mp3";
+
+      ytdl(fullURL, { format: 'mp3' }).pipe(fs.createWriteStream(path.join(__dirname+('/songs/'+ titleString))));
+
+
+      /*var video = youtubedl(fullURL,
+        // Optional arguments passed to youtube-dl.
+        ['--format=18'],
+        // Additional options can be given for calling `child_process.execFile()`.
+        { cwd: path.join(__dirname + '/songs/') });
+
+      // Will be called when the download starts.
+      video.on('info', function(info) {
+        console.log('Download started');
+        console.log('filename: ' + info.filename);
+        console.log('size: ' + info.size);
+      });
+
+      video.pipe(fs.createWriteStream(titleString));*/
+
+
+
+
+      var obj = { body: "OK" };
+      var myJSON = JSON.stringify(obj);
+      console.log(myJSON);
+      res.send(myJSON);
+    }
+  }
+
+
+
+
+  var reqString = "http://localhost:3000/getVideoId?name=" + name + "&artist=" + artist;
+  console.log(reqString);
+  xmlhttp4.open("GET",reqString);
+  xmlhttp4.send();
 
 })
 
