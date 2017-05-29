@@ -33,6 +33,9 @@
 			var artistString = $( artistIdString ).html();
 			console.log(artistString);
 
+			nameString = nameString.replace(/&amp;/, " ");
+			artistString = artistString.replace(/&amp;/, " ");
+
 
 
 
@@ -52,18 +55,7 @@
 
 			//send get request
 
-      var $dp = $(this).next('.dropdown-menu');
-      if( $dp.html() == "" ){
-        $dp.append('<a class="dropdown-item" href=""><i class="fa fa-download fa-fw text-left"></i> Download</a><a class="dropdown-item" href="#"><i class="fa fa-music fa-fw text-left"></i> Add to Playlist</a><div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fa fa-share-alt fa-fw text-left"></i> Share</a>');
-      }
 
-      if( (e.pageY + $dp.height() + 60) > $('body').height() ){
-        $dp.parent().addClass('dropup');
-      }
-
-      if( e.pageX < $dp.width() ){
-        $dp.removeClass('pull-right');
-      }
 
     });
 
