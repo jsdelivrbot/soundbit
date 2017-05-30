@@ -1356,6 +1356,25 @@
     '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" href="track.detail.html"></a></div></div></div>';
   }*/
 
+  // Get search permissions
+  /*function authSearch() {
+    var searchAuth = new XMLHttpRequest();
+    searchAuth.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp2 = JSON.parse(this.responseText);
+        console.log(resp2);
+      }
+    }
+
+    searchAuth.open("GET", "https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/validate");
+    //searchAuth.setRequestHeader('Access-Control-Allow-Origin', '*');
+    searchAuth.send();
+  }
+
+  authSearch();*/
+
+
+
   function fillDiscoverArtistsContent(numElements) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -1487,9 +1506,9 @@
     console.log(tempTitleString);
     console.log(tempArtistString);
 
-    tempTitleString = tempTitleString.replace(/&amp;/, " ");
+    tempTitleString = tempTitleString.replace(/&amp;/g, " ");
     //tempTitleString = titleString.replace(/\&/, " ");
-    tempArtistString = tempArtistString.replace(/&amp;/, " ");
+    tempArtistString = tempArtistString.replace(/&amp;/g, " ");
     //tempArtistString = artistString.replace(/\&/, " ");
 
     console.log("Output: " + tempTitleString);
@@ -1524,7 +1543,9 @@
 
   function execSearch(artistNum) {
     var artistNameElementString = "artist" + artistNum + "-name";
+    console.log(artistNameElementString);
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
+    console.log(artistNameElementString);
     artistNameString = artistNameString.replace(/ /g, '+');
     window.location.assign("http://localhost:3000/search?keyword=" + artistNameString);
   }

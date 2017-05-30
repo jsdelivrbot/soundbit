@@ -4,7 +4,7 @@
     // btn more
     $(document).on('click.site', '.btn-more', function(e) {
 			var temp = $(this).next();
-			//console.log(temp.attr('id'));
+			console.log(temp.attr('id'));
 			var tempId = temp.attr('id');
 
 			var nameIdString;
