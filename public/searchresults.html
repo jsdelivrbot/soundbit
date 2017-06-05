@@ -876,26 +876,33 @@
       if (this.readyState == 4 && this.status == 200) {
         var resp = JSON.parse(this.responseText);
         console.log(JSON.parse(this.responseText));
-        console.log(resp.song1_name)
 
-        for (var i = 1; i <=50; i++) {
-          var idString = "song" + i;
-          var idStringName = "song" + i + "-title";
-          var nameField = "song" + i + "_name";
-          var idStringArtist = "song" + i + "-artist";
-          var artistField = "song" + i + "_artist";
-          var idStringImage = "song" + i + "-image";
-          var imageField = "song" + i + "_image";
+        if (resp.error == "API error") {
+          console.log("Caught api error");
+          window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback");
+        }
+        else {
+          console.log(resp.song1_name)
 
-          var checkUndef = "" + resp[nameField];
-          //console.log(checkUndef + ", Length=" + checkUndef.length);
-          if (checkUndef != "undefined") {
-            document.getElementById(idStringName).innerHTML = resp[nameField];
-            document.getElementById(idStringArtist).innerHTML = resp[artistField];
-            document.getElementById(idStringImage).style = "background-image: url(\"" + resp[imageField] + "\");";
-          }
-          else {
-            document.getElementById(idString).hidden = true;
+          for (var i = 1; i <=50; i++) {
+            var idString = "song" + i;
+            var idStringName = "song" + i + "-title";
+            var nameField = "song" + i + "_name";
+            var idStringArtist = "song" + i + "-artist";
+            var artistField = "song" + i + "_artist";
+            var idStringImage = "song" + i + "-image";
+            var imageField = "song" + i + "_image";
+
+            var checkUndef = "" + resp[nameField];
+            //console.log(checkUndef + ", Length=" + checkUndef.length);
+            if (checkUndef != "undefined") {
+              document.getElementById(idStringName).innerHTML = resp[nameField];
+              document.getElementById(idStringArtist).innerHTML = resp[artistField];
+              document.getElementById(idStringImage).style = "background-image: url(\"" + resp[imageField] + "\");";
+            }
+            else {
+              document.getElementById(idString).hidden = true;
+            }
           }
         }
 
