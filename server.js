@@ -157,6 +157,38 @@ app.get('/addUser', function (req, res) {
   //res.sendFile(path.join(__dirname+finalReqString));
 })
 
+app.get('/presearch', function (req, res) {
+  /* Read query parameters */
+  var code  = req.query.code; // Read the authorization code from the query parameters
+  //var state = req.query.state; // (Optional) Read the state from the query parameter
+  //console.log(code);
+  var keyword  = req.query.keyword;
+  console.log(keyword);
+  console.log(code);
+
+  /* Get the access token! */
+  spotifyApi.authorizationCodeGrant(code)
+    .then(function(data) {
+      //console.log(data);
+      console.log('The token expires in ' + data.body.expires_in);
+      console.log('The access token is ' + data.body.access_token);
+      console.log('The refresh token is ' + data.body.refresh_token);
+
+      /* Ok. We've got the access token!
+         Save the access token for this user somewhere so that you can use it again.
+         Cookie? Local storage?
+      */
+      spotifyApi.setAccessToken(data.body.access_token);
+
+      /* Redirecting back to the main page! :-) */
+      res.redirect('/search?keyword=' + keyword);
+
+    }, function(err) {
+      res.status(err.code);
+      res.send(err.message);
+    })
+})
+
 app.get('/validate', function (req, res) {
   /* Read query parameters */
   var code  = req.query.code; // Read the authorization code from the query parameters
@@ -864,7 +896,10 @@ app.get('/searchInfo', function (req, res) {
 
   }, function(err) {
     console.error(err);
-
+    var obj = { error: "API error"}
+    var myJSON = JSON.stringify(obj);
+    console.log(myJSON);
+    res.send(myJSON);
   });
 /*
   var xmlhttp = new XMLHttpRequest();

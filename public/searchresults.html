@@ -122,7 +122,7 @@
         <div class="nav-fold dropup">
           <a data-toggle="dropdown">
               <span class="pull-left">
-                <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
+                <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
               </span>
               <span class="clear hidden-folded p-x p-y-xs">
                 <span class="block _500 text-ellipsis">Rachel Platten</span>
@@ -878,38 +878,6 @@
         console.log(JSON.parse(this.responseText));
         console.log(resp.song1_name)
 
-        /*
-        document.getElementById("song1-name").innerHTML = resp.song1_name;
-        document.getElementById("song1-artist").innerHTML = resp.song1_artist;
-        document.getElementById("song1-image").style = "background-image: url(\"" + resp.song1_image + "\");";
-        document.getElementById("song2-name").innerHTML = resp.song2_name;
-        document.getElementById("song2-artist").innerHTML = resp.song2_artist;
-        document.getElementById("song2-image").style = "background-image: url(\"" + resp.song2_image + "\");";
-        document.getElementById("song3-name").innerHTML = resp.song3_name;
-        document.getElementById("song3-artist").innerHTML = resp.song3_artist;
-        document.getElementById("song3-image").style = "background-image: url(\"" + resp.song3_image + "\");";
-        document.getElementById("song4-name").innerHTML = resp.song4_name;
-        document.getElementById("song4-artist").innerHTML = resp.song4_artist;
-        document.getElementById("song4-image").style = "background-image: url(\"" + resp.song4_image + "\");";
-        document.getElementById("song5-name").innerHTML = resp.song5_name;
-        document.getElementById("song5-artist").innerHTML = resp.song5_artist;
-        document.getElementById("song5-image").style = "background-image: url(\"" + resp.song5_image + "\");";
-        document.getElementById("song6-name").innerHTML = resp.song6_name;
-        document.getElementById("song6-artist").innerHTML = resp.song6_artist;
-        document.getElementById("song6-image").style = "background-image: url(\"" + resp.song6_image + "\");";
-        document.getElementById("song7-name").innerHTML = resp.song7_name;
-        document.getElementById("song7-artist").innerHTML = resp.song7_artist;
-        document.getElementById("song7-image").style = "background-image: url(\"" + resp.song7_image + "\");";
-        document.getElementById("song8-name").innerHTML = resp.song8_name;
-        document.getElementById("song8-artist").innerHTML = resp.song8_artist;
-        document.getElementById("song8-image").style = "background-image: url(\"" + resp.song8_image + "\");";
-        document.getElementById("song9-name").innerHTML = resp.song9_name;
-        document.getElementById("song9-artist").innerHTML = resp.song9_artist;
-        document.getElementById("song9-image").style = "background-image: url(\"" + resp.song9_image + "\");";
-        document.getElementById("song10-name").innerHTML = resp.song10_name;
-        document.getElementById("song10-artist").innerHTML = resp.song10_artist;
-        document.getElementById("song10-image").style = "background-image: url(\"" + resp.song10_image + "\");";
-        */
         for (var i = 1; i <=50; i++) {
           var idString = "song" + i;
           var idStringName = "song" + i + "-title";
@@ -1138,18 +1106,27 @@
     var tempArtistString = document.getElementById(artistString).innerHTML;
 
     tempTitleString = tempTitleString.replace(/&amp;/g, " ");
+    tempTitleString = tempTitleString.replace(/-/g, " ");
     //tempTitleString = titleString.replace(/\&/, " ");
     tempArtistString = tempArtistString.replace(/&amp;/g, " ");
-    console.log(tempTitleString);
-    console.log(tempArtistString);
+    tempArtistString = tempArtistString.replace(/-/g, " ");
+    console.log("Title: " + tempTitleString);
+    console.log("Artist: " + tempArtistString);
 
     xmlhttp2.open("GET", "http://localhost:3000/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
     xmlhttp2.send();
   }
 
+  function switchCurrentSongImage(temp) {
+    var sty = "" + (document.getElementById("song" + (temp + 1) + "-image").style).cssText;
+    document.getElementById("currentSongImage").src = sty.substring(23, sty.length - 3);
+    console.log(sty);
+    console.log(sty.substring(23, sty.length - 3));
+  }
 
   function changePlayerState(num) {
     if (playerVars[num] == 2) {
+          switchCurrentSongImage(num);
           instantiateNewPlayer((num + 1));
 
           playerVars[num]++;
