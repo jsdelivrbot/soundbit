@@ -12,6 +12,7 @@ var billboard = require("billboard-top-100").getChart;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
 var bodyParser = require('body-parser')
+var http = require('http')
 
 var port = process.env.PORT || 3000;
 
@@ -29,6 +30,9 @@ var spawn = require("child_process").spawn;
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 var youtubedl = require('youtube-dl');
+var YTDL = require('node-youtube-dl');
+
+
 var cors = require('cors')
 var express = require('express')
 var path = require("path")
@@ -41,6 +45,21 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(cors())
+
+/*
+http.createServer(function(request, response) {
+    response.writeHead(200, {
+        'Content-Type': 'audio/mp3'
+    });
+
+    let YTDL = require('node-youtube-dl')
+    YTDL.download('nkqVm5aiC28', '720').then(function(Stream){
+      Stream.pipe(response)
+    }).catch(function(){
+      console.log(arguments[0])
+    })
+})
+.listen(2000);*/
 
 
 
@@ -259,18 +278,27 @@ app.get('/downloadSong', function (req, res) {
       });
 
       video.pipe(fs.createWriteStream(titleString));*/
+      /*
+      var xmlhttp5 = new XMLHttpRequest();
 
+      xmlhttp5.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var obj = { body: "OK" };
+          var myJSON = JSON.stringify(obj);
+          console.log(myJSON);
+          res.send(myJSON);
+        }
+      }
+
+      xmlhttp5.open("GET","http://localhost:80/");
+      xmlhttp5.send();*/
+      console.log("Here");
 
 
 
       // call Python script with artist name, song title, and youtube link
-      var process = spawn('python',["parse-mp3.py", artist, name, fullURL]);
 
-
-      var obj = { body: "OK" };
-      var myJSON = JSON.stringify(obj);
-      console.log(myJSON);
-      res.send(myJSON);
+      //var process = spawn('python',["parse-mp3.py", artist, name, fullURL]);
     }
   }
 

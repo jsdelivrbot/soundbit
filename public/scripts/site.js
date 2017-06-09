@@ -54,6 +54,26 @@
 			xmlhttp.send();
 
 			//send get request
+			/*http.get({
+				hostname: 'localhost',
+				port: 2000,
+				path: '/',
+				agent: false  // create a new agent just for this one request
+			}, (res) => {
+				console.log(res);
+				//res.download();
+			});*/
+
+			var xmlhttp8 = new XMLHttpRequest();
+			xmlhttp8.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var resp = JSON.parse(this.responseText);
+					console.log(resp);
+				}
+			};
+
+			xmlhttp8.open("GET", "http://localhost:2000/");
+			xmlhttp8.send();
 
 
 
