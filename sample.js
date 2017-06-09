@@ -22,8 +22,8 @@ var app = connect()
         let YTDL = require('node-youtube-dl')
         YTDL.download(videoId, '140').then(function(Stream){
           response.writeHead(200, {
-              'Content-Type': 'audio/mp3',
-              'Content-Disposition': 'attachment; filename=' + filename + '.mp3'
+              'Content-Type': 'audio/m4a',
+              'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
           });
           //response.write(JSON.stringify(Stream))
           Stream.pipe(response);
