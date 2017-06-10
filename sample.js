@@ -19,7 +19,7 @@ var app = connect()
       console.log(filename);
 
       if (parsedFiles.indexOf(videoId) === -1) {
-        let YTDL = require('node-youtube-dl')
+        /*let YTDL = require('node-youtube-dl')
         YTDL.download(videoId, '140').then(function(Stream){
           response.writeHead(200, {
               'Content-Type': 'audio/m4a',
@@ -32,7 +32,27 @@ var app = connect()
           parsedFiles.push(videoId);
         }).catch(function(){
           console.log(arguments[0])
+        });*/
+        var youtubedl = require('youtube-dl');
+        var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
+          // Optional arguments passed to youtube-dl.
+          ['--format=18'],
+          // Additional options can be given for calling `child_process.execFile()`.
+          { cwd: __dirname });
+
+        // Will be called when the download starts.
+        video.on('info', function(info) {
+          console.log('Download started');
+          console.log('filename: ' + info.filename);
+          console.log('size: ' + info.size);
         });
+
+        response.writeHead(200, {
+            'Content-Type': 'audio/m4a',
+            'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
+        });
+
+        video.pipe(response);
       }
       else {
         console.log("skip this");

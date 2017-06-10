@@ -1273,12 +1273,24 @@ app.get('/getVideoId', function (req, res) {
       console.log(resp2.items[0]);
       //var idString = "song" + playerNum + "-videoId";
       //console.log(idString);
-      console.log((resp2.items[0]).id.videoId);
 
-      var obj = { videoId: (resp2.items[0]).id.videoId };
-      var myJSON = JSON.stringify(obj);
-      console.log(myJSON);
-      res.send(myJSON);
+      if ((resp2.items[0])) {
+        console.log((resp2.items[0]).id.videoId);
+
+        var obj = { videoId: (resp2.items[0]).id.videoId };
+        var myJSON = JSON.stringify(obj);
+        console.log(myJSON);
+        res.send(myJSON);
+      }
+      else {
+        console.log("Failed to retrieve videoId");
+
+        var obj = { videoId: "ERR" };
+        var myJSON = JSON.stringify(obj);
+        console.log(myJSON);
+        res.send(myJSON);
+      }
+
     }
   }
 
