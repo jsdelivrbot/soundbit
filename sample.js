@@ -70,8 +70,7 @@ var app = connect()
       }
       else {
         console.log("skip this");
-        //response.writeHead(404);
-        response.write('');
+
       }
     }
 
