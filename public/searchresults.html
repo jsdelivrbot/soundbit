@@ -146,10 +146,10 @@
         <!-- / navbar right -->
       </div>
     </div>
-    <div id="temp1" class="app-footer app-player grey bg">
+    <div id="temp1" class="app-footer app-player grey bg" hidden>
       <div id="temp2" class="playlist" style="width:100%"></div>
     </div>
-    <div class="app-body" id="view">
+    <div class="app-body" id="view" style="background-color:black;">
 
 <!-- ############ PAGE START-->
 
@@ -182,11 +182,11 @@
                   </div>
               </div>
             </form>
-            <div data-flex-no-shrink style="width:25%;float:right;margin-top:-1.7%">
+            <div data-flex-no-shrink style="width:25%;float:right;margin-top:-3.5%">
               <div class="nav-fold dropdown">
                 <a data-toggle="dropdown">
                   <span class="clear hidden-folded p-x p-y-xs" style="float:right;">
-                    <span id="username" class="block _500 text-ellipsis">Rachel Platten</span>
+                    <span id="username" class="block _500 text-ellipsis"></span>
                   </span>
                     <span class="pull-left" style="float:right;">
                       <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
@@ -212,80 +212,6 @@
         </div>
         <div class="page-title m-b">
           <h1 class="inline m-a-0" id="titleContent">Search results for ""</h1>
-          <div class="dropdown inline">
-            <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">All</button>
-            <div class="dropdown-menu">
-              <a href="#" class="dropdown-item active">
-                All
-              </a>
-              <a href="#" class="dropdown-item">
-                acoustic
-              </a>
-              <a href="#" class="dropdown-item">
-                ambient
-              </a>
-              <a href="#" class="dropdown-item">
-                blues
-              </a>
-              <a href="#" class="dropdown-item">
-                classical
-              </a>
-              <a href="#" class="dropdown-item">
-                country
-              </a>
-              <a href="#" class="dropdown-item">
-                electronic
-              </a>
-              <a href="#" class="dropdown-item">
-                emo
-              </a>
-              <a href="#" class="dropdown-item">
-                folk
-              </a>
-              <a href="#" class="dropdown-item">
-                hardcore
-              </a>
-              <a href="#" class="dropdown-item">
-                hip hop
-              </a>
-              <a href="#" class="dropdown-item">
-                indie
-              </a>
-              <a href="#" class="dropdown-item">
-                jazz
-              </a>
-              <a href="#" class="dropdown-item">
-                latin
-              </a>
-              <a href="#" class="dropdown-item">
-                metal
-              </a>
-              <a href="#" class="dropdown-item">
-                pop
-              </a>
-              <a href="#" class="dropdown-item">
-                pop punk
-              </a>
-              <a href="#" class="dropdown-item">
-                punk
-              </a>
-              <a href="#" class="dropdown-item">
-                reggae
-              </a>
-              <a href="#" class="dropdown-item">
-                rnb
-              </a>
-              <a href="#" class="dropdown-item">
-                rock
-              </a>
-              <a href="#" class="dropdown-item">
-                soul
-              </a>
-              <a href="#" class="dropdown-item">
-                world
-              </a>
-            </div>
-          </div>
         </div>
         <div id="topList" class="row item-list item-list-md item-list-li m-b">
           <div class="col-xs-12" id="song1"><div class="item r" data-id="item-1" data-src=""><div class="item-media "><a id="song1-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
@@ -917,6 +843,10 @@ function setVideoId(playerNum) {
   xmlhttp2.send();
 }
 
+/*  function blockDoublePress(num) {
+    document.getElementById(num).style = "pointer-events: none;cursor: default;";
+  }*/
+
 
 
 
@@ -1025,6 +955,12 @@ function setVideoId(playerNum) {
             }
             modProgBar(currentPlayer);
         }
+
+        console.log("dif:" + (currentPlayer.getDuration() - currentPlayer.getCurrentTime()))
+        if ((currentPlayer.getDuration() - currentPlayer.getCurrentTime()) < 2) {
+          console.log("Next");
+          document.getElementById("nextButton").click();
+        }
     }, 1000); // Run for each second
   }
 
@@ -1075,7 +1011,9 @@ function setVideoId(playerNum) {
 
         //var styleCurrentProgress = 'style="width: ' + 1385*(cur/dur) + 'px;"';
 
-        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><button class="mejs-like-button btn btn-sm no-bg btn-icon" track-id="item-1"></button></div><a class="mejs-track-artwork" href="track.detail.html" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a href="track.detail.html">' + tempTitleString + '</a></span><span class="mejs-track-author"><a href="artist.detail.html">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div class="mejs-button mejs-previous-button mejs-previous"><button type="button" aria-controls="mep_0" title="Previous Track"></button></div><div id="currentPlayerState" class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div class="mejs-button mejs-next-button mejs-next"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div><div class="mejs-button mejs-repeat-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Repeat"></button></div><div class="mejs-button mejs-shuffle-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Shuffle"></button></div></div><div class="mejs-clear"></div></div>';
+        document.getElementById("temp1").hidden = false;
+
+        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><a onclick="proxyDownload(' + this + ')" id="' + this + '" class="fa fa-cloud-download"></a></button></div><a class="mejs-track-artwork" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a>' + tempTitleString + '</a></span><span class="mejs-track-author"><a onclick="execSearchSong(' + this + ')">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div id="currentPlayerState" onclick="changePlayerState(' + (this - 1) + ');" class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div id="nextButton" class="mejs-button mejs-next-button mejs-next" onclick="changePlayerState(' + (this) + ');"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" onclick="adjustCurrentTime(' + (this - 1) +')" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div></div><div class="mejs-clear"></div></div>';
 
         startCounter(playerArr[this - 1]);
 
@@ -1088,10 +1026,15 @@ function setVideoId(playerNum) {
       document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-play");
     }
     if (event.data == 0) { // if playback finished
-      //instantiateNewPlayer(this + 1);
-      //playerVars[this]++;
       changePlayerState(this);
+      //document.getElementById("nextButton").click();
+      //instantiateNewPlayer(this + 1);
     }
+  }
+
+  function proxyDownload(num) {
+    console.log(num);
+    document.getElementById(num).click();
   }
 
   var totalSongs = 50;
@@ -1278,7 +1221,10 @@ function setVideoId(playerNum) {
   }
 
   function changePlayerState(num) {
-    if (playerVars[num] == 2) {
+    if (num < 0) {
+      console.log("Invalid index");
+    }
+    else if (playerVars[num] == 2) {
           switchCurrentSongImage(num);
           instantiateNewPlayer((num + 1));
 
@@ -1294,6 +1240,17 @@ function setVideoId(playerNum) {
           (playerArr[num]).pauseVideo();
           playerVars[num]++;
         }
+  }
+
+  function adjustCurrentTime(num) {
+    var x = event.clientX - 56;
+    console.log(x);
+    var dur = playerArr[num].getDuration();
+    dur = Math.round(dur);
+    var newPercentage = x*1.0 / 1385*1.0;
+    console.log(newPercentage);
+
+    playerArr[num].seekTo(dur*newPercentage, true);
   }
 
   //// New Tab Transitions ////

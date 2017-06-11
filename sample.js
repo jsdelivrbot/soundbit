@@ -66,7 +66,6 @@ var app = connect()
         });*/
         //parsedFiles.push(videoId);
         video.pipe(response);
-        parsedFiles.push(videoId);
       }
       else {
         console.log("skip this");

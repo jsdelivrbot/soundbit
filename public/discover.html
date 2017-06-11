@@ -144,10 +144,10 @@
         <!-- / navbar right -->
       </div>
     </div>
-    <div id="temp1" class="app-footer app-player grey bg">
+    <div id="temp1" class="app-footer app-player grey bg" hidden>
       <div id="temp2" class="playlist" style="width:100%"></div>
     </div>
-    <div class="app-body" id="view">
+    <div class="app-body" id="view" style="background-color:black;">
 
 <!-- ############ PAGE START-->
 
@@ -179,11 +179,11 @@
               </div>
           </div>
         </form>
-        <div data-flex-no-shrink style="width:25%;float:right;margin-top:-1.7%">
+        <div data-flex-no-shrink style="width:25%;float:right;margin-top:-3.5%">
           <div class="nav-fold dropdown">
             <a data-toggle="dropdown">
               <span class="clear hidden-folded p-x p-y-xs" style="float:right;">
-                <span id="username" class="block _500 text-ellipsis">Rachel Platten</span>
+                <span id="username" class="block _500 text-ellipsis"></span>
               </span>
                 <span class="pull-left" style="float:right;">
                   <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
@@ -212,15 +212,15 @@
 		</div>
 		<div class="row row-sm item-masonry item-info-overlay">
 			<div class="col-sm-6 text-white m-b-sm">
-                      <div id="artist1" class="item r" data-id="item-115" data-src=""><div class="item-media primary"><a id="artist1-image" href="track.detail.html" class="item-media-content" style=""></a></div>
+                      <div id="artist1" onclick="execSearch(1);" class="item r" data-id="item-115" data-src=""><div class="item-media primary"><a id="artist1-image"  class="item-media-content" style=""></a></div>
                       <div class="item-info">
                         <div class="item-title text-ellipsis">
                             <a id="artist1-name" onclick="execSearch(1);"></a></div></div></div>
 		    </div>
-		        <div id="artist2" class="col-sm-3 col-xs-6">
+		        <div id="artist2" class="col-sm-3 col-xs-6" onclick="execSearch(2);">
 		        	<div class="item r" data-id="item-1" data-src="">
 		    			<div class="item-media ">
-		    				<a id="artist2-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+		    				<a id="artist2-image"  class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-title text-ellipsis">
@@ -229,10 +229,10 @@
 		    			</div>
 		    		</div>
 		    	</div>
-		        <div id="artist3" class="col-sm-3 col-xs-6">
+		        <div id="artist3" onclick="execSearch(3);" class="col-sm-3 col-xs-6">
 		        	<div class="item r" data-id="item-2" data-src="">
 		    			<div class="item-media ">
-		    				<a id="artist3-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
+		    				<a id="artist3-image"  class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-title text-ellipsis">
@@ -241,10 +241,10 @@
 		    			</div>
 		    		</div>
 		    	</div>
-		        <div id="artist4" class="col-sm-3 col-xs-6">
+		        <div id="artist4" onclick="execSearch(4);" class="col-sm-3 col-xs-6">
 		        	<div class="item r" data-id="item-3" data-src="">
 		    			<div class="item-media ">
-		    				<a id="artist4-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+		    				<a id="artist4-image"  class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-title text-ellipsis">
@@ -253,10 +253,10 @@
 		    			</div>
 		    		</div>
 		    	</div>
-		        <div id="artist5" class="col-sm-3 col-xs-6">
+		        <div id="artist5" onclick="execSearch(5);" class="col-sm-3 col-xs-6">
 		        	<div class="item r" data-id="item-4" data-src="">
 		    			<div class="item-media ">
-		    				<a id="artist5-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
+		    				<a id="artist5-image"  class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
 		    			</div>
 		    			<div class="item-info">
 		    				<div class="item-title text-ellipsis">
@@ -276,7 +276,7 @@
 					    <div id="song1" class="col-sm-4">
 					    	<div class="item r" data-id="item-5" data-src="">
 								<div class="item-media ">
-									<a id="song1-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
+									<a id="song1-image" onclick="execSearchSong(1);" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song1-play" onclick="changePlayerState(0);" class="btn-playpause">Play</button>
 									</div>
@@ -289,7 +289,7 @@
                     <div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song1-title" href="track.detail.html"></a>
+										<a id="song1-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song1-artist" onclick="execSearchSong(1);" class="text-muted"></a>
@@ -300,7 +300,7 @@
 					    <div id="song2" class="col-sm-4">
 					    	<div class="item r" data-id="item-2" data-src="">
 								<div class="item-media ">
-									<a id="song2-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
+									<a id="song2-image" onclick="execSearchSong(2);" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song2-play" onclick="changePlayerState(1);" class="btn-playpause">Play</button>
 									</div>
@@ -313,7 +313,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song2-title" href="track.detail.html"></a>
+										<a id="song2-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song2-artist" onclick="execSearchSong(2);" class="text-muted"></a>
@@ -324,7 +324,7 @@
 					    <div id="song3" class="col-sm-4">
 					    	<div class="item r" data-id="item-11" data-src="">
 								<div class="item-media ">
-									<a id="song3-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
+									<a id="song3-image" onclick="execSearchSong(3);" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song3-play" onclick="changePlayerState(2);" class="btn-playpause">Play</button>
 									</div>
@@ -337,7 +337,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song3-title" href="track.detail.html"></a>
+										<a id="song3-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song3-artist" onclick="execSearchSong(3);" class="text-muted"></a>
@@ -348,7 +348,7 @@
 					    <div id="song4" class="col-sm-4">
 					    	<div class="item r" data-id="item-1" data-src="">
 								<div class="item-media ">
-									<a id="song4-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
+									<a id="song4-image" onclick="execSearchSong(4);" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song4-play" onclick="changePlayerState(3);" class="btn-playpause">Play</button>
 									</div>
@@ -361,7 +361,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song4-title" href="track.detail.html"></a>
+										<a id="song4-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song4-artist" onclick="execSearchSong(4);" class="text-muted"></a>
@@ -372,7 +372,7 @@
 					    <div id="song5" class="col-sm-4">
 					    	<div class="item r" data-id="item-12" data-src="">
 								<div class="item-media ">
-									<a id="song5-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
+									<a id="song5-image" onclick="execSearchSong(5);" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song5-play" onclick="changePlayerState(4);" class="btn-playpause">Play</button>
 									</div>
@@ -385,7 +385,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song5-title" href="track.detail.html"></a>
+										<a id="song5-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song5-artist" onclick="execSearchSong(5);" class="text-muted"></a>
@@ -396,7 +396,7 @@
 					    <div id="song6" class="col-sm-4">
 					    	<div class="item r" data-id="item-4" data-src="">
 								<div class="item-media ">
-									<a id="song6-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
+									<a id="song6-image" onclick="execSearchSong(6);" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song6-play" onclick="changePlayerState(5);" class="btn-playpause">Play</button>
 									</div>
@@ -409,7 +409,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song6-title" href="track.detail.html"></a>
+										<a id="song6-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song6-artist" onclick="execSearchSong(6);" class="text-muted"></a>
@@ -420,7 +420,7 @@
 					    <div id="song7" class="col-sm-4">
 					    	<div class="item r" data-id="item-7" data-src="">
 								<div class="item-media ">
-									<a id="song7-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
+									<a id="song7-image" onclick="execSearchSong(7);" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song7-play" onclick="changePlayerState(6);" class="btn-playpause">Play</button>
 									</div>
@@ -433,7 +433,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song7-title" href="track.detail.html"></a>
+										<a id="song7-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song7-artist" onclick="execSearchSong(7);" class="text-muted"></a>
@@ -444,7 +444,7 @@
 					    <div id="song8" class="col-sm-4">
 					    	<div class="item r" data-id="item-9" data-src="">
 								<div class="item-media ">
-									<a id="song8-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
+									<a id="song8-image" onclick="execSearchSong(8);" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song8-play" onclick="changePlayerState(7);" class="btn-playpause">Play</button>
 									</div>
@@ -457,7 +457,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song8-title" href="track.detail.html"></a>
+										<a id="song8-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song8-artist" onclick="execSearchSong(8);" class="text-muted"></a>
@@ -468,7 +468,7 @@
 					    <div id="song9" class="col-sm-4">
 					    	<div class="item r" data-id="item-3" data-src="">
 								<div class="item-media ">
-									<a id="song9-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+									<a id="song9-image" onclick="execSearchSong(9);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song9-play" onclick="changePlayerState(8);" class="btn-playpause">Play</button>
 									</div>
@@ -481,7 +481,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song9-title" href="track.detail.html"></a>
+										<a id="song9-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song9-artist" onclick="execSearchSong(9);" class="text-muted"></a>
@@ -492,7 +492,7 @@
 					    <div id="song10" class="col-sm-4">
 					    	<div class="item r" data-id="item-10" data-src="">
 								<div class="item-media ">
-									<a id="song10-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
+									<a id="song10-image" onclick="execSearchSong(10);" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
 									<div class="item-overlay center">
 										<button id="song10-play" onclick="changePlayerState(9);" class="btn-playpause">Play</button>
 									</div>
@@ -505,7 +505,7 @@
 										<div class="dropdown-menu pull-right black lt"></div>
 									</div>
 									<div class="item-title text-ellipsis">
-										<a id="song10-title" href="track.detail.html"></a>
+										<a id="song10-title" ></a>
 									</div>
 									<div class="item-author text-sm text-ellipsis ">
 										<a id="song10-artist" onclick="execSearchSong(10);" class="text-muted"></a>
@@ -516,7 +516,7 @@
             <div id="song11" class="col-sm-4">
               <div class="item r" data-id="item-4" data-src="">
               <div class="item-media ">
-                <a id="song11-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
+                <a id="song11-image" onclick="execSearchSong(11);" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                 <div class="item-overlay center">
                   <button id="song11-play" onclick="changePlayerState(10);" class="btn-playpause">Play</button>
                 </div>
@@ -529,7 +529,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="song11-title" href="track.detail.html"></a>
+                  <a id="song11-title" ></a>
                 </div>
                 <div class="item-author text-sm text-ellipsis ">
                   <a id="song11-artist" onclick="execSearchSong(11);" class="text-muted"></a>
@@ -540,7 +540,7 @@
             <div id="song12" class="col-sm-4">
               <div class="item r" data-id="item-7" data-src="">
               <div class="item-media ">
-                <a id="song12-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
+                <a id="song12-image" onclick="execSearchSong(12);" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
                 <div class="item-overlay center">
                   <button id="song12-play" onclick="changePlayerState(11);" class="btn-playpause">Play</button>
                 </div>
@@ -553,7 +553,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="song12-title" href="track.detail.html"></a>
+                  <a id="song12-title" ></a>
                 </div>
                 <div class="item-author text-sm text-ellipsis ">
                   <a id="song12-artist" onclick="execSearchSong(12);" class="text-muted"></a>
@@ -564,7 +564,7 @@
             <div id="song13" class="col-sm-4">
               <div class="item r" data-id="item-9" data-src="">
               <div class="item-media ">
-                <a id="song13-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
+                <a id="song13-image" onclick="execSearchSong(13);" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
                 <div class="item-overlay center">
                   <button id="song13-play" onclick="changePlayerState(12);" class="btn-playpause">Play</button>
                 </div>
@@ -577,7 +577,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="song13-title" href="track.detail.html"></a>
+                  <a id="song13-title" ></a>
                 </div>
                 <div class="item-author text-sm text-ellipsis ">
                   <a id="song13-artist" onclick="execSearchSong(13);" class="text-muted"></a>
@@ -588,7 +588,7 @@
             <div id="song14" class="col-sm-4">
               <div class="item r" data-id="item-3" data-src="">
               <div class="item-media ">
-                <a id="song14-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+                <a id="song14-image" onclick="execSearchSong(14);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
                 <div class="item-overlay center">
                   <button id="song14-play" onclick="changePlayerState(13);" class="btn-playpause">Play</button>
                 </div>
@@ -601,7 +601,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="song14-title" href="track.detail.html"></a>
+                  <a id="song14-title" ></a>
                 </div>
                 <div class="item-author text-sm text-ellipsis ">
                   <a id="song14-artist" onclick="execSearchSong(14);" class="text-muted"></a>
@@ -612,7 +612,7 @@
             <div id="song15" class="col-sm-4">
               <div class="item r" data-id="item-10" data-src="">
               <div class="item-media ">
-                <a id="song15-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
+                <a id="song15-image" onclick="execSearchSong(15);" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
                 <div class="item-overlay center">
                   <button id="song15-play" onclick="changePlayerState(14);" class="btn-playpause">Play</button>
                 </div>
@@ -625,7 +625,7 @@
                   <div class="dropdown-menu pull-right black lt"></div>
                 </div>
                 <div class="item-title text-ellipsis">
-                  <a id="song15-title" href="track.detail.html"></a>
+                  <a id="song15-title" ></a>
                 </div>
                 <div class="item-author text-sm text-ellipsis ">
                   <a id="song15-artist" onclick="execSearchSong(15);" class="text-muted"></a>
@@ -773,7 +773,7 @@
           <div id="song16" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song16-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song16-image" onclick="execSearchSong(16);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song16-play" onclick="changePlayerState(15);" class="btn-playpause">Play</button>
               </div>
@@ -786,7 +786,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song16-title" href="track.detail.html"></a>
+                <a id="song16-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song16-artist" onclick="execSearchSong(16);" class="text-muted"></a>
@@ -797,7 +797,7 @@
           <div id="song17" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song17-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song17-image" onclick="execSearchSong(17);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song17-play" onclick="changePlayerState(16);" class="btn-playpause">Play</button>
               </div>
@@ -810,7 +810,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song17-title" href="track.detail.html"></a>
+                <a id="song17-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song17-artist" onclick="execSearchSong(17);" class="text-muted"></a>
@@ -821,7 +821,7 @@
           <div id="song18" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song18-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song18-image" onclick="execSearchSong(18);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song18-play" onclick="changePlayerState(17);" class="btn-playpause">Play</button>
               </div>
@@ -834,7 +834,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song18-title" href="track.detail.html"></a>
+                <a id="song18-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song18-artist" onclick="execSearchSong(18);" class="text-muted"></a>
@@ -845,7 +845,7 @@
           <div id="song19" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song19-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song19-image" onclick="execSearchSong(19);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song19-play" onclick="changePlayerState(18);" class="btn-playpause">Play</button>
               </div>
@@ -858,7 +858,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song19-title" href="track.detail.html"></a>
+                <a id="song19-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song19-artist" onclick="execSearchSong(19);" class="text-muted"></a>
@@ -869,7 +869,7 @@
           <div id="song20" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song20-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song20-image" onclick="execSearchSong(20);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song20-play" onclick="changePlayerState(19);" class="btn-playpause">Play</button>
               </div>
@@ -882,7 +882,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song20-title" href="track.detail.html"></a>
+                <a id="song20-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song20-artist" onclick="execSearchSong(20);" class="text-muted"></a>
@@ -893,7 +893,7 @@
           <div id="song21" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song21-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song21-image" onclick="execSearchSong(21);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song21-play" onclick="changePlayerState(20);" class="btn-playpause">Play</button>
               </div>
@@ -906,7 +906,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song21-title" href="track.detail.html"></a>
+                <a id="song21-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song21-artist" onclick="execSearchSong(21);" class="text-muted"></a>
@@ -917,7 +917,7 @@
           <div id="song22" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song22-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song22-image" onclick="execSearchSong(22);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song22-play" onclick="changePlayerState(21);" class="btn-playpause">Play</button>
               </div>
@@ -930,7 +930,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song22-title" href="track.detail.html"></a>
+                <a id="song22-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song22-artist" onclick="execSearchSong(22);" class="text-muted"></a>
@@ -941,7 +941,7 @@
           <div id="song23" class="col-xs-4 col-sm-4 col-md-3">
             <div class="item r" data-id="item-3" data-src="">
             <div class="item-media ">
-              <a id="song23-image" href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+              <a id="song23-image" onclick="execSearchSong(23);" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
               <div class="item-overlay center">
                 <button id="song23-play" onclick="changePlayerState(22);" class="btn-playpause">Play</button>
               </div>
@@ -954,7 +954,7 @@
                 <div class="dropdown-menu pull-right black lt"></div>
               </div>
               <div class="item-title text-ellipsis">
-                <a id="song23-title" href="track.detail.html"></a>
+                <a id="song23-title" ></a>
               </div>
               <div class="item-author text-sm text-ellipsis ">
                 <a id="song23-artist" onclick="execSearchSong(23);" class="text-muted"></a>
@@ -1006,11 +1006,11 @@
                           <div class="col-xs-12">
                           	<div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                       			<div class="item-media ">
-                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+                      				<a  class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
                       			</div>
                       			<div class="item-info">
                       				<div class="item-title text-ellipsis">
-                      					<a href="track.detail.html">I Wanna Be In the Cavalry</a>
+                      					<a >I Wanna Be In the Cavalry</a>
                       				</div>
                       				<div class="item-author text-sm text-ellipsis ">
                       					<a href="artist.detail.html" class="text-muted">Jeremy Scott</a>
@@ -1025,11 +1025,11 @@
                           <div class="col-xs-12">
                           	<div class="item r" data-id="item-6" data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                       			<div class="item-media ">
-                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b5.jpg');"></a>
+                      				<a  class="item-media-content" style="background-image: url('images/b5.jpg');"></a>
                       			</div>
                       			<div class="item-info">
                       				<div class="item-title text-ellipsis">
-                      					<a href="track.detail.html">Body on me</a>
+                      					<a >Body on me</a>
                       				</div>
                       				<div class="item-author text-sm text-ellipsis ">
                       					<a href="artist.detail.html" class="text-muted">Rita Ora</a>
@@ -1044,11 +1044,11 @@
                           <div class="col-xs-12">
                           	<div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                       			<div class="item-media ">
-                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
+                      				<a  class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                       			</div>
                       			<div class="item-info">
                       				<div class="item-title text-ellipsis">
-                      					<a href="track.detail.html">Fireworks</a>
+                      					<a >Fireworks</a>
                       				</div>
                       				<div class="item-author text-sm text-ellipsis ">
                       					<a href="artist.detail.html" class="text-muted">Kygo</a>
@@ -1063,11 +1063,11 @@
                           <div class="col-xs-12">
                           	<div class="item r" data-id="item-7" data-src="http://api.soundcloud.com/tracks/245566366/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                       			<div class="item-media ">
-                      				<a href="track.detail.html" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
+                      				<a  class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
                       			</div>
                       			<div class="item-info">
                       				<div class="item-title text-ellipsis">
-                      					<a href="track.detail.html">Reflection (Deluxe)</a>
+                      					<a >Reflection (Deluxe)</a>
                       				</div>
                       				<div class="item-author text-sm text-ellipsis ">
                       					<a href="artist.detail.html" class="text-muted">Fifth Harmony</a>
@@ -1308,6 +1308,14 @@
     xmlhttp.send();
   }
   getUsername();
+
+  function switchCurrentSongImage(temp) {
+    var sty = "" + (document.getElementById("song" + (temp + 1) + "-image").style).cssText;
+    document.getElementById("currentSongImage").src = sty.substring(23, sty.length - 3);
+    console.log(sty);
+    console.log(sty.substring(23, sty.length - 3));
+  }
+
   //var carouselArtists = 1;
   var totalArtists = 14;
   var totalSongs = 23;
@@ -1365,8 +1373,8 @@
   var playerArr = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18, player19, player20, player21, player22, player23];
   var playerVars = [aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw];
   /*for(var i=0; i < carouselArtists; i++){
-    document.getElementById('carousel').innerHTML = document.getElementById('carousel').innerHTML + '<div id="artist' + (i + 1) + '" class="item r" data-id="item-' + (i + 115) + '" data-src=""><div class="item-media primary"><a id="artist' + (i + 1) + '-image" href="track.detail.html" class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div><div class="item-info">' +
-    '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" href="track.detail.html"></a></div></div></div>';
+    document.getElementById('carousel').innerHTML = document.getElementById('carousel').innerHTML + '<div id="artist' + (i + 1) + '" class="item r" data-id="item-' + (i + 115) + '" data-src=""><div class="item-media primary"><a id="artist' + (i + 1) + '-image"  class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div><div class="item-info">' +
+    '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" ></a></div></div></div>';
   }*/
 
   // Get search permissions
@@ -1478,6 +1486,12 @@
             }
             modProgBar(currentPlayer);
         }
+
+        console.log("dif:" + (currentPlayer.getDuration() - currentPlayer.getCurrentTime()))
+        if ((currentPlayer.getDuration() - currentPlayer.getCurrentTime()) < 2) {
+          console.log("Next");
+          document.getElementById("nextButton").click();
+        }
     }, 1000); // Run for each second
   }
 
@@ -1522,19 +1536,47 @@
         var dur = (playerArr[this - 1]).getDuration();
         var mins = Math.floor(dur / 60);
         var secs = Math.round(dur % 60);
+        if (secs < 10) {
+          secs = "0" + secs;
+        }
 
         //var styleCurrentProgress = 'style="width: ' + 1385*(cur/dur) + 'px;"';
 
-        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><button class="mejs-like-button btn btn-sm no-bg btn-icon" track-id="item-1"></button></div><a class="mejs-track-artwork" href="track.detail.html" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a href="track.detail.html">' + tempTitleString + '</a></span><span class="mejs-track-author"><a href="artist.detail.html">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div class="mejs-button mejs-previous-button mejs-previous"><button type="button" aria-controls="mep_0" title="Previous Track"></button></div><div class="mejs-button mejs-playpause-button mejs-play"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div class="mejs-button mejs-next-button mejs-next"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div><div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_0" title="Mute" aria-label="Mute"></button><a href="javascript:void(0);" class="mejs-volume-slider" style="display: none;" aria-label="volumeSlider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80%" role="slider" tabindex="0"><span class="mejs-offscreen">Use Up/Down Arrow keys to increase or decrease volume.</span><div class="mejs-volume-total"></div><div class="mejs-volume-current" style="height: 80px; top: 28px;"></div><div class="mejs-volume-handle" style="top: 25px;"></div></a></div><div class="mejs-button mejs-repeat-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Repeat"></button></div><div class="mejs-button mejs-shuffle-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Shuffle"></button></div><div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist is-closed"><button type="button" aria-controls="mep_0" title="Toggle Playlist"></button></div></div><div class="mejs-clear"></div></div>';
+        document.getElementById("temp1").hidden = false;
+
+        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><a onclick="proxyDownload(' + this + ')" id="' + this + '" class="fa fa-cloud-download"></a></button></div><a class="mejs-track-artwork" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a>' + tempTitleString + '</a></span><span class="mejs-track-author"><a onclick="execSearchSong(' + this + ')">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div id="currentPlayerState" onclick="changePlayerState(' + (this - 1) + ');" class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div id="nextButton" class="mejs-button mejs-next-button mejs-next" onclick="changePlayerState(' + (this) + ');"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" onclick="adjustCurrentTime(' + (this - 1) +')" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div></div><div class="mejs-clear"></div></div>';
 
         startCounter(playerArr[this - 1]);
 
+        document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 1 && durationHasBeenLoaded == 1) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 2) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-play");
     }
     if (event.data == 0) { // if playback finished
-      //instantiateNewPlayer(this + 1);
-      //playerVars[this]++;
       changePlayerState(this);
+      //document.getElementById("nextButton").click();
+      //instantiateNewPlayer(this + 1);
     }
+  }
+
+  function proxyDownload(num) {
+    console.log(num);
+    document.getElementById(num).click();
+  }
+
+  function adjustCurrentTime(num) {
+    var x = event.clientX - 56;
+    console.log(x);
+    var dur = playerArr[num].getDuration();
+    dur = Math.round(dur);
+    var newPercentage = x*1.0 / 1385*1.0;
+    console.log(newPercentage);
+
+    playerArr[num].seekTo(dur*newPercentage, true);
   }
 
   function checkPlayerStates(playerNum) {
@@ -1616,7 +1658,11 @@
 
 
   function changePlayerState(num) {
-    if (playerVars[num] == 2) {
+    if (num < 0) {
+      console.log("Invalid index");
+    }
+    else if (playerVars[num] == 2) {
+          switchCurrentSongImage(num);
           instantiateNewPlayer((num + 1));
 
           playerVars[num]++;

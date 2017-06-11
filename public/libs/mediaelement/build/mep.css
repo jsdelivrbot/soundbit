@@ -423,7 +423,7 @@
 .mejs-controls .mejs-time{
 	opacity: 0.5;
 	position: absolute;
-	right: 90px;
+	right: 5px;
 }
 
 .mejs-controls div.mejs-playpause-button{
