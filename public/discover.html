@@ -1566,40 +1566,7 @@
 
   function proxyDownload(num) {
     console.log(num);
-    //document.getElementById(num).click();
-    var xmlhttp2 = new XMLHttpRequest();
-    xmlhttp2.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        var resp2 = JSON.parse(this.responseText);
-        //console.log("YouTube API Response: ");
-        console.log(JSON.parse(this.responseText));
-      }
-    }
-
-    var titleString = "song" + num + "-title";
-    var artistString = "song" + num + "-artist";
-
-    var tempTitleString = document.getElementById(titleString).innerHTML;
-    var tempArtistString = document.getElementById(artistString).innerHTML;
-
-    console.log(tempTitleString);
-    console.log(tempArtistString);
-
-    tempTitleString = tempTitleString.replace(/&amp;/g, " ");
-    //tempTitleString = titleString.replace(/\&/, " ");
-    tempArtistString = tempArtistString.replace(/&amp;/g, " ");
-    //tempArtistString = artistString.replace(/\&/, " ");
-
-    console.log("Output: " + tempTitleString);
-    console.log("Output: " + tempArtistString);
-
-    /*var query = window.location.search.substr(9);
-    console.log(query);
-    query = query.replace(/\+/g, " ")*/
-
-    xmlhttp2.open("GET", "http://localhost:2000?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString);
-    xmlhttp2.send();
-
+    document.getElementById(num).click();
   }
 
   function setVideoId(playerNum) {
