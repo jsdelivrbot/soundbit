@@ -124,7 +124,7 @@
                 <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
               </span>
               <span class="clear hidden-folded p-x p-y-xs">
-                <span class="block _500 text-ellipsis">Rachel Platten</span>
+                <span id="username" class="block _500 text-ellipsis">Name</span>
               </span>
           </a>
           <div class="dropdown-menu w dropdown-menu-scale ">
@@ -1288,9 +1288,26 @@
   <div id="song21-videoId" link="" hidden></div>
   <div id="song22-videoId" link="" hidden></div>
   <div id="song23-videoId" link="" hidden></div>
+
+  <link rel="stylesheet" href="/dist/bundle.css">
 <!-- endbuild -->
 </body>
 <script>
+  function getUsername() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+        console.log(JSON.parse(this.responseText));
+
+        document.getElementById("username").innerHTML = resp.username;
+      }
+    };
+
+    xmlhttp.open("GET","http://localhost:3000/getUsername");
+    xmlhttp.send();
+  }
+  getUsername();
   //var carouselArtists = 1;
   var totalArtists = 14;
   var totalSongs = 23;

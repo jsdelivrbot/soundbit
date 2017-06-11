@@ -186,7 +186,7 @@
               <div class="nav-fold dropdown">
                 <a data-toggle="dropdown">
                   <span class="clear hidden-folded p-x p-y-xs" style="float:right;">
-                    <span class="block _500 text-ellipsis">Rachel Platten</span>
+                    <span id="username" class="block _500 text-ellipsis">Rachel Platten</span>
                   </span>
                     <span class="pull-left" style="float:right;">
                       <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
@@ -1169,6 +1169,21 @@
 </body>
 
 <script>
+function getUsername() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+
+      document.getElementById("username").innerHTML = resp.username;
+    }
+  };
+
+  xmlhttp.open("GET","http://localhost:3000/getUsername");
+  xmlhttp.send();
+}
+getUsername();
 
 function setVideoId(playerNum) {
   var titleString = "song" + playerNum + "-title";

@@ -18,6 +18,7 @@ var app = connect()
       console.log(videoId);
       console.log(filename);
 
+      console.log(parsedFiles);
       if (parsedFiles.indexOf(videoId) === -1) {
         /*let YTDL = require('node-youtube-dl')
         YTDL.download(videoId, '140').then(function(Stream){
@@ -33,6 +34,8 @@ var app = connect()
         }).catch(function(){
           console.log(arguments[0])
         });*/
+        //parsedFiles.push(videoId);
+        console.log(parsedFiles);
         var youtubedl = require('youtube-dl');
         var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
           // Optional arguments passed to youtube-dl.
@@ -51,12 +54,13 @@ var app = connect()
             'Content-Type': 'audio/m4a',
             'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
         });
-
+        //parsedFiles.push(videoId);
         video.pipe(response);
+        parsedFiles.push(videoId);
       }
       else {
         console.log("skip this");
-        //response.sendStatus(200);
+        //response.writeHead(404);
       }
     }
 
@@ -64,8 +68,5 @@ var app = connect()
 
 var server = http.createServer(app);
 server.listen(2000, function(request, response) {
-    console.log(request);
-    console.log('server is listening');
-    //response.send("hi");
-
+    console.log('Converter active on Port 2000');
 });
