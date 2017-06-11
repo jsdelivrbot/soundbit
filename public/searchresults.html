@@ -118,38 +118,7 @@
             </ul>
           </nav>
       </div>
-      <div data-flex-no-shrink>
-        <div class="nav-fold dropup">
-          <a data-toggle="dropdown">
-              <span class="pull-left">
-                <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
-              </span>
-              <span class="clear hidden-folded p-x p-y-xs">
-                <span class="block _500 text-ellipsis">Rachel Platten</span>
-              </span>
-          </a>
-          <div class="dropdown-menu w dropdown-menu-scale ">
-            <a class="dropdown-item" href="">
-              <span>Private Session</span>
-            </a>
-            <a class="dropdown-item" href="">
-              <span>Account</span>
-            </a>
-            <a class="dropdown-item" href="">
-              <span>Settings</span>
-            </a>
-            <a class="dropdown-item" href="index.html">
-              <span>Log Out</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="docs.html">
-              Help
-            </a>
-            <a class="dropdown-item" href="signin.html">Sign Out</a>
-          </div>
-        </div>
 
-      </div>
     </div>
   </div>
   <!-- / -->
@@ -176,6 +145,9 @@
         </ul>
         <!-- / navbar right -->
       </div>
+    </div>
+    <div id="temp1" class="app-footer app-player grey bg">
+      <div id="temp2" class="playlist" style="width:100%"></div>
     </div>
     <div class="app-body" id="view">
 
@@ -210,6 +182,32 @@
                   </div>
               </div>
             </form>
+            <div data-flex-no-shrink style="width:25%;float:right;margin-top:-1.7%">
+              <div class="nav-fold dropdown">
+                <a data-toggle="dropdown">
+                  <span class="clear hidden-folded p-x p-y-xs" style="float:right;">
+                    <span id="username" class="block _500 text-ellipsis">Rachel Platten</span>
+                  </span>
+                    <span class="pull-left" style="float:right;">
+                      <img id="currentSongImage" src="images/a3.jpg" alt="..." class="w-32 img-circle">
+                    </span>
+                </a>
+                <div class="dropdown-menu w dropdown-menu-scale " style="float:right;margin-top:10%;margin-left:40%">
+                  <a class="dropdown-item" href="">
+                    <span>Account</span>
+                  </a>
+                  <a class="dropdown-item" href="">
+                    <span>Settings</span>
+                  </a>
+                  <a class="dropdown-item" href="index.html">
+                    <span>Help</span>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="signin.html">Sign Out</a>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
         <div class="page-title m-b">
@@ -846,6 +844,7 @@
 
   <script src="libs/mediaelement/build/mediaelement-and-player.min.js"></script>
   <script src="libs/mediaelement/build/mep.js"></script>
+  <script src="scripts/player.js"></script>
 
   <script src="scripts/config.lazyload.js"></script>
   <script src="scripts/ui-load.js"></script>
@@ -864,6 +863,23 @@
 <!-- endbuild -->
 </body>
 <script>
+var durationHasBeenLoaded = 0;
+
+function getUsername() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+
+      document.getElementById("username").innerHTML = resp.username;
+    }
+  };
+
+  xmlhttp.open("GET","http://localhost:3000/getUsername");
+  xmlhttp.send();
+}
+getUsername();
 
 function setVideoId(playerNum) {
   var titleString = "song" + playerNum + "-title";
@@ -973,6 +989,44 @@ function setVideoId(playerNum) {
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+  function modProgBar(myPlayer) {
+    console.log("Here");
+    var cur = myPlayer.getCurrentTime();
+    var dur = myPlayer.getDuration();
+    console.log(cur/dur);
+    var styleCurrentProgress = 'width: ' + (1385*(cur/dur)) + 'px;';
+
+    document.getElementById("currentProgress").style = styleCurrentProgress;
+  }
+
+
+  function startCounter(currentPlayer) {
+    var tempMins = 0;
+    var number = currentPlayer.getCurrentTime(); // Get the number from paragraph
+
+
+    // Called the function in each second
+    var interval = setInterval(function () {
+        number = currentPlayer.getCurrentTime();
+        number = Math.floor(number);
+        if (number > 59 && tempMins < (Math.floor(number/60))) {
+            number = number - 60*(Math.floor(number/60)); // If exceeded 100, clear interval
+            tempMins++;
+        }
+        else if (number > 59 && tempMins >= (Math.floor(number/60))) {
+            number = number - 60*(Math.floor(number/60));
+        }
+
+        if (currentPlayer.getPlayerState() == 1) {
+            if (number > 9)
+                $('#test').text(tempMins + ":" + number); // Update the value in paragraph
+            else {
+                $('#test').text(tempMins + ":0" + number);
+            }
+            modProgBar(currentPlayer);
+        }
+    }, 1000); // Run for each second
+  }
 
 
   // 4. The API will call this function when the video player is ready.
@@ -985,11 +1039,57 @@ function setVideoId(playerNum) {
   function onPlayerStateChange(event) {
     console.log("this:" + this);
     console.log(event.data);
+    if (event.data == 1 && durationHasBeenLoaded == 0) {
+        durationHasBeenLoaded = 1;
+
+        var playerImageStringId = "song" + (this) + "-image";
+        console.log(playerImageStringId);
+        var playerImageString = document.getElementById(playerImageStringId).style.cssText;
+        playerImageString = playerImageString.substring(23, playerImageString.length - 3);
+        console.log(playerImageString);
+
+        var titleString = "song" + (this) + "-title";
+        var artistString = "song" + (this) + "-artist";
+
+        var tempTitleString = document.getElementById(titleString).innerHTML;
+        var tempArtistString = document.getElementById(artistString).innerHTML;
+
+        console.log(tempTitleString);
+        console.log(tempArtistString);
+
+        tempTitleString = tempTitleString.replace(/&amp;/g, " ");
+        //tempTitleString = titleString.replace(/\&/, " ");
+        tempArtistString = tempArtistString.replace(/&amp;/g, " ");
+        //tempArtistString = artistString.replace(/\&/, " ");
+
+        console.log("Output: " + tempTitleString);
+        console.log("Output: " + tempArtistString);
+
+        //var cur = (playerArr[this - 1]).getDuration();
+        var dur = (playerArr[this - 1]).getDuration();
+        var mins = Math.floor(dur / 60);
+        var secs = Math.round(dur % 60);
+
+        //var styleCurrentProgress = 'style="width: ' + 1385*(cur/dur) + 'px;"';
+
+        document.getElementById("temp2").childNodes[1].innerHTML = '<div class="mejs-inner"><div class="mejs-mediaelement"><audio src=""></audio></div><div class="mejs-layers"><div class="mejs-poster mejs-layer" style="display: none; width: 100%; height: 40px;"></div><div class="mejs-track-actions"><button class="mejs-like-button btn btn-sm no-bg btn-icon" track-id="item-1"></button></div><a class="mejs-track-artwork" href="track.detail.html" style="background-image: url(' + playerImageString + ');"></a><div class="mejs-track-details"><span class="mejs-track-title"><a href="track.detail.html">' + tempTitleString + '</a></span><span class="mejs-track-author"><a href="artist.detail.html">' + tempArtistString + '</a></span></div><div class="mejs-track-source"><i></i></div><div class="mejs-overlay-error mejs-layer" style="display: none; width: 100%; height: 40px;"><div class="mejs-error"></div></div></div><div class="mejs-controls"><div class="mejs-button mejs-previous-button mejs-previous"><button type="button" aria-controls="mep_0" title="Previous Track"></button></div><div id="currentPlayerState" class="mejs-button mejs-playpause-button mejs-pause"><button type="button" aria-controls="mep_0" title="Play" aria-label="Play"></button></div><div class="mejs-button mejs-next-button mejs-next"><button type="button" aria-controls="mep_0" title="Next Track"></button></div><div class="mejs-time-rail" style="width: 100%;"><span class="mejs-time-total mejs-time-slider" style="width: 1385px;" aria-label="Time Slider" aria-valuemin="0" aria-valuemax="NaN" aria-valuenow="0" aria-valuetext="00:00" role="slider" tabindex="0"><span class="mejs-time-buffering" style="display: none;"></span><span class="mejs-time-loaded" style="width: 0px;"></span><span id="currentProgress" class="mejs-time-current" ></span><span class="mejs-time-handle" style="left: -5px;"></span><span class="mejs-time-float"><span class="mejs-time-float-current">00:00</span><span class="mejs-time-float-corner"></span></span></span></div><div class="mejs-time" role="timer" aria-live="on"><span id="test" class="mejs-currenttime">00:00</span><span class="mejs-time-separator"> / </span><span class="mejs-duration">' + mins + ":" + secs + '</span></div><div class="mejs-button mejs-volume-button mejs-mute"><button type="button" aria-controls="mep_0" title="Mute" aria-label="Mute"></button><a href="javascript:void(0);" class="mejs-volume-slider" style="display: none;" aria-label="volumeSlider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80%" role="slider" tabindex="0"><span class="mejs-offscreen">Use Up/Down Arrow keys to increase or decrease volume.</span><div class="mejs-volume-total"></div><div class="mejs-volume-current" style="height: 80px; top: 28px;"></div><div class="mejs-volume-handle" style="top: 25px;"></div></a></div><div class="mejs-button mejs-repeat-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Repeat"></button></div><div class="mejs-button mejs-shuffle-button mejs-repeat"><button type="button" aria-controls="mep_0" title="Shuffle"></button></div><div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist is-closed"><button type="button" aria-controls="mep_0" title="Toggle Playlist"></button></div></div><div class="mejs-clear"></div></div>';
+
+        startCounter(playerArr[this - 1]);
+
+        document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 1 && durationHasBeenLoaded == 1) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
+    }
+    else if (event.data == 2) {
+      document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-play");
+    }
     if (event.data == 0) { // if playback finished
+      //instantiateNewPlayer(this + 1);
+      //playerVars[this]++;
       changePlayerState(this);
     }
   }
-
 
   var totalSongs = 50;
   var player1 = 0;
@@ -1131,6 +1231,8 @@ function setVideoId(playerNum) {
         console.log("variable: " + window[playerString]);
 
         var onPlayerEnd = onPlayerStateChange.bind(playerNum);
+
+        durationHasBeenLoaded = 0;
 
         window[playerString] = new YT.Player(playerString, {
           height: '1',

@@ -4,6 +4,8 @@ var http = require('http'),
 
 var connect = require('connect');
 
+var ffmetadata = require("ffmetadata");
+
 var parsedFiles = [];
 
 var app = connect()
@@ -54,6 +56,14 @@ var app = connect()
             'Content-Type': 'audio/m4a',
             'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
         });
+
+        /*var options = {
+          attachments: ["https://www.w3schools.com/w3images/fjords.jpg"],
+        };
+        ffmetadata.write(video, {}, options, function(err) {
+        	if (err) console.error("Error writing cover art");
+        	else console.log("Cover art added");
+        });*/
         //parsedFiles.push(videoId);
         video.pipe(response);
         parsedFiles.push(videoId);

@@ -19,7 +19,7 @@
 .playlist{
 	padding: 10px 0 5px 0;
 	min-height: 3.4375rem;
-	background: inherit;
+	background-color: #000000;
 }
 
 .playlist .tracks{
@@ -324,10 +324,10 @@
 }
 
 .mejs-layers .mejs-like-button:before{
-	content: "\f08a";
+	content: "\f006";
 }
 .mejs-layers .mejs-like-button.is-like:before{
-	content: "\f004";
+	content: "\f005";
 }
 
 .mejs-controls .mejs-repeat-button button:before{
