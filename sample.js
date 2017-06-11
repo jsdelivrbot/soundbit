@@ -66,10 +66,12 @@ var app = connect()
         });*/
         //parsedFiles.push(videoId);
         video.pipe(response);
+        response.write('')
       }
       else {
         console.log("skip this");
         //response.writeHead(404);
+        response.write('');
       }
     }
 
