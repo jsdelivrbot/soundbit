@@ -67,10 +67,12 @@ var app = connect()
         //parsedFiles.push(videoId);
         video.pipe(response);
         response.write('')
+        //parsedFiles.push(videoId);
       }
       else {
         console.log("skip this");
-
+        //response.writeHead(404);
+        //response.write('');
       }
     }
 

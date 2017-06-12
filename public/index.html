@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>pulse - Music, Audio and Radio web application</title>
-  <meta name="description" content="Music, Musician, Bootstrap" />
+  <title>soundbit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- for ios 7 style, multi-resolution icon of 152x152 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
-  <link rel="apple-touch-icon" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
   <meta name="apple-mobile-web-app-title" content="Flatkit">
   <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
   <meta name="mobile-web-app-capable" content="yes">
-  <link rel="shortcut icon" sizes="196x196" href="images/logo.png">
+  <link rel="shortcut icon" sizes="196x196" href="images/icon.png">
 
   <!-- style -->
   <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
@@ -42,38 +41,29 @@
 
   <!-- content -->
   <div id="content" class="app-content" role="main">
-    <div class="app-header navbar-md black box-shadow-z1">
+    <div class="app-header navbar-md black box-shadow-z1" style="background-color:#000000;">
         <div class="navbar" data-pjax>
               <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
                 <i class="material-icons">menu</i>
               </a>
               <!-- brand -->
-              <a href="index.html" class="navbar-brand md">
-              	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
-              		<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>
-              		<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>
-              		<circle cx="24" cy="24" r="10" fill="#ffffff"/>
-              		<circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>
-              		<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
-              		<circle cx="24" cy="24" r="3" fill="#000000"/>
-              	</svg>
-
-              	<img src="images/logo.png" alt="." class="hide">
-              	<span class="hidden-folded inline">pulse</span>
+              <a href="/" class="navbar-brand md">
+              	<img src="images/s_logo_small.png" style="width:15px; height:auto;" alt=".">
+              	<span class="hidden-folded inline" style="color:white;vertical-align:2px">soundbit</span>
               </a>
               <!-- / brand -->
 
               <!-- nabar right -->
               <ul class="nav navbar-nav pull-right">
                 <li class="nav-item">
-                  <a href="signup.html" class="nav-link">
-                    Signup
+                  <a href="/signup" class="nav-link">
+                    Sign Up
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="signin.html" class="nav-link">
+                  <a href="/signin" class="nav-link">
                     <span class="btn btn-sm rounded primary _600">
-                      Signin
+                      Sign In
                     </span>
                   </a>
                 </li>
@@ -81,27 +71,6 @@
               <!-- / navbar right -->
 
               <!-- navbar collapse -->
-              <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
-                <!-- link and dropdown -->
-                <ul class="nav navbar-nav nav-md inline text-primary-hover">
-                  <li class="nav-item">
-                    <a href="home.html" class="nav-link">
-                      <span class="nav-text">Site</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="player.html" class="nav-link">
-                      <span class="nav-text">Web App</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="rtl.html" class="nav-link">
-                      <span class="nav-text">Rtl</span>
-                    </a>
-                  </li>
-                </ul>
-                <!-- / link and dropdown -->
-              </div>
               <!-- / navbar collapse -->
         </div>
     </div>
@@ -110,19 +79,19 @@
 <!-- ############ PAGE START-->
 
 
-<div class="owl-carousel black owl-theme owl-dots-bottom-center" data-ui-jp="owlCarousel" data-ui-options="{
+<div class="owl-carousel black owl-theme owl-dots-hidden" style="background-color:#000000;" data-ui-jp="owlCarousel" data-ui-options="{
              items: 1
             ,loop: true
-            ,autoplay: true
-            ,nav: true
+            ,autoplay: false
+            ,nav: false
           }">
-	<div class="row-col">
+	<div class="row-col" style="background-image:url('images/s_logo_small.png');background-repeat: no-repeat;background-position: center;">
 		<div class="col-lg-2"></div>
 		<div class="col-lg-8 text-center">
 			<div class="p-a-lg">
-				<h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
-				<h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
-				<a href="home.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it now</a>
+				<h2 class="display-4 m-y-lg">Enjoy the world's music.</h2>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+				<a href="/signup" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get Started</a>
 			</div>
 		</div>
 		<div class="col-lg-2"></div>
@@ -150,6 +119,29 @@
 		<div class="col-lg-2"></div>
 	</div>
 </div>
+
+<div class="row-col dark-white" style="background-image:url('images/cloudyalt.jpg');background-repeat: no-repeat;background-position: center;background-size: 100% auto;">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="p-a-lg text-center">
+			<h3 class="display-4 m-y-lg">Stream and download all the songs you love - for free.</h3>
+			<p class="text-muted text-md m-b-lg">Soundbit dynamically sources your music from all corners of the internet, allowing you to instantly access and store any song in the world.</p>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+<div class="row-col dark-white" style="background-color:black;"> <!--style="background-image:url('images/firelights.jpg');background-repeat: no-repeat;background-position: center;background-size: 100% auto;"-->
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<div class="p-a-lg text-center">
+			<h3 class="display-4 m-y-lg" style="color:white;">We're not big fans of ads - or wasting money.</h3>
+			<p class="text-md m-b-lg" style="opacity: .5;color:white;">That's why we decided to build a streaming platform optimized purely for the enjoyment of music. No advertisements, no monthly fees, just you and your music.</p>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
 <div class="row-col">
 	<div class="col-sm-6">
 		<div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
@@ -171,17 +163,7 @@
 	</div>
 </div>
 
-<div class="row-col dark-white">
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
-		<div class="p-a-lg text-center">
-			<h3 class="display-4 m-y-lg">Light, Grey, Dark, Black themes</h3>
-			<p class="text-muted text-md m-b-lg">Config any blocks with any colors</p>
-			<a href="home.html" class="btn circle btn-outline b-black m-b-lg p-x-md">Try Settings</a>
-		</div>
-	</div>
-	<div class="col-md-3"></div>
-</div>
+
 
 <div class="black cover" data-stellar-background-ratio="0.5" style="background-image: url('images/b10.jpg');">
 	<div class="row-col">

@@ -65,6 +65,7 @@
   opacity: 0.3;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  display: none;
 }
 
 .owl-theme .owl-dots .owl-dot.active span{
