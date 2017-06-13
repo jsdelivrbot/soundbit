@@ -37,6 +37,9 @@ var YTDL = require('node-youtube-dl');
 var cors = require('cors')
 var express = require('express')
 var path = require("path")
+
+var spotifyToken;
+
 var app = express()
 app.use(express.static(__dirname + '/public'));
 
@@ -65,6 +68,14 @@ const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d8
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/public/home.html'));
 })
+
+app.get('/albums', function (req, res) {
+  billboard('billboard-200', function(songs, err){
+      if (err) console.log(err);
+      console.log(songs)
+  });
+})
+
 
 app.get('/unauthorized', function (req, res) {
   res.sendFile(path.join(__dirname+'/public/unauthorized.html'));
@@ -110,6 +121,19 @@ app.get('/discover', function (req, res) {
     res.redirect('/unauthorized');
   }
   else {
+    spotifyApi.getMe()
+      .then(function(data) {
+        console.log('Some information about the authenticated user', data.body.id);
+        spotifyApi.getUserPlaylists(data.body.id)
+        .then(function(data) {
+          console.log('Retrieved playlists', data.body);
+        },function(err) {
+          console.log('Something went wrong!', err);
+        });
+      }, function(err) {
+        console.log('Something went wrong!', err);
+      });
+
     var finalReqString = '/public/discover.html';
     res.sendFile(path.join(__dirname+finalReqString));
   }
@@ -240,7 +264,7 @@ app.get('/validate', function (req, res) {
   /* Get the access token! */
   spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
-      //console.log(data);
+      console.log(data.body);
       console.log('The token expires in ' + data.body.expires_in);
       console.log('The access token is ' + data.body.access_token);
       console.log('The refresh token is ' + data.body.refresh_token);
@@ -313,7 +337,7 @@ app.get('/callback', function(req, res) {
   /* Get the access token! */
   spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
-      //console.log(data);
+      console.log(data.body);
       console.log('The token expires in ' + data.body.expires_in);
       console.log('The access token is ' + data.body.access_token);
       console.log('The refresh token is ' + data.body.refresh_token);
