@@ -16,6 +16,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "ffmetadata": "^1.4.0",
+    "itunes-search": "^1.0.1",
     "mysql": "github:mysqljs/mysql",
     "node-youtube-dl": "0.0.2",
     "request": "^2.81.0",

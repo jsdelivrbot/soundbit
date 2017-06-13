@@ -9,6 +9,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+var itunes = require('itunes-search');
 var billboard = require("billboard-top-100").getChart;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
@@ -74,6 +75,23 @@ app.get('/albums', function (req, res) {
       if (err) console.log(err);
       console.log(songs)
   });
+
+  var xmlhttp9 = new XMLHttpRequest();
+
+  xmlhttp9.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp2 = JSON.parse(this.responseText);
+      console.log(resp2);
+      var obj = { body: resp2 };
+      var myJSON = JSON.stringify(obj);
+      res.send(myJSON);
+    }
+  }
+
+  var reqString = "https://itunes.apple.com/search?term=gorillaz&limit=50&entity=song";
+  console.log(reqString);
+  xmlhttp9.open("GET",reqString);
+  xmlhttp9.send();
 })
 
 
