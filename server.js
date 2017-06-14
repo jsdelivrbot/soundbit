@@ -112,7 +112,7 @@ app.get('/search', function (req, res) {
   console.log(req.session.id);
   console.log(req.session.email);
   if (!req.session.email) {
-    res.redirect('/unauthorized');
+    res.redirect('/signin');
   }
   else {
     var finalReqString = '/public/searchresults.html';
@@ -124,7 +124,7 @@ app.get('/charts', function (req, res) {
   console.log(req.session.id);
   console.log(req.session.email);
   if (!req.session.email) {
-    res.redirect('/unauthorized');
+    res.redirect('/signin');
   }
   else {
     var finalReqString = '/public/chart.html';
@@ -136,7 +136,7 @@ app.get('/discover', function (req, res) {
   console.log(req.session.id);
   console.log(req.session.email);
   if (!req.session.email) {
-    res.redirect('/unauthorized');
+    res.redirect('/signin');
   }
   else {
     spotifyApi.getMe()
@@ -161,7 +161,7 @@ app.get('/getUsername', function (req, res) {
   console.log(req.session.id);
   console.log(req.session.email);
   if (!req.session.email) {
-    res.redirect('/unauthorized');
+    res.redirect('/signin');
   }
   else {
     var obj = { username: req.session.username };
@@ -344,6 +344,11 @@ app.get('/discoverArtists', function (req, res) {
 
 app.get('/discoverSongs', function (req, res) {
 
+})
+
+app.get('/addToOnlineSongs', function (req, res) {
+  var trackId = req.query.trackId;
+  console.log(trackId);
 })
 
 app.get('/callback', function(req, res) {
@@ -581,6 +586,56 @@ app.get('/searchInfo', function (req, res) {
   var song50_artist;
   var song50_album;
   var song50_image;
+  var song1_trackId;
+  var song2_trackId;
+  var song3_trackId;
+  var song4_trackId;
+  var song5_trackId;
+  var song6_trackId;
+  var song7_trackId;
+  var song8_trackId;
+  var song9_trackId;
+  var song10_trackId;
+  var song11_trackId;
+  var song12_trackId;
+  var song13_trackId;
+  var song14_trackId;
+  var song15_trackId;
+  var song16_trackId;
+  var song17_trackId;
+  var song18_trackId;
+  var song19_trackId;
+  var song20_trackId;
+  var song21_trackId;
+  var song22_trackId;
+  var song23_trackId;
+  var song24_trackId;
+  var song25_trackId;
+  var song26_trackId;
+  var song27_trackId;
+  var song28_trackId;
+  var song29_trackId;
+  var song30_trackId;
+  var song31_trackId;
+  var song32_trackId;
+  var song33_trackId;
+  var song34_trackId;
+  var song35_trackId;
+  var song36_trackId;
+  var song37_trackId;
+  var song38_trackId;
+  var song39_trackId;
+  var song40_trackId;
+  var song41_trackId;
+  var song42_trackId;
+  var song43_trackId;
+  var song44_trackId;
+  var song45_trackId;
+  var song46_trackId;
+  var song47_trackId;
+  var song48_trackId;
+  var song49_trackId;
+  var song50_trackId;
 
 
   var xmlhttp9 = new XMLHttpRequest();
@@ -596,131 +651,155 @@ app.get('/searchInfo', function (req, res) {
         song1_artist = (resp2.results[0]).artistName;
         song1_album = (resp2.results[0]).collectionName;
         song1_image = (resp2.results[0]).artworkUrl100;
+        song1_trackId = (resp2.results[0]).trackId;
       }
       if (resp2.results[1]) {
         song2_name = (resp2.results[1]).trackName;
         song2_artist = (resp2.results[1]).artistName;
         song2_album = (resp2.results[1]).collectionName;
         song2_image = (resp2.results[1]).artworkUrl100;
+        song2_trackId = (resp2.results[1]).trackId;
       }
       if (resp2.results[2]) {
         song3_name = (resp2.results[2]).trackName;
         song3_artist = (resp2.results[2]).artistName;
         song3_album = (resp2.results[2]).collectionName;
         song3_image = (resp2.results[2]).artworkUrl100;
+        song3_trackId = (resp2.results[2]).trackId;
       }
       if (resp2.results[3]) {
         song4_name = (resp2.results[3]).trackName;
         song4_artist = (resp2.results[3]).artistName;
         song4_album = (resp2.results[3]).collectionName;
         song4_image = (resp2.results[3]).artworkUrl100;
+        song4_trackId = (resp2.results[3]).trackId;
       }
       if (resp2.results[4]) {
         song5_name = (resp2.results[4]).trackName;
         song5_artist = (resp2.results[4]).artistName;
         song5_album = (resp2.results[4]).collectionName;
         song5_image = (resp2.results[4]).artworkUrl100;
+        song5_trackId = (resp2.results[4]).trackId;
       }
       if (resp2.results[5]) {
         song6_name = (resp2.results[5]).trackName;
         song6_artist = (resp2.results[5]).artistName;
         song6_album = (resp2.results[5]).collectionName;
         song6_image = (resp2.results[5]).artworkUrl100;
+        song6_trackId = (resp2.results[5]).trackId;
       }
       if (resp2.results[6]) {
         song7_name = (resp2.results[6]).trackName;
         song7_artist = (resp2.results[6]).artistName;
         song7_album = (resp2.results[6]).collectionName;
         song7_image = (resp2.results[6]).artworkUrl100;
+        song7_trackId = (resp2.results[6]).trackId;
       }
       if (resp2.results[7]) {
         song8_name = (resp2.results[7]).trackName;
         song8_artist = (resp2.results[7]).artistName;
         song8_album = (resp2.results[7]).collectionName;
         song8_image = (resp2.results[7]).artworkUrl100;
+        song8_trackId = (resp2.results[7]).trackId;
       }
       if (resp2.results[8]) {
         song9_name = (resp2.results[8]).trackName;
         song9_artist = (resp2.results[8]).artistName;
         song9_album = (resp2.results[8]).collectionName;
         song9_image = (resp2.results[8]).artworkUrl100;
+        song9_trackId = (resp2.results[8]).trackId;
       }
       if (resp2.results[9]) {
         song10_name = (resp2.results[9]).trackName;
         song10_artist = (resp2.results[9]).artistName;
         song10_album = (resp2.results[9]).collectionName;
         song10_image = (resp2.results[9]).artworkUrl100;
+        song10_trackId = (resp2.results[9]).trackId;
       }
       if (resp2.results[10]) {
         song11_name = (resp2.results[10]).trackName;
         song11_artist = (resp2.results[10]).artistName;
         song11_album = (resp2.results[10]).collectionName;
         song11_image = (resp2.results[10]).artworkUrl100;
+        song11_trackId = (resp2.results[10]).trackId;
   }      if (resp2.results[11]) {
         song12_name = (resp2.results[11]).trackName;
         song12_artist = (resp2.results[11]).artistName;
         song12_album = (resp2.results[11]).collectionName;
         song12_image = (resp2.results[11]).artworkUrl100;
+        song12_trackId = (resp2.results[11]).trackId;
   }      if (resp2.results[12]) {
         song13_name = (resp2.results[12]).trackName;
         song13_artist = (resp2.results[12]).artistName;
         song13_album = (resp2.results[12]).collectionName;
         song13_image = (resp2.results[12]).artworkUrl100;
+        song13_trackId = (resp2.results[12]).trackId;
   }      if (resp2.results[13]) {
         song14_name = (resp2.results[13]).trackName;
         song14_artist = (resp2.results[13]).artistName;
         song14_album = (resp2.results[13]).collectionName;
         song14_image = (resp2.results[13]).artworkUrl100;
+        song14_trackId = (resp2.results[13]).trackId;
   }      if (resp2.results[14]) {
         song15_name = (resp2.results[14]).trackName;
         song15_artist = (resp2.results[14]).artistName;
         song15_album = (resp2.results[14]).collectionName;
         song15_image = (resp2.results[14]).artworkUrl100;
+        song15_trackId = (resp2.results[14]).trackId;
   }      if (resp2.results[15]) {
         song16_name = (resp2.results[15]).trackName;
         song16_artist = (resp2.results[15]).artistName;
         song16_album = (resp2.results[15]).collectionName;
         song16_image = (resp2.results[15]).artworkUrl100;
+        song16_trackId = (resp2.results[15]).trackId;
   }      if (resp2.results[16]) {
         song17_name = (resp2.results[16]).trackName;
         song17_artist = (resp2.results[16]).artistName;
         song17_album = (resp2.results[16]).collectionName;
         song17_image = (resp2.results[16]).artworkUrl100;
+        song17_trackId = (resp2.results[16]).trackId;
   }      if (resp2.results[17]) {
         song18_name = (resp2.results[17]).trackName;
         song18_artist = (resp2.results[17]).artistName;
         song18_album = (resp2.results[17]).collectionName;
         song18_image = (resp2.results[17]).artworkUrl100;
+        song18_trackId = (resp2.results[17]).trackId;
   }      if (resp2.results[18]) {
         song19_name = (resp2.results[18]).trackName;
         song19_artist = (resp2.results[18]).artistName;
         song19_album = (resp2.results[18]).collectionName;
         song19_image = (resp2.results[18]).artworkUrl100;
+        song19_trackId = (resp2.results[18]).trackId;
   }      if (resp2.results[19]) {
         song20_name = (resp2.results[19]).trackName;
         song20_artist = (resp2.results[19]).artistName;
         song20_album = (resp2.results[19]).collectionName;
         song20_image = (resp2.results[19]).artworkUrl100;
+        song20_trackId = (resp2.results[19]).trackId;
   }      if (resp2.results[20]) {
         song21_name = (resp2.results[20]).trackName;
         song21_artist = (resp2.results[20]).artistName;
         song21_album = (resp2.results[20]).collectionName;
         song21_image = (resp2.results[20]).artworkUrl100;
+        song21_trackId = (resp2.results[20]).trackId;
   }      if (resp2.results[21]) {
         song22_name = (resp2.results[21]).trackName;
         song22_artist = (resp2.results[21]).artistName;
         song22_album = (resp2.results[21]).collectionName;
         song22_image = (resp2.results[21]).artworkUrl100;
+        song22_trackId = (resp2.results[21]).trackId;
   }      if (resp2.results[22]) {
         song23_name = (resp2.results[22]).trackName;
         song23_artist = (resp2.results[22]).artistName;
         song23_album = (resp2.results[22]).collectionName;
         song23_image = (resp2.results[22]).artworkUrl100;
+        song23_trackId = (resp2.results[22]).trackId;
   }      if (resp2.results[23]) {
         song24_name = (resp2.results[23]).trackName;
         song24_artist = (resp2.results[23]).artistName;
         song24_album = (resp2.results[23]).collectionName;
         song24_image = (resp2.results[23]).artworkUrl100;
+        song24_trackId = (resp2.results[23]).trackId;
   }      if (resp2.results[24]) {
         song25_name = (resp2.results[24]).trackName;
         song25_artist = (resp2.results[24]).artistName;
@@ -731,126 +810,151 @@ app.get('/searchInfo', function (req, res) {
         song26_artist = (resp2.results[25]).artistName;
         song26_album = (resp2.results[25]).collectionName;
         song26_image = (resp2.results[25]).artworkUrl100;
+        song26_trackId = (resp2.results[25]).trackId;
   }      if (resp2.results[26]) {
         song27_name = (resp2.results[26]).trackName;
         song27_artist = (resp2.results[26]).artistName;
         song27_album = (resp2.results[26]).collectionName;
         song27_image = (resp2.results[26]).artworkUrl100;
+        song27_trackId = (resp2.results[26]).trackId;
   }      if (resp2.results[27]) {
         song28_name = (resp2.results[27]).trackName;
         song28_artist = (resp2.results[27]).artistName;
         song28_album = (resp2.results[27]).collectionName;
         song28_image = (resp2.results[27]).artworkUrl100;
+        song28_trackId = (resp2.results[27]).trackId;
   }      if (resp2.results[28]) {
         song29_name = (resp2.results[28]).trackName;
         song29_artist = (resp2.results[28]).artistName;
         song29_album = (resp2.results[28]).collectionName;
         song29_image = (resp2.results[28]).artworkUrl100;
+        song29_trackId = (resp2.results[28]).trackId;
   }      if (resp2.results[29]) {
         song30_name = (resp2.results[29]).trackName;
         song30_artist = (resp2.results[29]).artistName;
         song30_album = (resp2.results[29]).collectionName;
         song30_image = (resp2.results[29]).artworkUrl100;
+        song30_trackId = (resp2.results[29]).trackId;
   }      if (resp2.results[30]) {
         song31_name = (resp2.results[30]).trackName;
         song31_artist = (resp2.results[30]).artistName;
         song31_album = (resp2.results[30]).collectionName;
         song31_image = (resp2.results[30]).artworkUrl100;
+        song31_trackId = (resp2.results[30]).trackId;
   }      if (resp2.results[31]) {
         song32_name = (resp2.results[31]).trackName;
         song32_artist = (resp2.results[31]).artistName;
         song32_album = (resp2.results[31]).collectionName;
         song32_image = (resp2.results[31]).artworkUrl100;
+        song32_trackId = (resp2.results[31]).trackId;
   }      if (resp2.results[32]) {
         song33_name = (resp2.results[32]).trackName;
         song33_artist = (resp2.results[32]).artistName;
         song33_album = (resp2.results[32]).collectionName;
         song33_image = (resp2.results[32]).artworkUrl100;
+        song33_trackId = (resp2.results[32]).trackId;
   }      if (resp2.results[33]) {
         song34_name = (resp2.results[33]).trackName;
         song34_artist = (resp2.results[33]).artistName;
         song34_album = (resp2.results[33]).collectionName;
         song34_image = (resp2.results[33]).artworkUrl100;
+        song34_trackId = (resp2.results[33]).trackId;
   }      if (resp2.results[34]) {
         song35_name = (resp2.results[34]).trackName;
         song35_artist = (resp2.results[34]).artistName;
         song35_album = (resp2.results[34]).collectionName;
         song35_image = (resp2.results[34]).artworkUrl100;
+        song35_trackId = (resp2.results[34]).trackId;
   }      if (resp2.results[35]) {
         song36_name = (resp2.results[35]).trackName;
         song36_artist = (resp2.results[35]).artistName;
         song36_album = (resp2.results[35]).collectionName;
         song36_image = (resp2.results[35]).artworkUrl100;
+        song36_trackId = (resp2.results[35]).trackId;
   }      if (resp2.results[36]) {
         song37_name = (resp2.results[36]).trackName;
         song37_artist = (resp2.results[36]).artistName;
         song37_album = (resp2.results[36]).collectionName;
         song37_image = (resp2.results[36]).artworkUrl100;
+        song37_trackId = (resp2.results[36]).trackId;
   }      if (resp2.results[37]) {
         song38_name = (resp2.results[37]).trackName;
         song38_artist = (resp2.results[37]).artistName;
         song38_album = (resp2.results[37]).collectionName;
         song38_image = (resp2.results[37]).artworkUrl100;
+        song38_trackId = (resp2.results[37]).trackId;
   }      if (resp2.results[38]) {
         song39_name = (resp2.results[38]).trackName;
         song39_artist = (resp2.results[38]).artistName;
         song39_album = (resp2.results[38]).collectionName;
         song39_image = (resp2.results[38]).artworkUrl100;
+        song39_trackId = (resp2.results[38]).trackId;
   }      if (resp2.results[39]) {
         song40_name = (resp2.results[39]).trackName;
         song40_artist = (resp2.results[39]).artistName;
         song40_album = (resp2.results[39]).collectionName;
         song40_image = (resp2.results[39]).artworkUrl100;
+        song40_trackId = (resp2.results[39]).trackId;
   }      if (resp2.results[40]) {
         song41_name = (resp2.results[40]).trackName;
         song41_artist = (resp2.results[40]).artistName;
         song41_album = (resp2.results[40]).collectionName;
         song41_image = (resp2.results[40]).artworkUrl100;
+        song41_trackId = (resp2.results[40]).trackId;
   }      if (resp2.results[41]) {
         song42_name = (resp2.results[41]).trackName;
         song42_artist = (resp2.results[41]).artistName;
         song42_album = (resp2.results[41]).collectionName;
         song42_image = (resp2.results[41]).artworkUrl100;
+        song42_trackId = (resp2.results[41]).trackId;
   }      if (resp2.results[42]) {
         song43_name = (resp2.results[42]).trackName;
         song43_artist = (resp2.results[42]).artistName;
         song43_album = (resp2.results[42]).collectionName;
         song43_image = (resp2.results[42]).artworkUrl100;
+        song43_trackId = (resp2.results[42]).trackId;
   }      if (resp2.results[43]) {
         song44_name = (resp2.results[43]).trackName;
         song44_artist = (resp2.results[43]).artistName;
         song44_album = (resp2.results[43]).collectionName;
         song44_image = (resp2.results[43]).artworkUrl100;
+        song44_trackId = (resp2.results[43]).trackId;
   }      if (resp2.results[44]) {
         song45_name = (resp2.results[44]).trackName;
         song45_artist = (resp2.results[44]).artistName;
         song45_album = (resp2.results[44]).collectionName;
         song45_image = (resp2.results[44]).artworkUrl100;
+        song45_trackId = (resp2.results[44]).trackId;
   }      if (resp2.results[45]) {
         song46_name = (resp2.results[45]).trackName;
         song46_artist = (resp2.results[45]).artistName;
         song46_album = (resp2.results[45]).collectionName;
         song46_image = (resp2.results[45]).artworkUrl100;
+        song46_trackId = (resp2.results[45]).trackId;
   }      if (resp2.results[46]) {
         song47_name = (resp2.results[46]).trackName;
         song47_artist = (resp2.results[46]).artistName;
         song47_album = (resp2.results[46]).collectionName;
         song47_image = (resp2.results[46]).artworkUrl100;
+        song47_trackId = (resp2.results[46]).trackId;
   }      if (resp2.results[47]) {
         song48_name = (resp2.results[47]).trackName;
         song48_artist = (resp2.results[47]).artistName;
         song48_album = (resp2.results[47]).collectionName;
         song48_image = (resp2.results[47]).artworkUrl100;
+        song48_trackId = (resp2.results[47]).trackId;
   }      if (resp2.results[48]) {
         song49_name = (resp2.results[48]).trackName;
         song49_artist = (resp2.results[48]).artistName;
         song49_album = (resp2.results[48]).collectionName;
         song49_image = (resp2.results[48]).artworkUrl100;
+        song49_trackId = (resp2.results[48]).trackId;
   }      if (resp2.results[49]) {
         song50_name = (resp2.results[49]).trackName;
         song50_artist = (resp2.results[49]).artistName;
         song50_album = (resp2.results[49]).collectionName;
         song50_image = (resp2.results[49]).artworkUrl100;
+        song50_trackId = (resp2.results[49]).trackId;
       }
 
 
@@ -897,7 +1001,59 @@ app.get('/searchInfo', function (req, res) {
     song47_name: song47_name, song47_artist: song47_artist, song47_album: song47_album, song47_image: song47_image,
     song48_name: song48_name, song48_artist: song48_artist, song48_album: song48_album, song48_image: song48_image,
     song49_name: song49_name, song49_artist: song49_artist, song49_album: song49_album, song49_image: song49_image,
-    song50_name: song50_name, song50_artist: song50_artist, song50_album: song50_album, song50_image: song50_image };
+    song50_name: song50_name, song50_artist: song50_artist, song50_album: song50_album, song50_image: song50_image,
+    song1_trackId: song1_trackId,
+    song2_trackId: song2_trackId,
+    song3_trackId: song3_trackId,
+    song4_trackId: song4_trackId,
+    song5_trackId: song5_trackId,
+    song6_trackId: song6_trackId,
+    song7_trackId: song7_trackId,
+    song8_trackId: song8_trackId,
+    song9_trackId: song9_trackId,
+    song10_trackId: song10_trackId,
+    song11_trackId: song11_trackId,
+    song12_trackId: song12_trackId,
+    song13_trackId: song13_trackId,
+    song14_trackId: song14_trackId,
+    song15_trackId: song15_trackId,
+    song16_trackId: song16_trackId,
+    song17_trackId: song17_trackId,
+    song18_trackId: song18_trackId,
+    song19_trackId: song19_trackId,
+    song20_trackId: song20_trackId,
+    song21_trackId: song21_trackId,
+    song22_trackId: song22_trackId,
+    song23_trackId: song23_trackId,
+    song24_trackId: song24_trackId,
+    song25_trackId: song25_trackId,
+    song26_trackId: song26_trackId,
+    song27_trackId: song27_trackId,
+    song28_trackId: song28_trackId,
+    song29_trackId: song29_trackId,
+    song30_trackId: song30_trackId,
+    song31_trackId: song31_trackId,
+    song32_trackId: song32_trackId,
+    song33_trackId: song33_trackId,
+    song34_trackId: song34_trackId,
+    song35_trackId: song35_trackId,
+    song36_trackId: song36_trackId,
+    song37_trackId: song37_trackId,
+    song38_trackId: song38_trackId,
+    song39_trackId: song39_trackId,
+    song40_trackId: song40_trackId,
+    song41_trackId: song41_trackId,
+    song42_trackId: song42_trackId,
+    song43_trackId: song43_trackId,
+    song44_trackId: song44_trackId,
+    song45_trackId: song45_trackId,
+    song46_trackId: song46_trackId,
+    song47_trackId: song47_trackId,
+    song48_trackId: song48_trackId,
+    song49_trackId: song49_trackId,
+    song50_trackId: song50_trackId
+
+  };
 
 
       var myJSON = JSON.stringify(obj);
