@@ -37,7 +37,7 @@
   <!-- endbuild -->
 </head>
 <body>
-  <div class="app dk" id="app">
+  <div class="app dk" style="background-color:#000000" id="app">
 
 <!-- ############ LAYOUT START-->
 
@@ -156,6 +156,18 @@
         xmlReq.send();
       }
     }
+
+    $("#email").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignInFailed();
+      }
+    });
+
+    $("#password").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignInFailed();
+      }
+    });
   </script>
 
   <link rel="stylesheet" href="/dist/bundle.css">
