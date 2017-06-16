@@ -9,6 +9,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+var passwordHash = require('password-hash');
 var itunes = require('itunes-search');
 var billboard = require("billboard-top-100").getChart;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -189,7 +190,7 @@ app.get('/authenticateCredentials', function (req, res) {
       res.send(myJSON);
     }
     else {
-      if (password == results[0].password) {
+      if (passwordHash.verify(password, results[0].password)) {
         console.log("OK");
         req.session.email = email;
         req.session.username = results[0].firstName + " " + results[0].lastName;
@@ -215,6 +216,9 @@ app.get('/addUser', function (req, res) {
   var email = req.query.email;
   var password = req.query.password;
 
+  var hashedPassword = passwordHash.generate(password);
+  console.log(hashedPassword);
+
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE email=\'' + email + '\'';
   connection.query(sqlString1, function (error, results, fields) {
     if (error) {
@@ -223,17 +227,29 @@ app.get('/addUser', function (req, res) {
 
     var checkUndef = "" + results[0];
     if (checkUndef == "undefined") {
-      var sqlString2 = 'INSERT INTO soundbit_users (firstName, lastName, email, password) VALUES (\'' + firstName + '\', \'' + lastName + '\', \'' + email + '\', \'' + password + '\')';
+      var sqlString2 = 'INSERT INTO soundbit_users (firstName, lastName, email, password) VALUES (\'' + firstName + '\', \'' + lastName + '\', \'' + email + '\', \'' + hashedPassword + '\')';
       connection.query(sqlString2, function (error) {
         if (error) {
           throw error;
         }
       })
 
-      console.log("OK");
-      var obj = { body: 'OK' };
-      var myJSON = JSON.stringify(obj);
-      res.send(myJSON);
+      req.session.email = email;
+      req.session.username = firstName + " " + lastName;
+
+      var sqlString3 = 'SELECT id FROM soundbit_users WHERE email=\'' + email + '\'';
+      connection.query(sqlString3, function (error, results, fields) {
+        if (error) {
+          throw error;
+        }
+
+        req.session.userId = results[0].id;
+
+        console.log("OK");
+        var obj = { body: 'OK' };
+        var myJSON = JSON.stringify(obj);
+        res.send(myJSON);
+      })
     }
     else {
       console.log("ERROR: Email already in use");
@@ -242,6 +258,12 @@ app.get('/addUser', function (req, res) {
       res.send(myJSON);
     }
   })
+})
+
+app.get('/signout', function (req, res) {
+  req.session.destroy(function(err) {
+     res.redirect('/');
+  });
 })
 
 app.get('/presearch', function (req, res) {
@@ -355,6 +377,17 @@ app.get('/online', function (req, res) {
   }
   else {
     res.sendFile(path.join(__dirname+'/public/online.html'));
+  }
+})
+
+app.get('/downloaded', function (req, res) {
+  console.log(req.session.id);
+  console.log(req.session.email);
+  if (!req.session.email) {
+    res.redirect('/signin');
+  }
+  else {
+    res.sendFile(path.join(__dirname+'/public/downloaded.html'));
   }
 })
 

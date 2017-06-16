@@ -140,7 +140,8 @@
             }
             else {
               // Authenticate Spotify API credentials
-              window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback")
+              // window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback")
+              window.location.href = "http://localhost:3000/discover";
             }
           }
         };
@@ -149,6 +150,30 @@
         xmlReq.send();
       }
     }
+
+    $("#email").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#password").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#firstName").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
+
+    $("#lastName").on('keyup', function (e) {
+      if (e.keyCode == 13) {
+          checkIfSignUpFailed();
+      }
+    });
 
   </script>
 <!-- endbuild -->
