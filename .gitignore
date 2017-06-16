@@ -1,9 +1,8 @@
 # Node build artifacts
 node_modules
-sample1.js
-songs
-dump.rdb
-parse-mp3.py
-html
-ffmpeg
-views
+npm-debug.log
+
+# Local development
+*.env
+*.dev
+.DS_Store
