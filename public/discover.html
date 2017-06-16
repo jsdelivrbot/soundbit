@@ -1091,6 +1091,7 @@
   <div id="player22" hidden></div>
   <div id="player23" hidden></div>
 
+  <div id="song1-videoId" link="" hidden></div>
   <div id="song2-videoId" link="" hidden></div>
   <div id="song3-videoId" link="" hidden></div>
   <div id="song4-videoId" link="" hidden></div>
@@ -1118,23 +1119,55 @@
 <!-- endbuild -->
 </body>
 <script>
-  var durationHasBeenLoaded = 0;
+var durationHasBeenLoaded = 0;
+var userId;
 
-  function getUsername() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        var resp = JSON.parse(this.responseText);
-        console.log(JSON.parse(this.responseText));
+function addToDownloadedSongs(num) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+    }
+  };
 
-        document.getElementById("username").innerHTML = resp.username;
-      }
-    };
+  var trackId = window['trackId' + num];
 
-    xmlhttp.open("GET","http://localhost:3000/getUsername");
-    xmlhttp.send();
-  }
-  getUsername();
+  xmlhttp.open("GET","http://localhost:3000/addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.send();
+}
+
+function addToOnlineSongs(num) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+    }
+  };
+
+  var trackId = window['trackId' + num];
+
+  xmlhttp.open("GET","http://localhost:3000/addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.send();
+}
+
+function getUsername() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+      console.log(JSON.parse(this.responseText));
+
+      document.getElementById("username").innerHTML = resp.username;
+      userId = resp.userId;
+    }
+  };
+
+  xmlhttp.open("GET","http://localhost:3000/getUsername");
+  xmlhttp.send();
+}
+getUsername();
 
   function switchCurrentSongImage(temp) {
     var sty = "" + (document.getElementById("song" + (temp + 1) + "-image").style).cssText;
@@ -1386,8 +1419,7 @@
     }
     if (event.data == 0) { // if playback finished
       changePlayerState(this);
-      //document.getElementById("nextButton").click();
-      //instantiateNewPlayer(this + 1);
+      //document.getElementById("currentPlayerState").className = ("mejs-button\ mejs-playpause-button\ mejs-pause");
     }
   }
 
