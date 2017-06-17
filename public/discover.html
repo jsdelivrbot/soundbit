@@ -1090,8 +1090,6 @@
   <div id="song21-videoId" link="" hidden></div>
   <div id="song22-videoId" link="" hidden></div>
   <div id="song23-videoId" link="" hidden></div>
-
-  <link rel="stylesheet" href="/dist/bundle.css">
 <!-- endbuild -->
 </body>
 <script>
@@ -1246,7 +1244,7 @@ getUsername();
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
@@ -1271,7 +1269,7 @@ getUsername();
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
