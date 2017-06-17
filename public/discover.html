@@ -1138,7 +1138,7 @@ function getUsername() {
     }
   };
 
-  xmlhttp.open("GET","glacial-lake-90508.herokuapp.com/getUsername");
+  xmlhttp.open("GET","getUsername");
   xmlhttp.send();
 }
 getUsername();
@@ -1434,7 +1434,7 @@ getUsername();
 
 
 
-    xmlhttp2.open("GET", "glacial-lake-90508.herokuapp.com/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+    xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
     xmlhttp2.send();
   }
 
