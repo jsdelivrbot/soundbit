@@ -145,7 +145,7 @@
       <div class="padding">
         <div style="height:63px;margin-bottom:-15px;"}}>
           <div className="col-md-7">
-            <form id="form1" style="float:left; margin-top:-12px;" action="https://glacial-lake-90508.herokuapp.com/search">
+            <form id="form1" style="float:left; margin-top:-12px;" action="search">
               <div className="col-md-7" style="width:100%;">
                   <div className="input-group input-group-lg">
                     <input type="text"
@@ -1680,7 +1680,7 @@ fillChartContent(totalSongs);
     //alert(artistNameString);
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
@@ -1688,7 +1688,7 @@ fillChartContent(totalSongs);
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSongName(songNum) {
@@ -1696,7 +1696,7 @@ fillChartContent(totalSongs);
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 
@@ -1723,7 +1723,7 @@ fillChartContent(totalSongs);
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
@@ -1744,7 +1744,7 @@ fillChartContent(totalSongs);
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
@@ -1752,7 +1752,7 @@ fillChartContent(totalSongs);
     var artistNameElementString = "song" + artistNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 </script>

@@ -145,7 +145,7 @@
       <div class="padding">
         <div style="height:63px;margin-bottom:-15px;"}}>
           <div className="col-md-7">
-            <form id="form1" style="margin-top:-12px;" action="https://glacial-lake-90508.herokuapp.com/search">
+            <form id="form1" style="margin-top:-12px;" action="search">
               <div className="col-md-7" style="width:100%;">
                   <div className="input-group input-group-lg">
                     <input type="text"
@@ -1157,7 +1157,7 @@ function setVideoId(playerNum) {
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
@@ -1178,7 +1178,7 @@ function setVideoId(playerNum) {
       }
     };
 
-    xmlhttp.open("GET","http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
+    xmlhttp.open("GET","https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=22744f465ad4aabca79281208f1e5ea2&format=json");
     xmlhttp.send();
   }
 
@@ -1215,14 +1215,14 @@ function setVideoId(playerNum) {
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     //alert(artistNameString);
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
     var artistNameElementString = "song" + songNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 
