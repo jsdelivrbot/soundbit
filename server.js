@@ -1,15 +1,5 @@
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-  driver    : 'mysql',
-  host      : env('DB_HOST', 'us-cdbr-iron-east-02.cleardb.net'),
-  database  : env('DB_DATABASE', 'heroku_f7469a0c6b39995'),
-  username  : env('DB_USERNAME', 'b419fdf6d21e11'),
-  password  : env('DB_PASSWORD', 'c78bdf37'),
-  charset   : 'utf8',
-  collation : 'utf8_unicode_ci',
-  prefix    : '',
-  strict    : false,
-});
+var connection = mysql.createConnection('mysql://bede64c156d0bd:6df0e74b@us-cdbr-iron-east-03.cleardb.net/heroku_eecde5160d3eab4?reconnect=true');
 // mysql -u soundbit_admin -p soundbit
 
 connection.connect();
