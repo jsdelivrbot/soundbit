@@ -140,12 +140,12 @@
             else {
               // Authenticate Spotify API credentials
               // window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback")
-              window.location.href = "glacial-lake-90508.herokuapp.com/discover";
+              window.location.href = "/discover";
             }
           }
         };
 
-        xmlReq.open("GET", "glacial-lake-90508.herokuapp.com/authenticateCredentials?email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
+        xmlReq.open("GET", "authenticateCredentials?email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
         xmlReq.send();
       }
     }
