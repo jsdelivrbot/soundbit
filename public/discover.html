@@ -1107,7 +1107,7 @@ function addToDownloadedSongs(num) {
 
   var trackId = window['trackId' + num];
 
-  xmlhttp.open("GET","glacial-lake-90508.herokuapp.com/addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.open("GET","addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
   xmlhttp.send();
 }
 
@@ -1122,7 +1122,7 @@ function addToOnlineSongs(num) {
 
   var trackId = window['trackId' + num];
 
-  xmlhttp.open("GET","glacial-lake-90508.herokuapp.com/addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.open("GET","addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
   xmlhttp.send();
 }
 
@@ -1556,14 +1556,14 @@ getUsername();
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     console.log(artistNameElementString);
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
     var artistNameElementString = "song" + songNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 
