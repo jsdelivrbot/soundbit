@@ -142,7 +142,7 @@
 	<div class="padding p-b-0">
     <div style="height:63px;margin-bottom:-15px;"}}>
       <div className="col-md-7">
-        <form id="form1" style="margin-top:-12px;" action="https://glacial-lake-90508.herokuapp.com/search">
+        <form id="form1" style="margin-top:-12px;" action="http://localhost:3000/search">
           <div className="col-md-7" style="width:100%;">
               <div className="input-group input-group-lg">
                 <input type="text"
@@ -1109,7 +1109,7 @@ function addToDownloadedSongs(num) {
 
   var trackId = window['trackId' + num];
 
-  xmlhttp.open("GET","https://glacial-lake-90508.herokuapp.com/addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.open("GET","http://localhost:3000/addToDownloadedSongs?trackId=" + trackId + "&userId=" + userId);
   xmlhttp.send();
 }
 
@@ -1124,7 +1124,7 @@ function addToOnlineSongs(num) {
 
   var trackId = window['trackId' + num];
 
-  xmlhttp.open("GET","https://glacial-lake-90508.herokuapp.com/addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
+  xmlhttp.open("GET","http://localhost:3000/addToOnlineSongs?trackId=" + trackId + "&userId=" + userId);
   xmlhttp.send();
 }
 
@@ -1140,7 +1140,7 @@ function getUsername() {
     }
   };
 
-  xmlhttp.open("GET","https://glacial-lake-90508.herokuapp.com/getUsername");
+  xmlhttp.open("GET","http://localhost:3000/getUsername");
   xmlhttp.send();
 }
 getUsername();
@@ -1436,7 +1436,7 @@ getUsername();
 
 
 
-    xmlhttp2.open("GET", "https://glacial-lake-90508.herokuapp.com/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+    xmlhttp2.open("GET", "http://localhost:3000/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
     xmlhttp2.send();
   }
 
@@ -1525,7 +1525,7 @@ getUsername();
     console.log(query);
     query = query.replace(/\+/g, " ")*/
 
-    xmlhttp2.open("GET", "https://glacial-lake-90508.herokuapp.com/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+    xmlhttp2.open("GET", "http://localhost:3000/getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
     xmlhttp2.send();
   }
 
@@ -1558,14 +1558,14 @@ getUsername();
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     console.log(artistNameElementString);
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("http://localhost:3000/search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
     var artistNameElementString = "song" + songNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("https://glacial-lake-90508.herokuapp.com/search?keyword=" + artistNameString);
+    window.location.assign("http://localhost:3000/search?keyword=" + artistNameString);
   }
 
 
@@ -1597,7 +1597,7 @@ getUsername();
       }
     };
 
-    xmlhttp.open("GET","https://glacial-lake-90508.herokuapp.com/chartContent");
+    xmlhttp.open("GET","http://localhost:3000/chartContent");
     xmlhttp.send();
   }
 
