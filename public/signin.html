@@ -66,11 +66,6 @@
           <div class="form-group">
             <input id="password" type="password" class="form-control" placeholder="Password" required>
           </div>
-          <div class="m-b-md">
-            <label class="md-check">
-              <input type="checkbox"><i class="primary"></i> Keep me signed in
-            </label>
-          </div>
           <button type="submit" class="btn btn-lg black p-x-lg" onclick="checkIfSignInFailed();">Sign In</button>
         </div>
         <div>
@@ -145,12 +140,12 @@
             else {
               // Authenticate Spotify API credentials
               // window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback")
-              window.location.href = "http://localhost:3000/discover";
+              window.location.href = "https://glacial-lake-90508.herokuapp.com/discover";
             }
           }
         };
 
-        xmlReq.open("GET", "http://localhost:3000/authenticateCredentials?email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
+        xmlReq.open("GET", "https://glacial-lake-90508.herokuapp.com/authenticateCredentials?email=" + document.getElementById("email").value + "&password=" + document.getElementById("password").value);
         xmlReq.send();
       }
     }

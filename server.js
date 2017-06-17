@@ -342,7 +342,7 @@ app.get('/downloadSong', function (req, res) {
     }
   }
 
-  var reqString = "http://localhost:3000/getVideoId?name=" + name + "&artist=" + artist;
+  var reqString = "https://glacial-lake-90508.herokuapp.com/getVideoId?name=" + name + "&artist=" + artist;
   console.log(reqString);
   xmlhttp4.open("GET",reqString);
   xmlhttp4.send();
