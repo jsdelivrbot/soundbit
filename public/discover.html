@@ -1556,14 +1556,14 @@ getUsername();
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     console.log(artistNameElementString);
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
     var artistNameElementString = "song" + songNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 

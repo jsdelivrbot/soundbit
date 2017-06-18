@@ -1680,7 +1680,7 @@ fillChartContent(totalSongs);
     //alert(artistNameString);
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
@@ -1688,7 +1688,7 @@ fillChartContent(totalSongs);
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
   function execSearchSongName(songNum) {
@@ -1696,7 +1696,7 @@ fillChartContent(totalSongs);
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
     artistNameString = artistNameString.replace(/&amp;/g, '');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 
@@ -1752,7 +1752,7 @@ fillChartContent(totalSongs);
     var artistNameElementString = "song" + artistNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.href = ("search?keyword=" + artistNameString);
+    window.location.assign("search?keyword=" + artistNameString);
   }
 
 </script>
