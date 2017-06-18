@@ -1217,14 +1217,14 @@ function setVideoId(playerNum) {
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     //alert(artistNameString);
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("search?keyword=" + artistNameString);
+    window.location.href = ("search?keyword=" + artistNameString);
   }
 
   function execSearchSong(songNum) {
     var artistNameElementString = "song" + songNum + "-artist";
     var artistNameString = document.getElementById(artistNameElementString).innerHTML;
     artistNameString = artistNameString.replace(/ /g, '+');
-    window.location.assign("search?keyword=" + artistNameString);
+    window.location.href = ("search?keyword=" + artistNameString);
   }
 
 
