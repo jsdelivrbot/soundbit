@@ -674,7 +674,7 @@ function setVideoId(playerNum) {
 
 
 
-  xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
+  xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString, false);
   xmlhttp2.send();
 }
 
@@ -705,7 +705,7 @@ function setVideoId(playerNum) {
         else {
           console.log(resp.song1_name)
 
-          for (var i = 1; i <=50; i++) {
+          for (var i = 1; i <= 50; i++) {
             window['trackId' + i] = resp["song" + i + "_trackId"];
             console.log(window['trackId' + i]);
             var idString = "song" + i;
@@ -722,11 +722,13 @@ function setVideoId(playerNum) {
               document.getElementById(idStringName).innerHTML = resp[nameField];
               document.getElementById(idStringArtist).innerHTML = resp[artistField];
               document.getElementById(idStringImage).style = "background-image: url(\"" + resp[imageField] + "\");";
-              setVideoId(i);
             }
             else {
               document.getElementById(idString).hidden = true;
             }
+          }
+          for (var j = 1; j <= 50; j++) {
+            setVideoId(i);
           }
         }
       }
