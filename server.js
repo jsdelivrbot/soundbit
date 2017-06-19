@@ -47,9 +47,16 @@ app.use(bodyParser.json());
 
 app.use(cors())
 
-var session = require('express-session')
+//var session = require('express-session')
+var sessions = require("client-sessions");
+app.use(sessions({
+  cookieName: 'session', // cookie name dictates the key name added to the request object
+  secret: 'blargadeeblargblarg', // should be a large unguessable string
+  duration: 24 * 60 * 60 * 1000, // how long the session will stay valid in ms
+  activeDuration: 1000 * 60 * 5 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
+}));
 
-app.use(session({
+/*app.use(session({
   genid: function(req) {
     return uuidV4(); // use UUIDs for session IDs
   },
@@ -57,7 +64,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
-}))
+}))*/
 
 // Generate a v4 UUID (random)
 const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
