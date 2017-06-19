@@ -1264,7 +1264,7 @@ getUsername();
           document.getElementById("song" + (i+1) + "-image").style = "background-image: url('" + (resp.tracks.track[i]).image[3]["#text"] + "');";
           //document.getElementById("song" + (i+1) + "-playcount").innerHTML = " " + (resp.tracks.track[i]).playcount;
           //document.getElementById("song" + (i+1) + "-likes").innerHTML = " " + (resp.tracks.track[i]).listeners;
-          setVideoId(i + 1);
+          //setVideoId(i + 1);
         }
       }
     };
@@ -1582,7 +1582,7 @@ getUsername();
           //console.log((resp[i]).cover);
           document.getElementById("song" + (i+1) + "-title").innerHTML = (resp[i]).title;
           document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp[i]).artist;
-          setVideoId(i + 1);
+          //setVideoId(i + 1);
 
           var coverString = "" + (resp[i]).cover;
           //console.log(coverString + ", Length=" + coverString.length)
