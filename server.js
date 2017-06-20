@@ -119,6 +119,8 @@ else
     //{
         //You'd put your fancy application logic here.
         //handleRequest(req, res);
+        app.listen(port);
+
         app.use(express.static(__dirname + '/public'));
 
         app.use(bodyParser.urlencoded({
@@ -1320,7 +1322,6 @@ else
         })
     //});
   });
-  app.listen(port);
 }
 
 
