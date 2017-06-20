@@ -32,29 +32,16 @@ var YTDL = require('node-youtube-dl');
 
 
 var cors = require('cors')
-var express = require('express')
 var path = require("path")
 
 var spotifyToken;
 
-var app = express()
-app.use(express.static(__dirname + '/public'));
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
-
-app.use(cors())
-
-//var session = require('express-session')
 var sessions = require("client-sessions");
-app.use(sessions({
-  cookieName: 'session', // cookie name dictates the key name added to the request object
-  secret: 'blargadeeblargblarg', // should be a large unguessable string
-  duration: 24 * 60 * 60 * 1000, // how long the session will stay valid in ms
-  activeDuration: 1000 * 60 * 5 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
-}));
+
+var cluster = require('cluster');
+
+
+
 
 /*app.use(session({
   genid: function(req) {
@@ -130,6 +117,22 @@ else
     {
         //You'd put your fancy application logic here.
         //handleRequest(req, res);
+        app.use(express.static(__dirname + '/public'));
+
+        app.use(bodyParser.urlencoded({
+            extended: true
+        }));
+        app.use(bodyParser.json());
+
+        app.use(cors())
+
+        //var session = require('express-session')
+        app.use(sessions({
+          cookieName: 'session', // cookie name dictates the key name added to the request object
+          secret: 'blargadeeblargblarg', // should be a large unguessable string
+          duration: 24 * 60 * 60 * 1000, // how long the session will stay valid in ms
+          activeDuration: 1000 * 60 * 5 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
+        }));
 
         app.get('/', function (req, res) {
           res.sendFile(path.join(__dirname+'/public/home.html'));
