@@ -112,11 +112,11 @@ else
        });
     //Because req and res were created before this domain existed,
     //we need to explicitly add them.
-    d.add(req);
-    d.add(res);
+    //d.add(req);
+    //d.add(res);
     //Now run the handler function in the domain.
-    d.run(function()
-    {
+    //d.run(function()
+    //{
         //You'd put your fancy application logic here.
         //handleRequest(req, res);
         app.use(express.static(__dirname + '/public'));
@@ -1318,7 +1318,7 @@ else
           xmlhttp3.open("GET",reqString);
           xmlhttp3.send();
         })
-    });
+    //});
   });
   app.listen(port);
 }
