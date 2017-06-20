@@ -40,6 +40,14 @@ var spotifyToken;
 var app = express()
 app.use(express.static(__dirname + '/public'));
 
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: err
+    });
+  });
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -1262,14 +1270,6 @@ app.get('/getVideoId', function (req, res) {
   xmlhttp3.open("GET",reqString);
   xmlhttp3.send();
 })
-
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: err
-    });
-  });
 
 app.listen(port)
 console.log("Running at Port " + port);
