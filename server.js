@@ -57,6 +57,8 @@ var cluster = require('cluster');
 const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
 
 
+var express = require('express');
+
 
 
 
@@ -74,7 +76,7 @@ if(cluster.isMaster)
 else
 {
     var domain = require('domain');
-    var app = require('express').express(function(req, res)
+    var app = express(function(req, res)
     {
         var d = domain.create();
         d.on('error', function(er)
