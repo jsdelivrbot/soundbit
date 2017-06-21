@@ -5,12 +5,12 @@ var connection = mysql.createConnection('mysql://bede64c156d0bd:6df0e74b@us-cdbr
 connection.connect();
 
 var passwordHash = require('password-hash');
-var itunes = require('itunes-search');
+//var itunes = require('itunes-search');
 var billboard = require("billboard-top-100").getChart;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
 var bodyParser = require('body-parser')
-var http = require('http')
+//var http = require('http')
 
 var port = process.env.PORT || 3000;
 
@@ -24,11 +24,11 @@ var spotifyApi = new SpotifyWebApi({
   redirectUri : 'http://localhost:3000/callback'
 });
 
-var spawn = require("child_process").spawn;
-const fs = require('fs');
-const ytdl = require('ytdl-core');
-var youtubedl = require('youtube-dl');
-var YTDL = require('node-youtube-dl');
+//var spawn = require("child_process").spawn;
+//const fs = require('fs');
+//const ytdl = require('ytdl-core');
+//var youtubedl = require('youtube-dl');
+//var YTDL = require('node-youtube-dl');
 
 
 var cors = require('cors')
@@ -76,7 +76,7 @@ app.use(sessions({
 }))*/
 
 // Generate a v4 UUID (random)
-const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
+//const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
 
 
 
