@@ -15,14 +15,14 @@ var bodyParser = require('body-parser')
 var port = process.env.PORT || 3000;
 
 
-var SpotifyWebApi = require('spotify-web-api-node');
+/*var SpotifyWebApi = require('spotify-web-api-node');
 
 // credentials are optional
 var spotifyApi = new SpotifyWebApi({
   clientId : '62de9dc50722467795cfd0d4056e42aa',
   clientSecret : '98cffbddc276433da40f3c577290436e',
   redirectUri : 'http://localhost:3000/callback'
-});
+});*/
 
 //var spawn = require("child_process").spawn;
 //const fs = require('fs');
@@ -162,6 +162,7 @@ app.get('/discover', function (req, res) {
     res.redirect('/signin');
   }
   else {
+    /*
     spotifyApi.getMe()
       .then(function(data) {
         console.log('Some information about the authenticated user', data.body.id);
@@ -174,7 +175,7 @@ app.get('/discover', function (req, res) {
       }, function(err) {
         console.log('Something went wrong!', err);
       });
-
+    */
     var finalReqString = '/public/discover.html';
     res.sendFile(path.join(__dirname+finalReqString));
   }
@@ -296,26 +297,21 @@ app.get('/presearch', function (req, res) {
   console.log(code);
 
   /* Get the access token! */
-  spotifyApi.authorizationCodeGrant(code)
+  /*spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
       //console.log(data);
       console.log('The token expires in ' + data.body.expires_in);
       console.log('The access token is ' + data.body.access_token);
       console.log('The refresh token is ' + data.body.refresh_token);
 
-      /* Ok. We've got the access token!
-         Save the access token for this user somewhere so that you can use it again.
-         Cookie? Local storage?
-      */
       spotifyApi.setAccessToken(data.body.access_token);
 
-      /* Redirecting back to the main page! :-) */
       res.redirect('/search?keyword=' + keyword);
 
     }, function(err) {
       res.status(err.code);
       res.send(err.message);
-    })
+    })*/
 })
 
 app.get('/validate', function (req, res) {
@@ -325,20 +321,15 @@ app.get('/validate', function (req, res) {
   //console.log(code);
 
   /* Get the access token! */
-  spotifyApi.authorizationCodeGrant(code)
+  /*spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
       console.log(data.body);
       console.log('The token expires in ' + data.body.expires_in);
       console.log('The access token is ' + data.body.access_token);
       console.log('The refresh token is ' + data.body.refresh_token);
 
-      /* Ok. We've got the access token!
-         Save the access token for this user somewhere so that you can use it again.
-         Cookie? Local storage?
-      */
       spotifyApi.setAccessToken(data.body.access_token);
 
-      /* Redirecting back to the main page! :-) */
       var obj = { body: "OK" };
       var myJSON = JSON.stringify(obj);
       console.log(myJSON);
@@ -347,7 +338,7 @@ app.get('/validate', function (req, res) {
     }, function(err) {
       res.status(err.code);
       res.send(err.message);
-    })
+    })*/
 })
 
 app.get('/downloadSong', function (req, res) {
@@ -516,26 +507,21 @@ app.get('/callback', function(req, res) {
   var state = req.query.state; // (Optional) Read the state from the query parameter
 
   /* Get the access token! */
-  spotifyApi.authorizationCodeGrant(code)
+  /*spotifyApi.authorizationCodeGrant(code)
     .then(function(data) {
       console.log(data.body);
       console.log('The token expires in ' + data.body.expires_in);
       console.log('The access token is ' + data.body.access_token);
       console.log('The refresh token is ' + data.body.refresh_token);
 
-      /* Ok. We've got the access token!
-         Save the access token for this user somewhere so that you can use it again.
-         Cookie? Local storage?
-      */
       spotifyApi.setAccessToken(data.body.access_token);
 
-      /* Redirecting back to the main page! :-) */
       res.redirect('/discover');
 
     }, function(err) {
       res.status(err.code);
       res.send(err.message);
-    })
+    })*/
 })
 
 app.get('/searchInfo', function (req, res) {
