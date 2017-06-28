@@ -11,7 +11,7 @@ var connection  = mysql.createPool({
 });
 
 
-
+var youtubedl = require('youtube-dl');
 
 
 // mysql -u soundbit_admin -p soundbit
@@ -354,28 +354,39 @@ app.get('/validate', function (req, res) {
 })
 
 app.get('/downloadSong', function (req, res) {
-  var name = req.query.name;
-  var artist = req.query.artist;
-  console.log(name);
-  console.log(artist);
+  var filename = req.query.filename;
+  var videoId = req.query.videoId;
+  console.log(filename);
+  console.log(videoId);
 
-  var xmlhttp4 = new XMLHttpRequest();
+  var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
+    // Optional arguments passed to youtube-dl.
+    ['--format=18'],
+    // Additional options can be given for calling `child_process.execFile()`.
+    { cwd: __dirname });
 
-  xmlhttp4.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var resp2 = JSON.parse(this.responseText);
-      console.log(resp2.videoId);
-      var videoId = resp2.videoId;
-      var fullURL = "https://www.youtube.com/watch?v=" + videoId;
-      console.log(fullURL);
-      var titleString = artist + " - " + name + ".mp3";
-    }
-  }
+  // Will be called when the download starts.
+  video.on('info', function(info) {
+    console.log('Download started');
+    console.log('filename: ' + info.filename);
+    console.log('size: ' + info.size);
+  });
 
-  var reqString = "http://localhost:3000/getVideoId?name=" + name + "&artist=" + artist;
-  console.log(reqString);
-  xmlhttp4.open("GET",reqString);
-  xmlhttp4.send();
+  response.writeHead(200, {
+      'Content-Type': 'audio/m4a',
+      'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
+  });
+
+  /*var options = {
+    attachments: ["https://www.w3schools.com/w3images/fjords.jpg"],
+  };
+  ffmetadata.write(video, {}, options, function(err) {
+    if (err) console.error("Error writing cover art");
+    else console.log("Cover art added");
+  });*/
+  //parsedFiles.push(videoId);
+  video.pipe(res);
+  res.write('');
 })
 
 app.get('/chartContent', function (req, res) {

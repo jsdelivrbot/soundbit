@@ -671,7 +671,7 @@ function setVideoId(playerNum) {
       console.log(resp2.videoId);
 
       document.getElementById(idString).innerHTML = resp2.videoId;
-      document.getElementById(playerNum).href = "http://localhost:2000?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
+      document.getElementById(playerNum).href = "downloadSong?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
     }
   }
 
