@@ -1,8 +1,20 @@
 var mysql = require('mysql');
-var connection = mysql.createConnection('mysql://bede64c156d0bd:6df0e74b@us-cdbr-iron-east-03.cleardb.net/heroku_eecde5160d3eab4?reconnect=true');
-// mysql -u soundbit_admin -p soundbit
+//var connection = mysql.createConnection('mysql://bede64c156d0bd:6df0e74b@us-cdbr-iron-east-03.cleardb.net/heroku_eecde5160d3eab4?reconnect=true');
 
-connection.connect();
+//connection.connect();
+var connection  = mysql.createPool({
+  connectionLimit : 100,
+  host            : 'us-cdbr-iron-east-02.cleardb.net',
+  user            : 'b419fdf6d21e11',
+  password        : 'c78bdf37',
+  database        : 'heroku_f7469a0c6b39995'
+});
+
+
+
+
+
+// mysql -u soundbit_admin -p soundbit
 
 var passwordHash = require('password-hash');
 //var itunes = require('itunes-search');
@@ -1258,5 +1270,5 @@ app.get('/getVideoId', function (req, res) {
   xmlhttp3.send();
 })
 
-app.listen(port)
+app.listen(port);
 console.log("Running at Port " + port);
