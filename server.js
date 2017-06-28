@@ -374,7 +374,7 @@ app.get('/downloadSong', function (req, res) {
 
   res.writeHead(200, {
       'Content-Type': 'audio/m4a',
-      'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
+      'Content-Disposition': 'attachment; filename=' + filename + '.mp3'
   });
 
   /*var options = {
