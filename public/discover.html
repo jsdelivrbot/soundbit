@@ -75,31 +75,6 @@
                   <span class="nav-text">Charts</span>
                 </a>
               </li>
-
-
-              <li class="nav-header hidden-folded m-t">
-                <span class="text-xs text-muted">Your Music</span>
-              </li>
-              <li>
-                <a href="/online">
-                  <span class="nav-icon">
-                    <i class="material-icons">
-                      music_note
-                    </i>
-                  </span>
-                  <span class="nav-text">Online</span>
-                </a>
-              </li>
-              <li>
-                <a href="/downloaded">
-                  <span class="nav-icon">
-                    <i class="material-icons">
-                      library_music
-                    </i>
-                  </span>
-                  <span class="nav-text">Downloaded</span>
-                </a>
-              </li>
             </ul>
           </nav>
       </div>
@@ -1428,7 +1403,7 @@ getUsername();
         console.log(resp2.videoId);
 
         document.getElementById(idString).innerHTML = resp2.videoId;
-        document.getElementById(playerNum).href = "http://localhost:2000?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
+        document.getElementById(playerNum).href = "downloadSong?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
       }
     }
 
