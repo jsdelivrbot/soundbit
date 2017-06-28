@@ -361,15 +361,7 @@ app.get('/downloadSong', function (req, res) {
 
   var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
     // Optional arguments passed to youtube-dl.
-    ['writethumbnail': True,
-    'postprocessors': [
-        {
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-        },
-        {'key': 'EmbedThumbnail'},
-        {'key': 'FFmpegMetadata'},
-    ]],
+    ['--format=18', '--embed-thumbnail'],
     // Additional options can be given for calling `child_process.execFile()`.
     { cwd: __dirname });
 
