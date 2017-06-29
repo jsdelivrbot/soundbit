@@ -406,8 +406,8 @@ app.get('/discoverSongs', function (req, res) {
 })
 
 app.get('/online', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
+  //console.log(req.session.id);
+  //console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -417,8 +417,8 @@ app.get('/online', function (req, res) {
 })
 
 app.get('/downloaded', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
+  //console.log(req.session.id);
+  //console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -430,8 +430,8 @@ app.get('/downloaded', function (req, res) {
 app.get('/addToOnlineSongs', function (req, res) {
   var trackId = req.query.trackId;
   var userId = req.query.userId;
-  console.log(trackId);
-  console.log(userId);
+  //console.log(trackId);
+  //console.log(userId);
 
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE id=\'' + userId + '\'';
   connection.query(sqlString1, function (error, results, fields) {
@@ -442,7 +442,7 @@ app.get('/addToOnlineSongs', function (req, res) {
     var checkUndef = "" + results[0];
 
     if (checkUndef == "undefined") {
-      console.log("ERROR: User account not found");
+      //console.log("ERROR: User account not found");
       var obj = { body: 'ERROR: User account not found' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
@@ -457,7 +457,7 @@ app.get('/addToOnlineSongs', function (req, res) {
         newOnlineSongs = "" + trackId + ", ";
       }
 
-      console.log(newOnlineSongs);
+      //console.log(newOnlineSongs);
 
       var sqlString2 = 'UPDATE soundbit_users SET onlineSongs=\'' + newOnlineSongs + '\' WHERE id=' + userId;
       connection.query(sqlString2, function (error, results, fields) {
