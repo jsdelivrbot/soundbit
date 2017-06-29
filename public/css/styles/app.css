@@ -35,11 +35,9 @@
 .webdesigntuts-workshop form {
 	border: 0px solid #000;
 	border-radius: 0px;
-	box-shadow: inset 0 0 0 1px #272727;
 	display: inline-block;
 	font-size: 0px;
 	margin: 150px auto 0;
-	padding: 20px;
 	position: relative;
 	z-index: 1;
 }
