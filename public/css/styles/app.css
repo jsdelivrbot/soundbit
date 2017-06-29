@@ -96,11 +96,11 @@
 @keyframes glow {
     0% {
 		border-color: #aa033b;
-		box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
+		box-shadow: 0 0 5px rgba(239,25,96,.2), inset 0 0 5px rgba(239,25,96,.1), 0 2px 0 #000;
     }
     100% {
 		border-color: #ef1960;
-		box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
+		box-shadow: 0 0 20px rgba(239,25,96,.6), inset 0 0 10px rgba(239,25,96,.4), 0 2px 0 #000;
     }
 }
 
