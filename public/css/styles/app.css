@@ -77,20 +77,20 @@
 
 .webdesigntuts-workshop input:focus {
 	animation: glow 800ms ease-out infinite alternate;
-	background: #222922;
-	background: linear-gradient(#333933, #222922);
-	border-color: #393;
+	background: #6b0c2c;
+	background: linear-gradient(#8e0030, #6b0c2c);
+	border-color: #ef1960;
 	box-shadow: 0 0 5px rgba(0,255,0,.2), inset 0 0 5px rgba(0,255,0,.1), 0 2px 0 #000;
-	color: #efe;
+	color: #ffeff4;
 	outline: none;
 }
 
 .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
-	color: #efe;
+	color: #ffeff4;
 }
 
 .webdesigntuts-workshop input:focus:-moz-placeholder {
-	color: #efe;
+	color: #ffeff4;
 }
 
 .webdesigntuts-workshop button {
