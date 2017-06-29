@@ -25,12 +25,14 @@
 	background: #444;
 	background: linear-gradient(left, #151515, #444, #151515);
 	top: 192px;
+  display: none;
 }
 
 .webdesigntuts-workshop:after {
 	background: #000;
 	background: linear-gradient(left, #151515, #000, #151515);
 	top: 191px;
+  display: none;
 }
 
 .webdesigntuts-workshop form {
