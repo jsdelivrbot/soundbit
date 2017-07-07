@@ -1,7 +1,5 @@
 var mysql = require('mysql');
-//var connection = mysql.createConnection('mysql://bede64c156d0bd:6df0e74b@us-cdbr-iron-east-03.cleardb.net/heroku_eecde5160d3eab4?reconnect=true');
 
-//connection.connect();
 var connection  = mysql.createPool({
   connectionLimit : 100,
   host            : 'us-cdbr-iron-east-03.cleardb.net',
@@ -10,38 +8,15 @@ var connection  = mysql.createPool({
   database        : 'heroku_eecde5160d3eab4'
 });
 
-
 var youtubedl = require('youtube-dl');
 
-
-// mysql -u soundbit_admin -p soundbit
-
 var passwordHash = require('password-hash');
-//var itunes = require('itunes-search');
 var billboard = require("billboard-top-100").getChart;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = require('request');
 var bodyParser = require('body-parser')
-//var http = require('http')
 
 var port = process.env.PORT || 3000;
-
-
-/*var SpotifyWebApi = require('spotify-web-api-node');
-
-// credentials are optional
-var spotifyApi = new SpotifyWebApi({
-  clientId : '62de9dc50722467795cfd0d4056e42aa',
-  clientSecret : '98cffbddc276433da40f3c577290436e',
-  redirectUri : 'http://localhost:3000/callback'
-});*/
-
-//var spawn = require("child_process").spawn;
-//const fs = require('fs');
-//const ytdl = require('ytdl-core');
-//var youtubedl = require('youtube-dl');
-//var YTDL = require('node-youtube-dl');
-
 
 var cors = require('cors')
 var express = require('express')
@@ -68,7 +43,6 @@ app.use(bodyParser.json());
 
 app.use(cors())
 
-//var session = require('express-session')
 var sessions = require("client-sessions");
 app.use(sessions({
   cookieName: 'session', // cookie name dictates the key name added to the request object
@@ -76,30 +50,6 @@ app.use(sessions({
   duration: 24 * 60 * 60 * 1000, // how long the session will stay valid in ms
   activeDuration: 1000 * 60 * 5 // if expiresIn < activeDuration, the session will be extended by activeDuration milliseconds
 }));
-
-/*app.use(session({
-  genid: function(req) {
-    return uuidV4(); // use UUIDs for session IDs
-  },
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}))*/
-
-// Generate a v4 UUID (random)
-//const uuidV4 = require('uuid/v4'); //uuidV4() -> '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
-
-
-
-
-
-
-
-
-
-
-
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/public/home.html'));
@@ -125,7 +75,6 @@ app.get('/albums', function (req, res) {
   xmlhttp9.open("GET",reqString);
   xmlhttp9.send();
 })
-
 
 app.get('/unauthorized', function (req, res) {
   res.sendFile(path.join(__dirname+'/public/unauthorized.html'));
