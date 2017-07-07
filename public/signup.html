@@ -130,9 +130,7 @@
         xmlReq.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var resp = JSON.parse(this.responseText);
-            console.log(JSON.parse(this.responseText));
             if (resp.body == "ERROR: Email already in use") {
-              console.log("Email address already in use");
               document.getElementById("signupfail1").hidden = false;
               document.getElementById("signupfail2").hidden = true;
             }

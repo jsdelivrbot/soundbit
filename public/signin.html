@@ -125,22 +125,17 @@
         xmlReq.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             var resp = JSON.parse(this.responseText);
-            console.log(JSON.parse(this.responseText));
             if (resp.body == "ERROR: Email address not in use") {
-              console.log("Email address not in use");
               document.getElementById("signinfail1").hidden = true;
               document.getElementById("signinfail2").hidden = true;
               document.getElementById("signinfail3").hidden = false;
             }
             else if (resp.body == "ERROR: Email/password combination invalid") {
-              console.log("Email/password combination invalid");
               document.getElementById("signinfail1").hidden = false;
               document.getElementById("signinfail2").hidden = true;
               document.getElementById("signinfail3").hidden = true;
             }
             else {
-              // Authenticate Spotify API credentials
-              // window.location.assign("https://accounts.spotify.com/authorize?client_id=62de9dc50722467795cfd0d4056e42aa&response_type=code&redirect_uri=http://localhost:3000/callback")
               window.location.href = "/discover";
             }
           }

@@ -951,7 +951,6 @@ function addToDownloadedSongs(num) {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp = JSON.parse(this.responseText);
-      console.log(JSON.parse(this.responseText));
     }
   };
 
@@ -966,7 +965,6 @@ function addToOnlineSongs(num) {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp = JSON.parse(this.responseText);
-      console.log(JSON.parse(this.responseText));
     }
   };
 
@@ -981,7 +979,6 @@ function getUsername() {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp = JSON.parse(this.responseText);
-      console.log(JSON.parse(this.responseText));
 
       document.getElementById("username").innerHTML = resp.username;
       userId = resp.userId;
@@ -996,8 +993,6 @@ getUsername();
 function switchCurrentSongImage(temp) {
   var sty = "" + (document.getElementById("song" + (temp + 1) + "-image").style).cssText;
   document.getElementById("currentSongImage").src = sty.substring(23, sty.length - 3);
-  console.log(sty);
-  console.log(sty.substring(23, sty.length - 3));
 }
 
 function setVideoId(playerNum) {
@@ -1009,21 +1004,15 @@ function setVideoId(playerNum) {
 
   tempTitleString = tempTitleString.replace(/&amp;/g, " ");
   tempTitleString = tempTitleString.replace(/-/g, " ");
-  //tempTitleString = titleString.replace(/\&/, " ");
   tempArtistString = tempArtistString.replace(/&amp;/g, " ");
   tempArtistString = tempArtistString.replace(/-/g, " ");
-  console.log("Title: " + tempTitleString);
-  console.log("Artist: " + tempArtistString);
 
   var xmlhttp2 = new XMLHttpRequest();
   xmlhttp2.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp2 = JSON.parse(this.responseText);
-      //console.log("YouTube API Response: ");
-      console.log(JSON.parse(this.responseText));
+
       var idString = "song" + playerNum + "-videoId";
-      console.log(idString);
-      console.log(resp2.videoId);
 
       document.getElementById(idString).innerHTML = resp2.videoId;
       document.getElementById(playerNum).href = "downloadSong?videoId=" + resp2.videoId + "&filename=" + tempArtistString + " - " + tempTitleString;
@@ -1377,21 +1366,16 @@ function fillChartContent(numElements) {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp = JSON.parse(this.responseText);
-      console.log(JSON.parse(this.responseText));
 
       for (var i = 0; i < numElements; i++) {
-        //console.log((resp[i]).cover);
         document.getElementById("song" + (i+1) + "-title").innerHTML = (resp[i]).title;
         document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp[i]).artist;
         setVideoId(i + 1);
 
         var coverString = "" + (resp[i]).cover;
-        //console.log(coverString + ", Length=" + coverString.length)
         if (coverString != "undefined") {
           document.getElementById("song" + (i+1) + "-image").style = "background-image: url('http://" + (resp[i]).cover + "');";
         }
-        //document.getElementById("song" + (i+1) + "-playcount").innerHTML = " " + (resp.tracks.track[i]).playcount;
-        //document.getElementById("song" + (i+1) + "-likes").innerHTML = " " + (resp.tracks.track[i]).listeners;
       }
     }
   };
@@ -1414,10 +1398,8 @@ fillChartContent(totalSongs);
   //    after the API code downloads.
 
   function modProgBar(myPlayer) {
-    console.log("Here");
     var cur = myPlayer.getCurrentTime();
     var dur = myPlayer.getDuration();
-    console.log(cur/dur);
     var styleCurrentProgress = 'width: ' + (1385*(cur/dur)) + 'px;';
 
     document.getElementById("currentProgress").style = styleCurrentProgress;
@@ -1427,7 +1409,6 @@ fillChartContent(totalSongs);
   function startCounter(currentPlayer) {
     var tempMins = 0;
     var number = currentPlayer.getCurrentTime(); // Get the number from paragraph
-
 
     // Called the function in each second
     var interval = setInterval(function () {
@@ -1450,9 +1431,7 @@ fillChartContent(totalSongs);
             modProgBar(currentPlayer);
         }
 
-        console.log("dif:" + (currentPlayer.getDuration() - currentPlayer.getCurrentTime()))
         if ((currentPlayer.getDuration() - currentPlayer.getCurrentTime()) < 2) {
-          console.log("Next");
           document.getElementById("nextButton").click();
         }
     }, 1000); // Run for each second
@@ -1466,16 +1445,12 @@ fillChartContent(totalSongs);
   //    The function indicates that when playing a video (state=1),
   //    the player should play for six seconds and then stop.
   function onPlayerStateChange(event) {
-    console.log("this:" + this);
-    console.log(event.data);
     if (event.data == 1 && durationHasBeenLoaded == 0) {
         durationHasBeenLoaded = 1;
 
         var playerImageStringId = "song" + (this) + "-image";
-        console.log(playerImageStringId);
         var playerImageString = document.getElementById(playerImageStringId).style.cssText;
         playerImageString = playerImageString.substring(23, playerImageString.length - 3);
-        console.log(playerImageString);
 
         var titleString = "song" + (this) + "-title";
         var artistString = "song" + (this) + "-artist";
@@ -1483,18 +1458,9 @@ fillChartContent(totalSongs);
         var tempTitleString = document.getElementById(titleString).innerHTML;
         var tempArtistString = document.getElementById(artistString).innerHTML;
 
-        console.log(tempTitleString);
-        console.log(tempArtistString);
-
         tempTitleString = tempTitleString.replace(/&amp;/g, " ");
-        //tempTitleString = titleString.replace(/\&/, " ");
         tempArtistString = tempArtistString.replace(/&amp;/g, " ");
-        //tempArtistString = artistString.replace(/\&/, " ");
 
-        console.log("Output: " + tempTitleString);
-        console.log("Output: " + tempArtistString);
-
-        //var cur = (playerArr[this - 1]).getDuration();
         var dur = (playerArr[this - 1]).getDuration();
         var mins = Math.floor(dur / 60);
         var secs = Math.round(dur % 60);
@@ -1503,11 +1469,7 @@ fillChartContent(totalSongs);
         }
 
         var hrefId = "song" + (this) + "-videoId";
-        console.log("Initial Id:" + hrefId);
         var hrefIdString = document.getElementById(hrefId).innerHTML;
-        console.log("Final Id:" + hrefIdString)
-
-        //var styleCurrentProgress = 'style="width: ' + 1385*(cur/dur) + 'px;"';
 
         document.getElementById("temp1").hidden = false;
 
@@ -1530,17 +1492,14 @@ fillChartContent(totalSongs);
   }
 
   function proxyDownload(num) {
-    console.log(num);
     document.getElementById(num).click();
   }
 
   function adjustCurrentTime(num) {
     var x = event.clientX - 56;
-    console.log(x);
     var dur = playerArr[num].getDuration();
     dur = Math.round(dur);
     var newPercentage = x*1.0 / 1385*1.0;
-    console.log(newPercentage);
 
     playerArr[num].seekTo(dur*newPercentage, true);
   }
@@ -1548,9 +1507,7 @@ fillChartContent(totalSongs);
 
   function checkPlayerStates(playerNum) {
     for (var i = 0; i < totalSongs; i++) {
-      console.log(i);
       if ((playerArr[i] != 0) && ((i+1) != playerNum)) {
-        console.log("Entered if statement");
         (playerArr[i]).seekTo(0, true);
         (playerArr[i]).pauseVideo();
         playerVars[i] = 4;
@@ -1568,25 +1525,14 @@ fillChartContent(totalSongs);
     var tempTitleString = document.getElementById(titleString).innerHTML;
     var tempArtistString = document.getElementById(artistString).innerHTML;
 
-    console.log(tempTitleString);
-    console.log(tempArtistString);
-
     tempTitleString = tempTitleString.replace(/&amp;/g, " ");
-    //tempTitleString = titleString.replace(/\&/, " ");
     tempArtistString = tempArtistString.replace(/&amp;/g, " ");
-    //tempArtistString = artistString.replace(/\&/, " ");
-
-    console.log("Output: " + tempTitleString);
-    console.log("Output: " + tempArtistString);
 
     xmlhttp2.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var resp2 = JSON.parse(this.responseText);
-        //console.log("YouTube API Response: ");
-        console.log(JSON.parse(this.responseText));
+
         var idString = "song" + playerNum + "-videoId";
-        console.log(idString);
-        console.log(resp2.videoId);
 
         document.getElementById(idString).innerHTML = resp2.videoId;
 
@@ -1595,8 +1541,6 @@ fillChartContent(totalSongs);
         var tempVideoId = document.getElementById(idString).innerHTML;
 
         var playerString = 'player' + playerNum;
-        console.log(playerString);
-        console.log("variable: " + window[playerString]);
 
         var onPlayerEnd = onPlayerStateChange.bind(playerNum);
 
@@ -1613,20 +1557,9 @@ fillChartContent(totalSongs);
           }
         });
 
-
-
-        console.log("variable: " + window[playerString]);
         playerArr[(playerNum - 1)] = window[playerString];
-
-
-
-
       }
     }
-
-    /*var query = window.location.search.substr(9);
-    console.log(query);
-    query = query.replace(/\+/g, " ")*/
 
     xmlhttp2.open("GET", "getVideoId?name=" + tempTitleString + "&artist=" + tempArtistString);
     xmlhttp2.send();
@@ -1684,19 +1617,12 @@ fillChartContent(totalSongs);
 
   //// New Tab Transitions ////
 
-  //var totalArtists = 14;
-  //var totalSongs = 15;
-  /*for(var i=0; i < carouselArtists; i++){
-    document.getElementById('carousel').innerHTML = document.getElementById('carousel').innerHTML + '<div id="artist' + (i + 1) + '" class="item r" data-id="item-' + (i + 115) + '" data-src=""><div class="item-media primary"><a id="artist' + (i + 1) + '-image" href="track.detail.html" class="item-media-content" style=""></a><div class="item-overlay center"><button class="btn-playpause">Play</button></div></div><div class="item-info">' +
-    '<div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-star-o"></i></a><a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a><div class="dropdown-menu pull-right black lt"></div></div><div class="item-title text-ellipsis"><a id="artist' + (i + 1) + '-name" href="track.detail.html"></a></div></div></div>';
-  }*/
 
   function fillDiscoverArtistsContent(numElements) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var resp = JSON.parse(this.responseText);
-        console.log(JSON.parse(this.responseText));
 
         for (var i = 0; i < numElements; i++) {
           document.getElementById("artist" + (i+1) + "-name").innerHTML = (resp.artists.artist[i]).name;
@@ -1714,14 +1640,11 @@ fillChartContent(totalSongs);
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var resp = JSON.parse(this.responseText);
-        console.log(JSON.parse(this.responseText));
 
         for (var i = 0; i < numElements; i++) {
           document.getElementById("song" + (i+1) + "-title").innerHTML = (resp.tracks.track[i]).name;
           document.getElementById("song" + (i+1) + "-artist").innerHTML = (resp.tracks.track[i]).artist.name;
           document.getElementById("song" + (i+1) + "-image").style = "background-image: url('" + (resp.tracks.track[i]).image[3]["#text"] + "');";
-          //document.getElementById("song" + (i+1) + "-playcount").innerHTML = " " + (resp.tracks.track[i]).playcount;
-          //document.getElementById("song" + (i+1) + "-likes").innerHTML = " " + (resp.tracks.track[i]).listeners;
         }
       }
     };

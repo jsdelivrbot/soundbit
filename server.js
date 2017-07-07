@@ -108,7 +108,6 @@ app.get('/', function (req, res) {
 app.get('/albums', function (req, res) {
   billboard('billboard-200', function(songs, err){
       if (err) console.log(err);
-      console.log(songs)
   });
 
   var xmlhttp9 = new XMLHttpRequest();
@@ -116,7 +115,6 @@ app.get('/albums', function (req, res) {
   xmlhttp9.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp2 = JSON.parse(this.responseText);
-      console.log(resp2);
       var obj = { body: resp2 };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
@@ -124,7 +122,6 @@ app.get('/albums', function (req, res) {
   }
 
   var reqString = "https://itunes.apple.com/search?term=gorillaz&limit=50&entity=song";
-  console.log(reqString);
   xmlhttp9.open("GET",reqString);
   xmlhttp9.send();
 })
@@ -135,7 +132,6 @@ app.get('/unauthorized', function (req, res) {
 })
 
 app.get('/signin', function (req, res) {
-  console.log(req.session.id);
   res.sendFile(path.join(__dirname+'/public/signin.html'));
 })
 
@@ -144,8 +140,6 @@ app.get('/signup', function (req, res) {
 })
 
 app.get('/search', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -156,8 +150,6 @@ app.get('/search', function (req, res) {
 })
 
 app.get('/charts', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -168,34 +160,16 @@ app.get('/charts', function (req, res) {
 })
 
 app.get('/discover', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
   else {
-    /*
-    spotifyApi.getMe()
-      .then(function(data) {
-        console.log('Some information about the authenticated user', data.body.id);
-        spotifyApi.getUserPlaylists(data.body.id)
-        .then(function(data) {
-          console.log('Retrieved playlists', data.body);
-        },function(err) {
-          console.log('Something went wrong!', err);
-        });
-      }, function(err) {
-        console.log('Something went wrong!', err);
-      });
-    */
     var finalReqString = '/public/discover.html';
     res.sendFile(path.join(__dirname+finalReqString));
   }
 })
 
 app.get('/getUsername', function (req, res) {
-  console.log(req.session.id);
-  console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -219,14 +193,12 @@ app.get('/authenticateCredentials', function (req, res) {
     var checkUndef = "" + results[0];
 
     if (checkUndef == "undefined") {
-      console.log("ERROR: Email address not in use");
       var obj = { body: 'ERROR: Email address not in use' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
     }
     else {
       if (passwordHash.verify(password, results[0].password)) {
-        console.log("OK");
         req.session.email = email;
         req.session.username = results[0].firstName + " " + results[0].lastName;
         req.session.userId = results[0].id;
@@ -235,7 +207,6 @@ app.get('/authenticateCredentials', function (req, res) {
         res.send(myJSON);
       }
       else {
-        console.log("ERROR: Email/password combination invalid");
         var obj = { body: 'ERROR: Email/password combination invalid' };
         var myJSON = JSON.stringify(obj);
         res.send(myJSON);
@@ -252,7 +223,6 @@ app.get('/addUser', function (req, res) {
   var password = req.query.password;
 
   var hashedPassword = passwordHash.generate(password);
-  console.log(hashedPassword);
 
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE email=\'' + email + '\'';
   connection.query(sqlString1, function (error, results, fields) {
@@ -280,14 +250,12 @@ app.get('/addUser', function (req, res) {
 
         req.session.userId = results[0].id;
 
-        console.log("OK");
         var obj = { body: 'OK' };
         var myJSON = JSON.stringify(obj);
         res.send(myJSON);
       })
     }
     else {
-      console.log("ERROR: Email already in use");
       var obj = { body: 'ERROR: Email already in use' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
@@ -305,59 +273,17 @@ app.get('/presearch', function (req, res) {
   /* Read query parameters */
   var code  = req.query.code; // Read the authorization code from the query parameters
   var keyword  = req.query.keyword;
-  console.log(keyword);
-  console.log(code);
-
-  /* Get the access token! */
-  /*spotifyApi.authorizationCodeGrant(code)
-    .then(function(data) {
-      //console.log(data);
-      console.log('The token expires in ' + data.body.expires_in);
-      console.log('The access token is ' + data.body.access_token);
-      console.log('The refresh token is ' + data.body.refresh_token);
-
-      spotifyApi.setAccessToken(data.body.access_token);
-
-      res.redirect('/search?keyword=' + keyword);
-
-    }, function(err) {
-      res.status(err.code);
-      res.send(err.message);
-    })*/
 })
 
 app.get('/validate', function (req, res) {
   /* Read query parameters */
   var code  = req.query.code; // Read the authorization code from the query parameters
   var state = req.query.state; // (Optional) Read the state from the query parameter
-  //console.log(code);
-
-  /* Get the access token! */
-  /*spotifyApi.authorizationCodeGrant(code)
-    .then(function(data) {
-      console.log(data.body);
-      console.log('The token expires in ' + data.body.expires_in);
-      console.log('The access token is ' + data.body.access_token);
-      console.log('The refresh token is ' + data.body.refresh_token);
-
-      spotifyApi.setAccessToken(data.body.access_token);
-
-      var obj = { body: "OK" };
-      var myJSON = JSON.stringify(obj);
-      console.log(myJSON);
-      res.send(myJSON);
-
-    }, function(err) {
-      res.status(err.code);
-      res.send(err.message);
-    })*/
 })
 
 app.get('/downloadSong', function (req, res) {
   var filename = req.query.filename;
   var videoId = req.query.videoId;
-  console.log(filename);
-  console.log(videoId);
 
   var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
     // Optional arguments passed to youtube-dl.
@@ -367,9 +293,6 @@ app.get('/downloadSong', function (req, res) {
 
   // Will be called when the download starts.
   video.on('info', function(info) {
-    console.log('Download started');
-    console.log('filename: ' + info.filename);
-    console.log('size: ' + info.size);
   });
 
   res.writeHead(200, {
@@ -377,14 +300,6 @@ app.get('/downloadSong', function (req, res) {
       'Content-Disposition': 'attachment; filename=' + filename + '.m4a'
   });
 
-  /*var options = {
-    attachments: ["https://www.w3schools.com/w3images/fjords.jpg"],
-  };
-  ffmetadata.write(video, {}, options, function(err) {
-    if (err) console.error("Error writing cover art");
-    else console.log("Cover art added");
-  });*/
-  //parsedFiles.push(videoId);
   video.pipe(res);
   res.write('');
 })
@@ -406,8 +321,6 @@ app.get('/discoverSongs', function (req, res) {
 })
 
 app.get('/online', function (req, res) {
-  //console.log(req.session.id);
-  //console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -417,8 +330,6 @@ app.get('/online', function (req, res) {
 })
 
 app.get('/downloaded', function (req, res) {
-  //console.log(req.session.id);
-  //console.log(req.session.email);
   if (!req.session.email) {
     res.redirect('/signin');
   }
@@ -430,8 +341,6 @@ app.get('/downloaded', function (req, res) {
 app.get('/addToOnlineSongs', function (req, res) {
   var trackId = req.query.trackId;
   var userId = req.query.userId;
-  //console.log(trackId);
-  //console.log(userId);
 
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE id=\'' + userId + '\'';
   connection.query(sqlString1, function (error, results, fields) {
@@ -442,7 +351,6 @@ app.get('/addToOnlineSongs', function (req, res) {
     var checkUndef = "" + results[0];
 
     if (checkUndef == "undefined") {
-      //console.log("ERROR: User account not found");
       var obj = { body: 'ERROR: User account not found' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
@@ -457,15 +365,12 @@ app.get('/addToOnlineSongs', function (req, res) {
         newOnlineSongs = "" + trackId + ", ";
       }
 
-      //console.log(newOnlineSongs);
-
       var sqlString2 = 'UPDATE soundbit_users SET onlineSongs=\'' + newOnlineSongs + '\' WHERE id=' + userId;
       connection.query(sqlString2, function (error, results, fields) {
         if (error) {
           throw error;
         }
         else {
-          console.log("OK");
           var obj = { body: 'OK' };
           var myJSON = JSON.stringify(obj);
           res.send(myJSON);
@@ -478,8 +383,6 @@ app.get('/addToOnlineSongs', function (req, res) {
 app.get('/addToDownloadedSongs', function (req, res) {
   var trackId = req.query.trackId;
   var userId = req.query.userId;
-  console.log(trackId);
-  console.log(userId);
 
   var sqlString1 = 'SELECT * FROM soundbit_users WHERE id=\'' + userId + '\'';
   connection.query(sqlString1, function (error, results, fields) {
@@ -490,7 +393,6 @@ app.get('/addToDownloadedSongs', function (req, res) {
     var checkUndef = "" + results[0];
 
     if (checkUndef == "undefined") {
-      console.log("ERROR: User account not found");
       var obj = { body: 'ERROR: User account not found' };
       var myJSON = JSON.stringify(obj);
       res.send(myJSON);
@@ -505,15 +407,12 @@ app.get('/addToDownloadedSongs', function (req, res) {
         newDownloadedSongs = "" + trackId + ", ";
       }
 
-      console.log(newDownloadedSongs);
-
       var sqlString2 = 'UPDATE soundbit_users SET downloadedSongs=\'' + newDownloadedSongs + '\' WHERE id=' + userId;
       connection.query(sqlString2, function (error, results, fields) {
         if (error) {
           throw error;
         }
         else {
-          console.log("OK");
           var obj = { body: 'OK' };
           var myJSON = JSON.stringify(obj);
           res.send(myJSON);
@@ -524,32 +423,13 @@ app.get('/addToDownloadedSongs', function (req, res) {
 })
 
 app.get('/callback', function(req, res) {
-
   /* Read query parameters */
   var code  = req.query.code; // Read the authorization code from the query parameters
   var state = req.query.state; // (Optional) Read the state from the query parameter
-
-  /* Get the access token! */
-  /*spotifyApi.authorizationCodeGrant(code)
-    .then(function(data) {
-      console.log(data.body);
-      console.log('The token expires in ' + data.body.expires_in);
-      console.log('The access token is ' + data.body.access_token);
-      console.log('The refresh token is ' + data.body.refresh_token);
-
-      spotifyApi.setAccessToken(data.body.access_token);
-
-      res.redirect('/discover');
-
-    }, function(err) {
-      res.status(err.code);
-      res.send(err.message);
-    })*/
 })
 
 app.get('/searchInfo', function (req, res) {
   var keyword = req.query.keyword;
-  console.log(keyword);
 
   // get top 50 songs related to keyword
 
@@ -810,8 +690,6 @@ app.get('/searchInfo', function (req, res) {
   xmlhttp9.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp2 = JSON.parse(this.responseText);
-      console.log(resp2.results[0]);
-
 
       if (resp2.results[0]) {
         song1_name = (resp2.results[0]).trackName;
@@ -1222,17 +1100,12 @@ app.get('/searchInfo', function (req, res) {
 
   };
 
-
       var myJSON = JSON.stringify(obj);
-      console.log(myJSON);
       res.send(myJSON);
-
-
     }
   }
 
   var reqString = "https://itunes.apple.com/search?term=" + keyword + "&limit=50&entity=song";
-  console.log(reqString);
   xmlhttp9.open("GET",reqString);
   xmlhttp9.send();
 })
@@ -1240,43 +1113,27 @@ app.get('/searchInfo', function (req, res) {
 app.get('/getVideoId', function (req, res) {
   var name = req.query.name;
   var artist = req.query.artist;
-  console.log(name + " " + artist);
 
   var xmlhttp3 = new XMLHttpRequest();
 
   xmlhttp3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var resp2 = JSON.parse(this.responseText);
-      console.log("YouTube API Response: ");
-      console.log(resp2.items[0]);
-      //var idString = "song" + playerNum + "-videoId";
-      //console.log(idString);
 
       if ((resp2.items[0])) {
-        console.log((resp2.items[0]).id.videoId);
-
         var obj = { videoId: (resp2.items[0]).id.videoId };
         var myJSON = JSON.stringify(obj);
-        console.log(myJSON);
         res.send(myJSON);
       }
       else {
-        console.log("Failed to retrieve videoId");
-
         var obj = { videoId: "ERR" };
         var myJSON = JSON.stringify(obj);
-        console.log(myJSON);
         res.send(myJSON);
       }
-
     }
   }
 
-
-
-
   var reqString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + name + " " + artist +  " audio&type=video&key=AIzaSyA7IBm38aqE2pQTc83GpoCiM2oARcJsYBo";
-  console.log(reqString);
   xmlhttp3.open("GET",reqString);
   xmlhttp3.send();
 })
