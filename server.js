@@ -53,7 +53,7 @@ app.use(sessions({
 
 app.get('/', function (req, res) {
   if (!req.session.email) {
-    res.sendFile(path.join(__dirname+'/public/home.html'));
+    res.sendFile(path.join(__dirname+'/public/index.html'));
   }
   else {
     res.redirect('/discover');
