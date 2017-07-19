@@ -52,7 +52,12 @@ app.use(sessions({
 }));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/public/home.html'));
+  if (!req.session.email) {
+    res.sendFile(path.join(__dirname+'/public/home.html'));
+  }
+  else {
+    res.redirect('/discover');
+  }
 })
 
 app.get('/albums', function (req, res) {
