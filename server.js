@@ -241,7 +241,7 @@ app.get('/downloadSong', function (req, res) {
 
   var video = youtubedl('http://www.youtube.com/watch?v=' + videoId,
     // Optional arguments passed to youtube-dl.
-    ['--format=best'],
+    ['--format=18'],
     // Additional options can be given for calling `child_process.execFile()`.
     { cwd: __dirname });
 
